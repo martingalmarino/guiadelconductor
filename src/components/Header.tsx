@@ -35,36 +35,55 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3 sm:space-x-4 flex-shrink-0">
             <div className="relative bg-gradient-to-br from-primary-600 to-primary-700 p-3 sm:p-4 rounded-3xl shadow-lg">
-              {/* Car with curved line */}
+              {/* Car with oval path and arrow */}
               <svg 
-                width="28" 
-                height="28" 
-                viewBox="0 0 28 28" 
-                className="w-7 h-7 sm:w-8 sm:h-8"
+                width="32" 
+                height="32" 
+                viewBox="0 0 32 32" 
+                className="w-8 h-8 sm:w-9 sm:h-9"
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Curved path around car */}
-                <path 
-                  d="M4 14 Q14 4 24 14 Q14 24 4 14" 
+                {/* Oval path around car */}
+                <ellipse 
+                  cx="16" 
+                  cy="16" 
+                  rx="13" 
+                  ry="8" 
                   stroke="white" 
                   strokeWidth="1.5" 
                   fill="none"
-                  opacity="0.6"
+                  opacity="0.7"
                 />
                 
-                {/* Car icon */}
-                <g transform="translate(9, 10)">
-                  {/* Car body */}
-                  <rect x="1" y="2" width="8" height="4" rx="1" fill="white"/>
-                  {/* Car roof */}
-                  <path d="M2 2 L3.5 0 L6.5 0 L8 2" fill="white"/>
+                {/* Arrow on the path */}
+                <g transform="translate(28, 16)">
+                  <path d="M-2 -2 L2 0 L-2 2" stroke="white" strokeWidth="1.5" fill="white" opacity="0.8"/>
+                </g>
+                
+                {/* Detailed car */}
+                <g transform="translate(16, 16)">
+                  {/* Main car body */}
+                  <rect x="-6" y="-2" width="12" height="4" rx="1.5" fill="white"/>
+                  
+                  {/* Car roof/cabin */}
+                  <path d="M-4 -2 L-2 -4 L2 -4 L4 -2" fill="white"/>
+                  
+                  {/* Front and rear details */}
+                  <rect x="5" y="-1" width="1" height="2" rx="0.5" fill="white"/>
+                  <rect x="-6" y="-1" width="1" height="2" rx="0.5" fill="white"/>
+                  
                   {/* Wheels */}
-                  <circle cx="2.5" cy="7" r="1" fill="white"/>
-                  <circle cx="7.5" cy="7" r="1" fill="white"/>
+                  <circle cx="-3.5" cy="3" r="1.5" fill="white"/>
+                  <circle cx="3.5" cy="3" r="1.5" fill="white"/>
+                  
                   {/* Wheel centers */}
-                  <circle cx="2.5" cy="7" r="0.3" fill="#ff8811"/>
-                  <circle cx="7.5" cy="7" r="0.3" fill="#ff8811"/>
+                  <circle cx="-3.5" cy="3" r="0.6" fill="#ff8811"/>
+                  <circle cx="3.5" cy="3" r="0.6" fill="#ff8811"/>
+                  
+                  {/* Windows */}
+                  <rect x="-1.5" y="-3.5" width="1.2" height="1.5" rx="0.2" fill="#ff8811" opacity="0.3"/>
+                  <rect x="0.3" y="-3.5" width="1.2" height="1.5" rx="0.2" fill="#ff8811" opacity="0.3"/>
                 </g>
               </svg>
             </div>
