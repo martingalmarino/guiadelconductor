@@ -10,6 +10,7 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Quiz from './components/Quiz/Quiz';
 import GuiaBuenConductor from './components/GuiaBuenConductor';
+import ScrollToTop from './components/ScrollToTop';
 
 // Home Page Component
 const HomePage: React.FC = () => (
@@ -57,6 +58,7 @@ const HomePage: React.FC = () => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Routes>
           <Route path="/" element={<HomePage />} />
