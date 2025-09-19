@@ -10,7 +10,7 @@ interface QuizStartProps {
 
 const QuizStart: React.FC<QuizStartProps> = ({ totalQuestions, onStart }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-24 pb-12 px-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
