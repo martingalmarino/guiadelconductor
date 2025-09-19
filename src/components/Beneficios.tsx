@@ -1,6 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { BookOpen, Zap, Shield } from 'lucide-react';
 
 const Beneficios: React.FC = () => {
@@ -71,37 +69,6 @@ const Beneficios: React.FC = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-12 sm:mt-16">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg border border-gray-200 max-w-2xl mx-auto">
-            <h3 className="heading-md text-gray-900 mb-3 sm:mb-4">
-              ¿Listo para empezar?
-            </h3>
-            <p className="text-small text-gray-600 mb-6">
-              Unite a los miles de cordobeses que ya aprobaron su examen con nosotros.
-            </p>
-            <div className="flex justify-center">
-              <Link to="/test">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-bold
-                             px-8 py-5 sm:px-10 sm:py-6 lg:px-12 lg:py-7
-                             text-lg sm:text-xl lg:text-2xl
-                             rounded-3xl transition-all duration-300
-                             hover:shadow-lg hover:shadow-primary-600/25
-                             active:scale-[0.98] transform hover:-translate-y-1
-                             focus:outline-none focus:ring-4 focus:ring-primary-600/30
-                             min-h-[60px] sm:min-h-[68px] lg:min-h-[76px]
-                             w-full sm:w-auto max-w-xs sm:max-w-none
-                             flex items-center justify-center gap-3"
-                >
-                  <span className="font-extrabold">Comenzar Test Gratuito</span>
-                </motion.button>
-              </Link>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
