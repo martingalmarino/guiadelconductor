@@ -33,67 +33,14 @@ const Header: React.FC = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-22">
           {/* Logo */}
-          <div className="flex items-center space-x-3 sm:space-x-4 flex-shrink-0">
-            <div className="relative bg-gradient-to-br from-primary-600 to-primary-700 p-3 sm:p-4 rounded-3xl shadow-lg">
-              {/* Car with oval path and arrow */}
-              <svg 
-                width="32" 
-                height="32" 
-                viewBox="0 0 32 32" 
-                className="w-8 h-8 sm:w-9 sm:h-9"
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Oval path around car */}
-                <ellipse 
-                  cx="16" 
-                  cy="16" 
-                  rx="13" 
-                  ry="8" 
-                  stroke="white" 
-                  strokeWidth="1.5" 
-                  fill="none"
-                  opacity="0.7"
-                />
-                
-                {/* Arrow on the path */}
-                <g transform="translate(28, 16)">
-                  <path d="M-2 -2 L2 0 L-2 2" stroke="white" strokeWidth="1.5" fill="white" opacity="0.8"/>
-                </g>
-                
-                {/* Detailed car */}
-                <g transform="translate(16, 16)">
-                  {/* Main car body */}
-                  <rect x="-6" y="-2" width="12" height="4" rx="1.5" fill="white"/>
-                  
-                  {/* Car roof/cabin */}
-                  <path d="M-4 -2 L-2 -4 L2 -4 L4 -2" fill="white"/>
-                  
-                  {/* Front and rear details */}
-                  <rect x="5" y="-1" width="1" height="2" rx="0.5" fill="white"/>
-                  <rect x="-6" y="-1" width="1" height="2" rx="0.5" fill="white"/>
-                  
-                  {/* Wheels */}
-                  <circle cx="-3.5" cy="3" r="1.5" fill="white"/>
-                  <circle cx="3.5" cy="3" r="1.5" fill="white"/>
-                  
-                  {/* Wheel centers */}
-                  <circle cx="-3.5" cy="3" r="0.6" fill="#ff8811"/>
-                  <circle cx="3.5" cy="3" r="0.6" fill="#ff8811"/>
-                  
-                  {/* Windows */}
-                  <rect x="-1.5" y="-3.5" width="1.2" height="1.5" rx="0.2" fill="#ff8811" opacity="0.3"/>
-                  <rect x="0.3" y="-3.5" width="1.2" height="1.5" rx="0.2" fill="#ff8811" opacity="0.3"/>
-                </g>
-              </svg>
-            </div>
-            <div className="min-w-0 flex-1">
+          <div className="flex items-center flex-shrink-0">
+            <div className="min-w-0">
               <h1 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-gray-900 font-heading">
                 <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                   Guía del Conductor
                 </span>
               </h1>
-              <p className="text-xs sm:text-sm text-primary-600 font-medium hidden sm:block">
+              <p className="text-xs sm:text-sm text-primary-600 font-medium">
                 Córdoba, Argentina
               </p>
             </div>
