@@ -292,5 +292,84 @@
     "opciones": ["Por cruzar un semáforo en rojo.", "Por conducir alcoholizado.", "Por no tener chapas patentes."],
     "respuestaCorrecta": 1,
     "comentario": "Correcto: la conducción bajo efectos del alcohol habilita a retener la licencia."
+  },
+  {
+    "id": 43,
+    "pregunta": "¿Está permitido que estacione mi vehículo en la entrada de mi garaje particular?",
+    "opciones": [
+      "No, ya que está prohibido el estacionamiento frente a entradas de garajes.",
+      "No, ya que mi garaje está sobre mano izquierda.",
+      "Sí, puedo estacionar porque el garaje es de mi propiedad particular."
+    ],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: está prohibido estacionar frente a entradas de garajes, incluso si es propio."
+  },
+  {
+    "id": 44,
+    "pregunta": "¿En horarios nocturnos, puedo estacionar frente al acceso de una playa de estacionamiento cerrada?",
+    "opciones": [
+      "Sí, ya que es de noche y verifico que no funciona.",
+      "No, ya que está prohibido estacionar frente a accesos de playas de estacionamiento.",
+      "Sí, siempre que no esté funcionando y esté sobre mano derecha."
+    ],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: está prohibido estacionar frente a accesos de playas de estacionamiento, sin importar el horario."
+  },
+  {
+    "id": 45,
+    "pregunta": "¿Está permitido circular marcha atrás?",
+    "opciones": [
+      "Para maniobras propias de estacionamiento.",
+      "Para retomar otra calzada.",
+      "Para girar en 'U'."
+    ],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: solo está permitido marcha atrás para maniobras de estacionamiento."
+  },
+  {
+    "id": 46,
+    "pregunta": "¿En qué caso está permitido circular marcha atrás?",
+    "opciones": [
+      "Para retomar otra calzada.",
+      "Para egresar de una calle sin salida.",
+      "Para retomar la misma calzada en sentido contrario."
+    ],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: se permite circular marcha atrás únicamente para egresar de una calle sin salida."
+  },
+  {
+    "id": 47,
+    "pregunta": "El uso de la bocina está permitido:",
+    "opciones": [
+      "Como señal acústica para que el vehículo de adelante continúe circulando.",
+      "Sólo en caso de peligro."
+    ],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: la bocina solo debe usarse en situaciones de peligro."
+  },
+  {
+    "id": 48,
+    "pregunta": "¿Está permitido lavar vehículos en la vía pública?",
+    "opciones": [
+      "Sí, pero solamente fuera del área central.",
+      "Está absolutamente prohibido.",
+      "Sí, siempre que lo realice sobre la vereda."
+    ],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: está prohibido lavar vehículos en la vía pública en todo caso."
+  },
+  {
+    "id": 49,
+    "pregunta": "Las señales informativas son de color:",
+    "opciones": ["Rojas.", "Amarillas.", "Azules."],
+    "respuestaCorrecta": 2,
+    "comentario": "Correcto: las señales informativas se identifican por su color azul."
+  },
+  {
+    "id": 50,
+    "pregunta": "En el estacionamiento paralelo al cordón, ¿a qué distancia debe quedar el vehículo del cordón?",
+    "opciones": ["No mayor de 20 cm.", "No mayor de 30 cm.", "No mayor de 40 cm."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: la distancia máxima al cordón debe ser de 20 cm."
   }
 ]
