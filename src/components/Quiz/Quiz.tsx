@@ -9,6 +9,13 @@ import QuizStart from './QuizStart';
 import { BookOpen } from 'lucide-react';
 
 const Quiz: React.FC = () => {
+  useEffect(() => {
+    document.title = 'Test Online del Examen Conducir Córdoba 2025 | Guía del Conductor';
+    return () => {
+      document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
+    };
+  }, []);
+
   const [quizState, setQuizState] = useState<QuizState>({
     questions: [],
     currentQuestionIndex: 0,
