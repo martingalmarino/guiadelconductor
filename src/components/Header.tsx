@@ -33,21 +33,21 @@ const Header: React.FC = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-22">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0"
-          >
-            <div className="bg-primary-600 p-2 sm:p-2.5 rounded-xl">
-              <Car className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+          <div className="flex items-center space-x-3 sm:space-x-4 flex-shrink-0">
+            <div className="bg-gradient-to-br from-primary-600 to-primary-700 p-2.5 sm:p-3 rounded-2xl shadow-md">
+              <Car className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
             </div>
-            <div>
-              <h1 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-gray-900">
-                <span className="hidden sm:inline">Guía del Conductor</span>
-                <span className="sm:hidden">Guía del Conductor</span>
+            <div className="min-w-0 flex-1">
+              <h1 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-gray-900 font-heading">
+                <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                  Guía del Conductor
+                </span>
               </h1>
-              <p className="text-xs text-gray-600 hidden sm:block">Córdoba, Argentina</p>
+              <p className="text-xs sm:text-sm text-primary-600 font-medium hidden sm:block">
+                Córdoba, Argentina
+              </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 flex-1 justify-center">
