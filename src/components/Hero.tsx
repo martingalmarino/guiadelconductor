@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
               {chips.map((chip, index) => (
                 <div
                   key={chip.text}
-                  className="flex items-center space-x-1.5 sm:space-x-2 bg-primary-50 text-primary-700 px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium"
+                  className="flex items-center space-x-1.5 sm:space-x-2 bg-gray-100 text-gray-800 px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium"
                 >
                   <chip.icon className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>{chip.text}</span>
