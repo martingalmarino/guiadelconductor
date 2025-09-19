@@ -5,7 +5,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import InfoSection from './components/InfoSection';
 import Beneficios from './components/Beneficios';
-import CTA from './components/CTA';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Quiz from './components/Quiz/Quiz';
@@ -30,9 +29,6 @@ const HomePage: React.FC = () => (
 
       {/* Benefits Section */}
       <Beneficios />
-
-      {/* Call to Action Section */}
-      <CTA />
 
       {/* FAQ Section */}
       <FAQ />
