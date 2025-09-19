@@ -24,49 +24,31 @@ const Hero: React.FC = () => {
             {/* Chips */}
             <div className="flex flex-wrap gap-2 sm:gap-3">
               {chips.map((chip, index) => (
-                <motion.div
+                <div
                   key={chip.text}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex items-center space-x-1.5 sm:space-x-2 bg-primary-50 text-primary-700 px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium"
                 >
                   <chip.icon className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>{chip.text}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
 
             {/* Headline */}
             <div className="space-y-3 sm:space-y-4">
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="heading-xl text-gray-900"
-              >
+              <h1 className="heading-xl text-gray-900">
                 Aprobá tu examen teórico en{' '}
                 <span className="text-primary-600">Córdoba</span>
-              </motion.h1>
+              </h1>
               
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-body text-gray-600"
-              >
-                Simulador visual del examen teórico. Preguntas reales de Córdoba, 
+              <p className="text-body text-gray-600">
+                Simulador visual del examen teórico. 100% preguntas reales de Córdoba, 
                 feedback inmediato y recomendaciones personalizadas.
-              </motion.p>
+              </p>
             </div>
 
             {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
-            >
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link to="/test" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -88,15 +70,10 @@ const Hero: React.FC = () => {
                 </motion.button>
               </Link>
               
-            </motion.div>
+            </div>
 
             {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-gray-200"
-            >
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-gray-200">
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-primary-600">85%</div>
                 <div className="text-xs sm:text-sm text-gray-600">Tasa de aprobación</div>
@@ -109,7 +86,7 @@ const Hero: React.FC = () => {
                 <div className="text-2xl sm:text-3xl font-bold text-primary-600">50k+</div>
                 <div className="text-xs sm:text-sm text-gray-600">Estudiantes</div>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Right Column - Illustration */}
@@ -122,12 +99,7 @@ const Hero: React.FC = () => {
             {/* Main Illustration Container */}
             <div className="relative">
               {/* Analytics Dashboard */}
-              <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 1, delay: 0.6 }}
-                className="relative z-10 p-8"
-              >
+              <div className="relative z-10 p-8">
                 <svg
                   viewBox="0 0 500 400"
                   className="w-full h-full max-w-lg mx-auto"
@@ -212,17 +184,17 @@ const Hero: React.FC = () => {
                     <path d="M8 15l4 4 8-8" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                   </g>
                 </svg>
-              </motion.div>
+              </div>
               
-              {/* Modern Badges */}
-              <div className="absolute -top-4 -right-4 bg-white rounded-2xl p-3 shadow-xl border border-primary-100">
+              {/* Modern Badges - Hidden on Mobile */}
+              <div className="absolute -top-4 -right-4 bg-white rounded-2xl p-3 shadow-xl border border-primary-100 hidden lg:block">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary-600">100%</div>
                   <div className="text-xs text-gray-600">Actualizado</div>
                 </div>
               </div>
               
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-3 shadow-xl border border-green-100">
+              <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-3 shadow-xl border border-green-100 hidden lg:block">
                 <div className="text-center">
                   <div className="text-xl font-bold text-green-600">✓</div>
                   <div className="text-xs text-gray-600">2025</div>

@@ -21,16 +21,10 @@ const CTA: React.FC = () => {
       <div className="container-custom relative">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium"
-          >
+          <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
             <Sparkles className="w-4 h-4" />
             <span>¡Empezá ahora mismo!</span>
-          </motion.div>
+          </div>
 
           {/* Headline */}
           <motion.h2

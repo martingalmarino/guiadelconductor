@@ -54,13 +54,7 @@ const Beneficios: React.FC = () => {
     <section className="section-padding bg-gray-50">
       <div className="container-custom">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-12 sm:mb-16"
-        >
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="heading-lg text-gray-900 mb-3 sm:mb-4">
             ¿Por qué elegir nuestro simulador?
           </h2>
@@ -68,30 +62,19 @@ const Beneficios: React.FC = () => {
             Te damos todas las herramientas que necesitás para aprobar tu examen teórico 
             de conducir en Córdoba con confianza.
           </p>
-        </motion.div>
+        </div>
 
         {/* Benefits Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-        >
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {benefits.map((benefit, index) => (
-              <motion.div
+              <div
                 key={benefit.title}
-                variants={itemVariants}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className={`card p-6 sm:p-8 border-2 ${benefit.borderColor} hover:shadow-2xl`}
+                className={`card p-6 sm:p-8 border-2 ${benefit.borderColor} hover:shadow-2xl transition-all duration-300 hover:-translate-y-2`}
               >
                 {/* Icon */}
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl ${benefit.color} flex items-center justify-center mb-4 sm:mb-6`}
-                >
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl ${benefit.color} flex items-center justify-center mb-4 sm:mb-6`}>
                   <benefit.icon className="w-6 h-6 sm:w-8 sm:h-8" />
-                </motion.div>
+                </div>
 
                 {/* Content */}
                 <div className="space-y-3 sm:space-y-4">
@@ -104,23 +87,13 @@ const Beneficios: React.FC = () => {
                 </div>
 
                 {/* Hover Effect */}
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileHover={{ width: '100%' }}
-                  className="h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mt-4 sm:mt-6"
-                />
-              </motion.div>
+                <div className="h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mt-4 sm:mt-6 w-0 hover:w-full transition-all duration-500" />
+              </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mt-12 sm:mt-16"
-        >
+        <div className="text-center mt-12 sm:mt-16">
           <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg border border-gray-200 max-w-2xl mx-auto">
             <h3 className="heading-md text-gray-900 mb-3 sm:mb-4">
               ¿Listo para empezar?
@@ -149,7 +122,7 @@ const Beneficios: React.FC = () => {
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
