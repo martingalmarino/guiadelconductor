@@ -16,10 +16,10 @@ module.exports = {
           300: '#fdba74',
           400: '#fb923c',
           500: '#f97316',
-          600: '#FF6600', // Primary orange
-          700: '#c2410c',
-          800: '#9a3412',
-          900: '#7c2d12',
+          600: '#ff8811', // New vibrant orange #f81
+          700: '#e6770f',
+          800: '#cc660d',
+          900: '#b3550b',
         },
         secondary: {
           50: '#eff6ff',

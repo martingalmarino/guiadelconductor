@@ -56,13 +56,14 @@ const Hero: React.FC = () => {
                   className="bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-bold
                              px-6 py-4 sm:px-8 sm:py-5 lg:px-10 lg:py-6
                              text-lg sm:text-xl lg:text-2xl
-                             rounded-3xl transition-all duration-300
+                             transition-all duration-300
                              hover:shadow-lg hover:shadow-primary-600/25
                              active:scale-[0.98] transform hover:-translate-y-1
                              focus:outline-none focus:ring-4 focus:ring-primary-600/30
                              min-h-[56px] sm:min-h-[64px] lg:min-h-[72px]
                              w-full
                              flex items-center justify-center gap-3 sm:gap-4 group"
+                  style={{ borderRadius: '0 15px 0 15px' }}
                 >
                   <Play className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 group-hover:animate-pulse" />
                   <span className="font-extrabold">Empezar el Test</span>

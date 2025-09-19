@@ -72,10 +72,11 @@ const Header: React.FC = () => {
                 className="bg-primary-600 hover:bg-primary-700 text-white font-medium
                            px-3 py-2 sm:px-4 sm:py-2.5
                            text-sm sm:text-base
-                           rounded-xl transition-all duration-300
+                           transition-all duration-300
                            hover:shadow-md hover:shadow-primary-600/25
                            min-h-[36px] sm:min-h-[40px]
                            hidden xs:flex items-center gap-1.5 sm:gap-2"
+                style={{ borderRadius: '0 10px 0 10px' }}
               >
                 <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span className="hidden sm:inline">Test Online</span>
@@ -89,10 +90,11 @@ const Header: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-primary-600 hover:bg-primary-700 text-white
-                           p-2 rounded-lg transition-all duration-300
+                           p-2 transition-all duration-300
                            hover:shadow-md hover:shadow-primary-600/25
                            min-w-[36px] min-h-[36px]
                            flex items-center justify-center"
+                style={{ borderRadius: '0 8px 0 8px' }}
               >
                 <CheckCircle className="w-4 h-4" />
               </motion.button>

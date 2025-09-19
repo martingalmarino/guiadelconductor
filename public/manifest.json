@@ -20,7 +20,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#FF6600",
+  "theme_color": "#ff8811",
   "background_color": "#ffffff",
   "description": "Simulador oficial del examen teórico de conducir para Córdoba, Argentina"
 }

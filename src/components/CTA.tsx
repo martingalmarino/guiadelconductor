@@ -63,11 +63,12 @@ const CTA: React.FC = () => {
                 className="bg-white text-primary-600 font-bold 
                            px-8 py-5 sm:px-10 sm:py-6 lg:px-12 lg:py-7
                            text-xl sm:text-2xl lg:text-3xl 
-                           rounded-3xl hover:shadow-2xl transition-all duration-300 
+                           hover:shadow-2xl transition-all duration-300 
                            inline-flex items-center justify-center gap-4 sm:gap-5
                            min-h-[64px] sm:min-h-[72px] lg:min-h-[80px]
                            w-full
                            shadow-lg hover:shadow-primary-600/20"
+                style={{ borderRadius: '0 15px 0 15px' }}
               >
                 <Play className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9" />
                 <span className="font-extrabold">Comenzar el Test</span>
