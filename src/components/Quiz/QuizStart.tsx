@@ -69,7 +69,7 @@ const QuizStart: React.FC<QuizStartProps> = ({ totalQuestions, onStart }) => {
                 </div>
                 <div className="flex items-center gap-3">
                   <BookOpen className="w-5 h-5 text-blue-600" />
-                  <span className="text-sm sm:text-base">40 preguntas (de 50 disponibles)</span>
+                  <span className="text-sm sm:text-base">40 preguntas (de 59 disponibles)</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-blue-600" />
@@ -88,7 +88,7 @@ const QuizStart: React.FC<QuizStartProps> = ({ totalQuestions, onStart }) => {
               </h4>
               <ul className="space-y-2 text-green-700">
                 <li>• Preguntas oficiales del examen real de Córdoba</li>
-                <li>• 40 preguntas seleccionadas aleatoriamente de 50 disponibles</li>
+                <li>• 40 preguntas seleccionadas aleatoriamente de 59 disponibles</li>
                 <li>• Explicación detallada para cada respuesta</li>
                 <li>• Navegación libre entre preguntas</li>
                 <li>• Resultados detallados al finalizar</li>

@@ -371,5 +371,88 @@
     "opciones": ["No mayor de 20 cm.", "No mayor de 30 cm.", "No mayor de 40 cm."],
     "respuestaCorrecta": 0,
     "comentario": "Correcto: la distancia máxima al cordón debe ser de 20 cm."
+  },
+  {
+    "id": 51,
+    "pregunta": "¿En qué lugares está prohibido adelantarse a otros vehículos?",
+    "opciones": [
+      "En puentes, túneles, al atravesar vías férreas, en encrucijadas, en curvas.",
+      "En puentes y túneles solamente.",
+      "Solo en curvas y encrucijadas."
+    ],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: está prohibido adelantar en lugares de riesgo como puentes, túneles, vías férreas, encrucijadas o curvas."
+  },
+  {
+    "id": 52,
+    "pregunta": "En cuestas estrechas, ¿qué automóvil tiene prioridad de paso?",
+    "opciones": [
+      "El que asciende.",
+      "El que desciende.",
+      "El que llegue primero."
+    ],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: en calles estrechas en pendiente, siempre tiene prioridad el vehículo que asciende."
+  },
+  {
+    "id": 53,
+    "pregunta": "Las señales preventivas prohíben y restringen.",
+    "opciones": ["Verdadero.", "Falso.", "Solo en algunos casos."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: las señales preventivas solo advierten sobre riesgos, no prohíben ni restringen."
+  },
+  {
+    "id": 54,
+    "pregunta": "¿Cómo debe estacionar en una calle con pendiente?",
+    "opciones": [
+      "Colocando el freno de mano.",
+      "Con las ruedas transversales al cordón.",
+      "Con las ruedas transversales al cordón y el freno de mano colocado."
+    ],
+    "respuestaCorrecta": 2,
+    "comentario": "Correcto: en pendientes se debe estacionar con ruedas transversales al cordón y freno de mano colocado."
+  },
+  {
+    "id": 55,
+    "pregunta": "Ante un control vehicular, si su vehículo excede los niveles de humo y gases tóxicos, la autoridad puede:",
+    "opciones": [
+      "Solamente labrar acta de infracción.",
+      "Labrar acta de infracción y trasladarlo con grúa sacándolo de circulación.",
+      "Solo dar una advertencia verbal."
+    ],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: la autoridad puede multar y retirar de circulación vehículos que excedan niveles permitidos de emisiones."
+  },
+  {
+    "id": 56,
+    "pregunta": "Ante un control vehicular, si los neumáticos no poseen dibujo visible en la banda de rodamiento:",
+    "opciones": [
+      "Sí, puede ser trasladado con grúa porque es una falta de seguridad activa.",
+      "No.",
+      "No, ya que circulo por vías urbanas."
+    ],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: circular sin dibujo visible en neumáticos constituye una falta grave de seguridad activa."
+  },
+  {
+    "id": 57,
+    "pregunta": "¿Puede ser sancionado con multa si su vehículo carece de espejos retrovisores?",
+    "opciones": ["Sí.", "No.", "Solo en rutas."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: los espejos retrovisores son obligatorios, su ausencia es motivo de sanción."
+  },
+  {
+    "id": 58,
+    "pregunta": "Si su vehículo carece de guardabarros, ¿la autoridad puede retirarlo de circulación?",
+    "opciones": ["Sí.", "No.", "Solo si circula en rutas nacionales."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: los guardabarros son elementos de seguridad activa, y su ausencia habilita el retiro del vehículo de circulación."
+  },
+  {
+    "id": 59,
+    "pregunta": "¿En qué plazo máximo debe denunciar cambios de datos en su licencia de conducir para que no caduque?",
+    "opciones": ["120 días.", "90 días.", "100 días."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: el plazo máximo es de 90 días para denunciar cambios de datos en la licencia."
   }
 ]
