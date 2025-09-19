@@ -10,6 +10,9 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Quiz from './components/Quiz/Quiz';
 import GuiaBuenConductor from './components/GuiaBuenConductor';
+import TerminosCondiciones from './components/TerminosCondiciones';
+import PoliticaPrivacidad from './components/PoliticaPrivacidad';
+import PoliticaCookies from './components/PoliticaCookies';
 import ScrollToTop from './components/ScrollToTop';
 
 // Home Page Component
@@ -64,6 +67,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/test" element={<Quiz />} />
           <Route path="/guia-del-buen-conductor-cordoba" element={<GuiaBuenConductor />} />
+          <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
+          <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
+          <Route path="/politica-de-cookies" element={<PoliticaCookies />} />
         </Routes>
       </div>
     </Router>

@@ -12,10 +12,10 @@ const Footer: React.FC = () => {
   ];
 
   const legalLinks = [
-    { name: 'Política de Privacidad', href: '#privacidad' },
-    { name: 'Términos y Condiciones', href: '#terminos' },
-    { name: 'Cookies', href: '#cookies' },
-    { name: 'Contacto', href: '#contacto' },
+    { name: 'Política de Privacidad', href: '/politica-de-privacidad' },
+    { name: 'Términos y Condiciones', href: '/terminos-y-condiciones' },
+    { name: 'Cookies', href: '/politica-de-cookies' },
+    { name: 'Contacto', href: 'mailto:contacto@guiadelconductor.ar' },
   ];
 
   const socialLinks = [
@@ -111,13 +111,24 @@ const Footer: React.FC = () => {
               <ul className="space-y-3">
                 {legalLinks.map((link) => (
                   <li key={link.name}>
-                    <motion.a
-                      href={link.href}
-                      whileHover={{ x: 5 }}
-                      className="text-gray-300 hover:text-primary-400 transition-all duration-200 block"
-                    >
-                      {link.name}
-                    </motion.a>
+                    {link.href.startsWith('mailto:') ? (
+                      <motion.a
+                        href={link.href}
+                        whileHover={{ x: 5 }}
+                        className="text-gray-300 hover:text-primary-400 transition-all duration-200 block"
+                      >
+                        {link.name}
+                      </motion.a>
+                    ) : (
+                      <Link to={link.href}>
+                        <motion.div
+                          whileHover={{ x: 5 }}
+                          className="text-gray-300 hover:text-primary-400 transition-all duration-200 block"
+                        >
+                          {link.name}
+                        </motion.div>
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
