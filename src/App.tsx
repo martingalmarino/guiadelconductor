@@ -9,6 +9,7 @@ import CTA from './components/CTA';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Quiz from './components/Quiz/Quiz';
+import GuiaBuenConductor from './components/GuiaBuenConductor';
 
 // Home Page Component
 const HomePage: React.FC = () => (
@@ -60,6 +61,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/test" element={<Quiz />} />
+          <Route path="/guia-del-buen-conductor-cordoba" element={<GuiaBuenConductor />} />
         </Routes>
       </div>
     </Router>

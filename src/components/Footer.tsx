@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Car, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const quickLinks = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Guías de Estudio', href: '#guias' },
-    { name: 'Simulacros', href: '#examenes' },
-    { name: 'Estadísticas', href: '#datos' },
+    { name: 'Inicio', href: '/' },
+    { name: 'Guía del Buen Conductor', href: '/guia-del-buen-conductor-cordoba' },
+    { name: 'Simulacros', href: '/test' },
+    { name: 'Test Online', href: '/test' },
   ];
 
   const legalLinks = [
@@ -86,13 +87,14 @@ const Footer: React.FC = () => {
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
-                    <motion.a
-                      href={link.href}
-                      whileHover={{ x: 5 }}
-                      className="text-gray-300 hover:text-primary-400 transition-all duration-200 block"
-                    >
-                      {link.name}
-                    </motion.a>
+                    <Link to={link.href}>
+                      <motion.div
+                        whileHover={{ x: 5 }}
+                        className="text-gray-300 hover:text-primary-400 transition-all duration-200 block"
+                      >
+                        {link.name}
+                      </motion.div>
+                    </Link>
                   </li>
                 ))}
               </ul>
