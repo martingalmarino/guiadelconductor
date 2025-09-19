@@ -203,6 +203,7 @@ const Quiz: React.FC = () => {
   }
 
   if (!quizState.isStarted) {
+    console.log('Quiz not started, showing QuizStart');
     return (
       <QuizStart
         totalQuestions={quizState.questions.length}
@@ -210,6 +211,8 @@ const Quiz: React.FC = () => {
       />
     );
   }
+
+  console.log('Quiz started, showing questions');
 
   if (quizState.isCompleted) {
     return (
