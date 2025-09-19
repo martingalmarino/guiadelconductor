@@ -454,5 +454,201 @@
     "opciones": ["120 días.", "90 días.", "100 días."],
     "respuestaCorrecta": 1,
     "comentario": "Correcto: el plazo máximo es de 90 días para denunciar cambios de datos en la licencia."
+  },
+  {
+    "id": 60,
+    "pregunta": "En vías que carezcan de dirección obligatoria señalizada, se entenderá:",
+    "opciones": ["Que la vía es de un solo sentido.", "Que la vía es de doble mano."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: si no hay señalización específica, se entiende que la vía es de doble mano."
+  },
+  {
+    "id": 62,
+    "pregunta": "En un cruce NO SEMAFORIZADO, se produce un accidente en la senda peatonal (marcada o no). ¿Quién se presume responsable?",
+    "opciones": ["Al conductor.", "Al peatón.", "Sólo si el conductor circulaba a más de 40 km/h."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: en cruces no semaforizados, se presume la responsabilidad del conductor en accidentes en sendas peatonales."
+  },
+  {
+    "id": 63,
+    "pregunta": "¿Está permitido en un congestionamiento vehicular adelantarse por la banquina?",
+    "opciones": ["Sí.", "No."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: está prohibido circular por la banquina, incluso en congestionamientos."
+  },
+  {
+    "id": 64,
+    "pregunta": "Indique en qué lugar está permitido el adelantamiento:",
+    "opciones": ["En intersecciones.", "En vías con varios carriles en el mismo sentido.", "En puentes, túneles o curvas."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: solo está permitido adelantar en vías con varios carriles en el mismo sentido."
+  },
+  {
+    "id": 65,
+    "pregunta": "¿Si un vehículo nos quiere adelantar, qué indicación debo realizar para anunciarle que puede hacerlo sin riesgo, ya que la vía se encuentra libre?",
+    "opciones": ["Luz de giro derecha.", "Luz de baliza.", "Ninguna indicación."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: se utiliza la luz de giro derecha para indicar que es seguro adelantar."
+  },
+  {
+    "id": 73,
+    "pregunta": "¿En qué situaciones puede girar en \"U\"?",
+    "opciones": ["En esquinas semaforizadas con giro a la izquierda.", "A mitad de cuadra.", "En ningún caso."],
+    "respuestaCorrecta": 2,
+    "comentario": "Correcto: en la Ciudad de Córdoba está prohibido el giro en U en todos los casos."
+  },
+  {
+    "id": 74,
+    "pregunta": "Ante un control vehicular, mi vehículo puede ser removido de la vía pública por:",
+    "opciones": ["Circular sin ambas chapas patentes.", "Haberse vencido el parquímetro.", "Cruzar un semáforo en rojo."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: circular sin ambas chapas patentes es causal para el retiro del vehículo."
+  },
+  {
+    "id": 75,
+    "pregunta": "Ante un control vehicular, mi vehículo puede ser removido de la vía pública por:",
+    "opciones": ["Conducir con la licencia vencida.", "Si mi acompañante con licencia vigente puede continuar.", "Circular sin seguro obligatorio."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: conducir con licencia vencida es causal para el retiro del vehículo."
+  },
+  {
+    "id": 76,
+    "pregunta": "¿En intersecciones NO semaforizadas puedo girar a la izquierda?",
+    "opciones": ["Sí.", "No."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: está permitido girar a la izquierda en intersecciones no semaforizadas."
+  },
+  {
+    "id": 78,
+    "pregunta": "Indique cuál es la forma correcta de circular:",
+    "opciones": ["Conservando la derecha, por el centro del carril.", "Sobre la línea discontinua.", "Por cualquier carril."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: se debe circular conservando la derecha y por el centro del carril."
+  },
+  {
+    "id": 79,
+    "pregunta": "Indique ante qué situación puede circular por la calzada el peatón:",
+    "opciones": ["Para repartir propaganda.", "Para conversar con un ocupante de un vehículo detenido.", "Cuando cruce en intersecciones, por la prolongación de la vereda."],
+    "respuestaCorrecta": 2,
+    "comentario": "Correcto: el peatón solo puede circular por la calzada cuando cruza en intersecciones por la prolongación de la vereda."
+  },
+  {
+    "id": 80,
+    "pregunta": "¿El circular sin portar la licencia de conducir, es causal para que el vehículo sea removido?",
+    "opciones": ["Sí.", "No.", "No, si muestro la cédula."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: no portar la licencia de conducir es causal para el retiro del vehículo."
+  },
+  {
+    "id": 81,
+    "pregunta": "La señalización de tránsito debe obligatoriamente ser respetada por:",
+    "opciones": ["Sólo el conductor.", "El conductor y el peatón."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: tanto conductores como peatones deben respetar la señalización de tránsito."
+  },
+  {
+    "id": 83,
+    "pregunta": "Al estar habilitado a conducir mediante la licencia correspondiente, la misma implica:",
+    "opciones": ["Que acepto controles y exigencias del Código de Tránsito.", "Que estoy habilitado pero no sujeto a controles.", "Que no estoy obligado a conocer todas las normativas."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: la licencia implica aceptar controles y exigencias del Código de Tránsito."
+  },
+  {
+    "id": 84,
+    "pregunta": "Ud. conduce con licencia Categoría B (vehículos particulares). ¿Lo habilita a conducir motos?",
+    "opciones": ["Sí.", "No.", "Indistinto."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: la licencia Categoría B no habilita a conducir motocicletas."
+  },
+  {
+    "id": 85,
+    "pregunta": "Ud. posee licencia profesional Categoría Transporte Escolar. ¿Lo habilita a conducir vehículos particulares?",
+    "opciones": ["Sí.", "No."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: la licencia de transporte escolar no habilita a conducir vehículos particulares."
+  },
+  {
+    "id": 86,
+    "pregunta": "¿Es válida la licencia otorgada por otro municipio si el titular vive en Córdoba capital?",
+    "opciones": ["Sí, si está vigente.", "No, debe ser otorgada por el municipio donde reside.", "Sí, si la porta para exhibirla."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: la licencia debe ser otorgada por el municipio donde reside el titular."
+  },
+  {
+    "id": 87,
+    "pregunta": "¿En qué plazo máximo debo denunciar cambio de datos en mi licencia?",
+    "opciones": ["120 días.", "90 días.", "100 días."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: el plazo máximo para denunciar cambios de datos es de 90 días."
+  },
+  {
+    "id": 88,
+    "pregunta": "¿Es obligatorio que la licencia de conducir esté firmada por el titular?",
+    "opciones": ["Sí.", "No.", "Indistinto."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: es obligatorio que la licencia esté firmada por el titular."
+  },
+  {
+    "id": 89,
+    "pregunta": "Si al solicitar la licencia no usaba anteojos y luego sí, ¿debo denunciarlo?",
+    "opciones": ["Sí.", "No.", "Indistinto."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: cualquier cambio en las condiciones físicas debe ser denunciado."
+  },
+  {
+    "id": 90,
+    "pregunta": "¿Puede un auto particular circular por carriles selectivos dentro del horario de selectividad?",
+    "opciones": ["Sí.", "No.", "Sólo si no hay control."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: los autos particulares no pueden circular por carriles selectivos en horario de selectividad."
+  },
+  {
+    "id": 91,
+    "pregunta": "¿En una vía de sentido único, puedo estacionar a la izquierda?",
+    "opciones": ["Sí, si está expresamente permitido.", "Sí.", "Nunca."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: solo se puede estacionar a la izquierda si está expresamente permitido."
+  },
+  {
+    "id": 92,
+    "pregunta": "¿El uso de cinturón y cabezales normalizados es obligatorio?",
+    "opciones": ["Sí.", "No."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: el uso de cinturón y cabezales es obligatorio."
+  },
+  {
+    "id": 93,
+    "pregunta": "¿Si conduzco un vehículo sin limpiaparabrisas, puedo ser sancionado?",
+    "opciones": ["Sí.", "Sí, sólo si llueve.", "No."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: el limpiaparabrisas es un elemento de seguridad obligatorio."
+  },
+  {
+    "id": 96,
+    "pregunta": "¿Si mis neumáticos no tienen dibujo visible, puede ser removido con grúa?",
+    "opciones": ["Sí.", "No.", "No, si circulo en zona urbana."],
+    "respuestaCorrecta": 0,
+    "comentario": "Correcto: circular con neumáticos sin dibujo visible es causal para el retiro del vehículo."
+  },
+  {
+    "id": 97,
+    "pregunta": "Ante un control, si mi vehículo excede niveles de humo/gases tóxicos, la autoridad puede:",
+    "opciones": ["Solo labrar acta.", "Acta y trasladarlo con grúa."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: exceder niveles de emisiones es causal para multa y retiro del vehículo."
+  },
+  {
+    "id": 98,
+    "pregunta": "Aunque tenga ITV aprobada, si mi vehículo contamina más de lo permitido, ¿qué pasa?",
+    "opciones": ["No puede ser controlado.", "No puede ser sancionado.", "Puede ser trasladado con grúa porque está en infracción."],
+    "respuestaCorrecta": 2,
+    "comentario": "Correcto: aunque tenga ITV aprobada, si contamina más de lo permitido puede ser retirado de circulación."
+  },
+  {
+    "id": 99,
+    "pregunta": "¿Puedo reemplazar el depósito de combustible original por otro?",
+    "opciones": ["Sí, temporalmente.", "Está prohibido."],
+    "respuestaCorrecta": 1,
+    "comentario": "Correcto: está prohibido reemplazar el depósito de combustible original."
   }
 ]
