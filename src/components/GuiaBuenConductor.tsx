@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { BookOpen, CheckCircle, AlertCircle, Users, Shield, Car, ArrowLeft, ExternalLink } from 'lucide-react';
@@ -6,6 +6,13 @@ import Header from './Header';
 import Footer from './Footer';
 
 const GuiaBuenConductor: React.FC = () => {
+  useEffect(() => {
+    document.title = 'Guía del Buen Conductor de la Municipalidad de Córdoba | Guía del Conductor';
+    return () => {
+      document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
+    };
+  }, []);
+
   const temas = [
     {
       icon: AlertCircle,
@@ -76,7 +83,7 @@ const GuiaBuenConductor: React.FC = () => {
               </div>
               
               <h1 className="heading-xl text-gray-900 mb-6">
-                La Guía del Buen Conductor: tu llave para aprobar el examen teórico en Córdoba
+                Guía del Buen Conductor de la Municipalidad de Córdoba
               </h1>
               
               <p className="text-body text-gray-600 mb-8">
