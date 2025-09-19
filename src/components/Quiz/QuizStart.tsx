@@ -120,14 +120,17 @@ const QuizStart: React.FC<QuizStartProps> = ({ totalQuestions, onStart }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={onStart}
-              className="bg-primary-600 hover:bg-primary-700 text-white font-bold
+              className="bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-bold
                          px-8 py-5 sm:px-10 sm:py-6
                          text-xl sm:text-2xl
-                         rounded-2xl transition-all duration-300
+                         transition-all duration-300
                          hover:shadow-lg hover:shadow-primary-600/25
+                         active:scale-[0.98] transform hover:-translate-y-1
+                         focus:outline-none focus:ring-4 focus:ring-primary-600/30
                          min-h-[64px] sm:min-h-[72px]
                          flex items-center justify-center gap-3
                          w-full sm:w-auto"
+              style={{ borderRadius: '0 15px 0 15px' }}
             >
               <Play className="w-6 h-6 sm:w-7 sm:h-7" />
               <span className="font-extrabold">COMENZAR CON EL TEST</span>
@@ -137,14 +140,17 @@ const QuizStart: React.FC<QuizStartProps> = ({ totalQuestions, onStart }) => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white hover:bg-gray-50 text-gray-700 font-semibold
+                className="bg-white hover:bg-gray-50 active:bg-gray-100 text-gray-700 font-semibold
                            px-6 py-4 sm:px-8 sm:py-5
                            text-lg sm:text-xl
-                           rounded-2xl border-2 border-gray-200 hover:border-gray-300
+                           border-2 border-gray-200 hover:border-gray-300
                            transition-all duration-300 hover:shadow-md
+                           active:scale-[0.98] transform hover:-translate-y-1
+                           focus:outline-none focus:ring-4 focus:ring-gray-200/50
                            min-h-[56px] sm:min-h-[64px]
                            flex items-center justify-center gap-3
                            w-full sm:w-auto"
+                style={{ borderRadius: '0 12px 0 12px' }}
               >
                 <Home className="w-5 h-5 sm:w-6 sm:h-6" />
                 <span>Volver al Inicio</span>
