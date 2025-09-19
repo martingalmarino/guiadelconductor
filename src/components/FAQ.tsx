@@ -17,7 +17,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: '¿El simulador es completamente gratis?',
-      answer: 'Sí, nuestro simulador básico es 100% gratuito e incluye acceso a más de 1000 preguntas oficiales, simulacros ilimitados y feedback inmediato. No necesitás registrarte ni proporcionar datos de tarjeta de crédito. También ofrecemos funciones premium opcionales como análisis detallado de rendimiento y simulacros personalizados.'
+      answer: 'Sí, nuestro simulador básico es 100% gratuito e incluye acceso a las preguntas oficiales, simulacros ilimitados y feedback inmediato. No necesitás registrarte ni proporcionar datos de tarjeta de crédito.'
     },
     {
       question: '¿Puedo practicar desde el celular?',
@@ -29,7 +29,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: '¿Cuánto tiempo tengo para completar cada simulacro?',
-      answer: 'Los simulacros replican exactamente las condiciones del examen real: tenés 40 minutos para responder 30 preguntas. También ofrecemos modos de práctica sin límite de tiempo para que puedas estudiar a tu ritmo y revisar las explicaciones detalladas de cada respuesta.'
+      answer: 'Los simulacros replican exactamente las condiciones del examen real: tenés 20 minutos para responder 40 preguntas. También ofrecemos modos de práctica sin límite de tiempo para que puedas estudiar a tu ritmo y revisar las explicaciones detalladas de cada respuesta.'
     },
     {
       question: '¿Qué pasa si no apruebo el simulacro?',
