@@ -182,7 +182,14 @@ const Footer: React.FC = () => {
                 © 2025 Guía del Conductor. Todos los derechos reservados.
               </p>
               <p className="mt-1">
-                Desarrollado con ❤️ para los conductores de Córdoba
+                Desarrollado por{' '}
+                <a 
+                  href="mailto:m.galmarino@gmail.com"
+                  className="text-primary-400 hover:text-primary-300 transition-colors duration-200"
+                >
+                  Martín Galmarino
+                </a>{' '}
+                🤖
               </p>
             </div>
 
