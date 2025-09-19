@@ -17,7 +17,7 @@ const Header: React.FC = () => {
   }, []);
 
   const navItems = [
-    { name: 'Inicio', href: '#inicio' },
+    { name: 'Inicio', href: '/' },
     { name: 'Guías', href: '#guias' },
     { name: 'Exámenes', href: '#examenes' },
   ];
@@ -52,14 +52,25 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 flex-1 justify-center">
             {navItems.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                whileHover={{ y: -2 }}
-                className="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200"
-              >
-                {item.name}
-              </motion.a>
+              item.name === 'Inicio' ? (
+                <Link key={item.name} to={item.href}>
+                  <motion.div
+                    whileHover={{ y: -2 }}
+                    className="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200"
+                  >
+                    {item.name}
+                  </motion.div>
+                </Link>
+              ) : (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  whileHover={{ y: -2 }}
+                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200"
+                >
+                  {item.name}
+                </motion.a>
+              )
             ))}
           </nav>
 
@@ -130,15 +141,26 @@ const Header: React.FC = () => {
             >
               <nav className="py-4 space-y-2">
                 {navItems.map((item) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    whileHover={{ x: 10 }}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block px-4 py-3 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-xl mx-2 transition-all duration-200"
-                  >
-                    {item.name}
-                  </motion.a>
+                  item.name === 'Inicio' ? (
+                    <Link key={item.name} to={item.href} onClick={() => setIsMenuOpen(false)}>
+                      <motion.div
+                        whileHover={{ x: 10 }}
+                        className="block px-4 py-3 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-xl mx-2 transition-all duration-200"
+                      >
+                        {item.name}
+                      </motion.div>
+                    </Link>
+                  ) : (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      whileHover={{ x: 10 }}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block px-4 py-3 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-xl mx-2 transition-all duration-200"
+                    >
+                      {item.name}
+                    </motion.a>
+                  )
                 ))}
               </nav>
             </motion.div>
