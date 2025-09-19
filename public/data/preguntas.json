@@ -9,7 +9,7 @@
   {
     "id": 2,
     "pregunta": "¿Quién tiene prioridad de paso en una rotonda?",
-    "opciones": ["El que intenta ingresar (entrar) a la misma.", "El que está circulando por la misma."],
+    "opciones": ["El que intenta ingresar (entrar) a la misma.", "El que está circulando por la misma.", "El que viene por la derecha."],
     "respuestaCorrecta": 1,
     "comentario": "Correcto: siempre tiene prioridad quien ya circula dentro de la rotonda."
   },
@@ -135,14 +135,14 @@
   {
     "id": 20,
     "pregunta": "Si circula en un carril con flecha de giro a la derecha, Ud.:",
-    "opciones": ["Debe girar obligatoriamente.", "Puede seguir sin girar."],
+    "opciones": ["Debe girar obligatoriamente.", "Puede seguir sin girar.", "Puede elegir según el tráfico."],
     "respuestaCorrecta": 0,
     "comentario": "Correcto: debe girar obligatoriamente en la dirección indicada por la flecha."
   },
   {
     "id": 21,
     "pregunta": "En luz roja con agente de tránsito indicando avanzar, Ud.:",
-    "opciones": ["Detenerme.", "Obedecer al agente."],
+    "opciones": ["Detenerme.", "Obedecer al agente.", "Esperar que cambie la luz."],
     "respuestaCorrecta": 1,
     "comentario": "Correcto: prevalece la orden del agente sobre el semáforo."
   },
