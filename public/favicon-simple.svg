@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="32" fill="#ff8811"/>
+  
+  <!-- Letter "G" for Guía -->
+  <path d="M20 20 L20 44 L24 44 L24 34 L32 34 L32 30 L24 30 L24 24 L38 24 L38 28 L42 28 L42 20 Z" fill="white" stroke="white" stroke-width="0.5"/>
+  
+  <!-- Small car detail at bottom right -->
+  <g transform="translate(38, 38) scale(0.8)">
+    <rect x="0" y="2" width="8" height="4" rx="1" fill="white"/>
+    <path d="M1 2 L2.5 0 L5.5 0 L7 2" fill="white"/>
+    <circle cx="1.5" cy="7" r="1" fill="white"/>
+    <circle cx="6.5" cy="7" r="1" fill="white"/>
+  </g>
+</svg>
