@@ -64,7 +64,7 @@ const SenalesPreventivas: React.FC = () => {
     };
   }, []);
 
-  // Señales preventivas con imágenes reales disponibles
+  // Señales preventivas con imágenes reales disponibles (colección completa)
   const senales = [
     { id: 1, nombre: 'Curva Común', descripcion: 'Advierte sobre una curva en el camino', categoria: 'curvas', imagen: 'curva comun.png' },
     { id: 2, nombre: 'Curva y Contracurva', descripcion: 'Advierte sobre curvas consecutivas', categoria: 'curvas', imagen: 'curva (contracurva).png' },
@@ -76,23 +76,38 @@ const SenalesPreventivas: React.FC = () => {
     { id: 8, nombre: 'Perfil Irregular', descripcion: 'Superficie de la vía en mal estado', categoria: 'condiciones', imagen: 'perfil irregular.png' },
     { id: 9, nombre: 'Proyección de Piedras', descripcion: 'Riesgo de proyección de piedras', categoria: 'condiciones', imagen: 'proyeccion de piedas.png' },
     { id: 10, nombre: 'Derrumbes', descripcion: 'Zona propensa a caída de rocas o tierra', categoria: 'condiciones', imagen: 'derrumbes.png' },
-    { id: 11, nombre: 'Badén', descripcion: 'Depresión en la calzada para drenaje', categoria: 'estructuras', imagen: 'Baden.png' },
-    { id: 12, nombre: 'Lomada', descripcion: 'Elevación en la calzada', categoria: 'estructuras', imagen: 'lomada.png' },
-    { id: 13, nombre: 'Estrechamiento Una Mano', descripcion: 'Reducción del ancho de la vía en un sentido', categoria: 'restricciones', imagen: 'estechamiento (una sola mano).png' },
-    { id: 14, nombre: 'Estrechamiento Doble Mano', descripcion: 'Reducción del ancho de la vía en ambos sentidos', categoria: 'restricciones', imagen: 'estrechamiento (en sus dos manos).png' },
-    { id: 15, nombre: 'Altura Limitada', descripcion: 'Paso con restricción de altura', categoria: 'restricciones', imagen: 'altura limitada.png' },
-    { id: 16, nombre: 'Ancho Limitado', descripcion: 'Paso con restricción de ancho', categoria: 'restricciones', imagen: 'ancho limitado.png' },
-    { id: 17, nombre: 'Cruce Escolar', descripcion: 'Zona de cruce frecuente de escolares', categoria: 'cruces', imagen: 'escolares.png' },
-    { id: 18, nombre: 'Encrucijada Bifurcación', descripcion: 'División del camino en dos vías', categoria: 'intersecciones', imagen: 'encrucijada (bifurcación).png' },
-    { id: 19, nombre: 'Encrucijada Cruce', descripcion: 'Cruce de caminos adelante', categoria: 'intersecciones', imagen: 'encrucijada (cruce).png' },
-    { id: 20, nombre: 'Encrucijada Empalme', descripcion: 'Unión de caminos', categoria: 'intersecciones', imagen: 'encrucijada (empalme).png' },
-    { id: 21, nombre: 'Incorporación de Tránsito Lateral', descripcion: 'Vía que se incorpora lateralmente', categoria: 'incorporaciones', imagen: 'incorporacion de transito lateral.png' },
-    { id: 22, nombre: 'Inicio Doble Circulación', descripcion: 'Cambio a vía de doble mano', categoria: 'circulacion', imagen: 'inicio doble ciculacion.png' },
-    { id: 23, nombre: 'Calzada Dividida', descripcion: 'Separación central de la calzada', categoria: 'circulacion', imagen: 'calzada dividida.png' },
-    { id: 24, nombre: 'Puente Angosto', descripcion: 'Puente con ancho reducido', categoria: 'estructuras', imagen: 'puente angosto.png' },
-    { id: 25, nombre: 'Puente Móvil', descripcion: 'Puente levadizo o móvil', categoria: 'estructuras', imagen: 'puente movil.png' },
-    { id: 26, nombre: 'Túnel', descripcion: 'Paso subterráneo adelante', categoria: 'estructuras', imagen: 'tunel.png' },
-    { id: 27, nombre: 'Rotonda', descripcion: 'Rotonda o glorieta adelante', categoria: 'intersecciones', imagen: 'rotonda.png' }
+    { id: 11, nombre: 'Vientos Fuertes Laterales', descripcion: 'Zona de vientos cruzados fuertes', categoria: 'condiciones', imagen: 'Vientos fuertes laterales.png' },
+    { id: 12, nombre: 'Badén', descripcion: 'Depresión en la calzada para drenaje', categoria: 'estructuras', imagen: 'Baden.png' },
+    { id: 13, nombre: 'Lomada', descripcion: 'Elevación en la calzada', categoria: 'estructuras', imagen: 'lomada.png' },
+    { id: 14, nombre: 'Puente Angosto', descripcion: 'Puente con ancho reducido', categoria: 'estructuras', imagen: 'puente angosto.png' },
+    { id: 15, nombre: 'Puente Móvil', descripcion: 'Puente levadizo o móvil', categoria: 'estructuras', imagen: 'puente movil.png' },
+    { id: 16, nombre: 'Túnel', descripcion: 'Paso subterráneo adelante', categoria: 'estructuras', imagen: 'tunel.png' },
+    { id: 17, nombre: 'Estrechamiento Una Mano', descripcion: 'Reducción del ancho de la vía en un sentido', categoria: 'restricciones', imagen: 'estechamiento (una sola mano).png' },
+    { id: 18, nombre: 'Estrechamiento Doble Mano', descripcion: 'Reducción del ancho de la vía en ambos sentidos', categoria: 'restricciones', imagen: 'estrechamiento (en sus dos manos).png' },
+    { id: 19, nombre: 'Altura Limitada', descripcion: 'Paso con restricción de altura', categoria: 'restricciones', imagen: 'altura limitada.png' },
+    { id: 20, nombre: 'Ancho Limitado', descripcion: 'Paso con restricción de ancho', categoria: 'restricciones', imagen: 'ancho limitado.png' },
+    { id: 21, nombre: 'Cruce Escolar', descripcion: 'Zona de cruce frecuente de escolares', categoria: 'cruces', imagen: 'escolares.png' },
+    { id: 22, nombre: 'Niños', descripcion: 'Zona frecuentada por niños', categoria: 'cruces', imagen: 'niños.png' },
+    { id: 23, nombre: 'Animales Sueltos (Ciervos)', descripcion: 'Posible presencia de ciervos en la vía', categoria: 'animales', imagen: 'animales sueltos (ciervos).png' },
+    { id: 24, nombre: 'Animales Sueltos (Vacas)', descripcion: 'Zona de tránsito de ganado vacuno', categoria: 'animales', imagen: 'animales sueltos (vacas).png' },
+    { id: 25, nombre: 'Jinetes', descripcion: 'Zona frecuentada por jinetes', categoria: 'animales', imagen: 'jinetes.png' },
+    { id: 26, nombre: 'Encrucijada Bifurcación', descripcion: 'División del camino en dos vías', categoria: 'intersecciones', imagen: 'encrucijada (bifurcación).png' },
+    { id: 27, nombre: 'Encrucijada Cruce', descripcion: 'Cruce de caminos adelante', categoria: 'intersecciones', imagen: 'encrucijada (cruce).png' },
+    { id: 28, nombre: 'Encrucijada Empalme', descripcion: 'Unión de caminos', categoria: 'intersecciones', imagen: 'encrucijada (empalme).png' },
+    { id: 29, nombre: 'Rotonda', descripcion: 'Rotonda o glorieta adelante', categoria: 'intersecciones', imagen: 'rotonda.png' },
+    { id: 30, nombre: 'Incorporación de Tránsito Lateral', descripcion: 'Vía que se incorpora lateralmente', categoria: 'incorporaciones', imagen: 'incorporacion de transito lateral.png' },
+    { id: 31, nombre: 'Inicio Doble Circulación', descripcion: 'Cambio a vía de doble mano', categoria: 'circulacion', imagen: 'inicio doble ciculacion.png' },
+    { id: 32, nombre: 'Calzada Dividida', descripcion: 'Separación central de la calzada', categoria: 'circulacion', imagen: 'calzada dividida.png' },
+    { id: 33, nombre: 'Ciclistas', descripcion: 'Zona frecuentada por ciclistas', categoria: 'vehiculos', imagen: 'ciclistas.png' },
+    { id: 34, nombre: 'Tractores', descripcion: 'Posible presencia de tractores o maquinaria agrícola', categoria: 'vehiculos', imagen: 'Tractores.png' },
+    { id: 35, nombre: 'Tranvía', descripcion: 'Cruce o proximidad de tranvía', categoria: 'vehiculos', imagen: 'tranvia.png' },
+    { id: 36, nombre: 'Ambulancia', descripcion: 'Zona de tránsito de ambulancias', categoria: 'vehiculos', imagen: 'Ambulancia.png' },
+    { id: 37, nombre: 'Proximidad de Semáforo', descripcion: 'Semáforo próximo en el camino', categoria: 'señalizacion', imagen: 'proximidad de semaforo.png' },
+    { id: 38, nombre: 'Proximidad Señal PARE', descripcion: 'Señal de detención próxima', categoria: 'señalizacion', imagen: 'proximidad de señal restrictiva (pare).png' },
+    { id: 39, nombre: 'Proximidad Señal Restrictiva (Paso)', descripcion: 'Señal restrictiva de paso próxima', categoria: 'señalizacion', imagen: 'proximidad de señal reestrictiva (paso).png' },
+    { id: 40, nombre: 'Proximidad Señal Restrictiva (Otras)', descripcion: 'Otras señales restrictivas próximas', categoria: 'señalizacion', imagen: 'proximidad de señal reestrictiva (otras).png' },
+    { id: 41, nombre: 'Flecha Direccional', descripcion: 'Indicación de dirección obligatoria', categoria: 'direccional', imagen: 'flecha direccional.png' },
+    { id: 42, nombre: 'Corredor Aéreo', descripcion: 'Paso de aeronaves a baja altura', categoria: 'aereo', imagen: 'corredor aereo.png' }
   ];
 
   const categorias = {
@@ -104,16 +119,12 @@ const SenalesPreventivas: React.FC = () => {
     intersecciones: { color: 'bg-purple-50 border-purple-200', icon: AlertTriangle, iconColor: 'text-purple-600' },
     incorporaciones: { color: 'bg-indigo-50 border-indigo-200', icon: AlertTriangle, iconColor: 'text-indigo-600' },
     estructuras: { color: 'bg-gray-50 border-gray-200', icon: AlertTriangle, iconColor: 'text-gray-600' },
-    obras: { color: 'bg-amber-50 border-amber-200', icon: AlertTriangle, iconColor: 'text-amber-600' },
     vehiculos: { color: 'bg-cyan-50 border-cyan-200', icon: Car, iconColor: 'text-cyan-600' },
     señalizacion: { color: 'bg-pink-50 border-pink-200', icon: AlertTriangle, iconColor: 'text-pink-600' },
-    ferroviario: { color: 'bg-slate-50 border-slate-200', icon: AlertTriangle, iconColor: 'text-slate-600' },
     restricciones: { color: 'bg-rose-50 border-rose-200', icon: AlertTriangle, iconColor: 'text-rose-600' },
     circulacion: { color: 'bg-teal-50 border-teal-200', icon: AlertTriangle, iconColor: 'text-teal-600' },
-    pavimento: { color: 'bg-stone-50 border-stone-200', icon: AlertTriangle, iconColor: 'text-stone-600' },
-    zonas: { color: 'bg-lime-50 border-lime-200', icon: MapPin, iconColor: 'text-lime-600' },
-    aereo: { color: 'bg-sky-50 border-sky-200', icon: AlertTriangle, iconColor: 'text-sky-600' },
-    general: { color: 'bg-neutral-50 border-neutral-200', icon: AlertTriangle, iconColor: 'text-neutral-600' }
+    direccional: { color: 'bg-violet-50 border-violet-200', icon: AlertTriangle, iconColor: 'text-violet-600' },
+    aereo: { color: 'bg-sky-50 border-sky-200', icon: AlertTriangle, iconColor: 'text-sky-600' }
   };
 
   const faqItems = [
@@ -208,7 +219,7 @@ const SenalesPreventivas: React.FC = () => {
             className="mb-12"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center px-4">
-              27 Señales Preventivas Principales
+              42 Señales Preventivas Principales
             </h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
@@ -247,7 +258,7 @@ const SenalesPreventivas: React.FC = () => {
             
             <div className="text-center mt-8">
               <p className="text-gray-600 text-sm">
-                * 27 imágenes reales disponibles - Las restantes se irán agregando próximamente
+                * Todas las señales mostradas cuentan con imágenes reales
               </p>
             </div>
           </motion.div>
