@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Info, MapPin, Hospital, Car, Utensils } from 'lucide-react';
+import { ArrowLeft, Info, MapPin, Heart, Car, Utensils } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -43,7 +43,7 @@ const SenalesTransitoInformativas: React.FC = () => {
   ];
 
   const categorias = {
-    salud: { color: 'bg-red-50 border-red-200', icon: Hospital, iconColor: 'text-red-600' },
+    salud: { color: 'bg-red-50 border-red-200', icon: Heart, iconColor: 'text-red-600' },
     servicios: { color: 'bg-blue-50 border-blue-200', icon: Info, iconColor: 'text-blue-600' },
     turismo: { color: 'bg-green-50 border-green-200', icon: MapPin, iconColor: 'text-green-600' },
     transporte: { color: 'bg-purple-50 border-purple-200', icon: Car, iconColor: 'text-purple-600' }
