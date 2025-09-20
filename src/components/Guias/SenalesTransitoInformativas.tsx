@@ -124,9 +124,9 @@ const SenalesTransitoInformativas: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 mb-12"
+            className="mb-12"
           >
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
               Las señales de tránsito informativas en Argentina cumplen un rol esencial al orientar y guiar a los conductores durante su recorrido. A diferencia de las señales reglamentarias o preventivas, estas no imponen obligaciones ni advierten sobre peligros, sino que brindan datos prácticos para facilitar la circulación y mejorar la experiencia de viaje. Reconocerlas y comprender su significado es clave para una conducción más segura y eficiente.
             </p>
           </motion.div>
