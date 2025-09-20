@@ -79,7 +79,20 @@ const SenalesPreventivas: React.FC = () => {
     { id: 11, nombre: 'Badén', descripcion: 'Depresión en la calzada para drenaje', categoria: 'estructuras', imagen: 'Baden.png' },
     { id: 12, nombre: 'Lomada', descripcion: 'Elevación en la calzada', categoria: 'estructuras', imagen: 'lomada.png' },
     { id: 13, nombre: 'Estrechamiento Una Mano', descripcion: 'Reducción del ancho de la vía en un sentido', categoria: 'restricciones', imagen: 'estechamiento (una sola mano).png' },
-    { id: 14, nombre: 'Estrechamiento Doble Mano', descripcion: 'Reducción del ancho de la vía en ambos sentidos', categoria: 'restricciones', imagen: 'estrechamiento (en sus dos manos).png' }
+    { id: 14, nombre: 'Estrechamiento Doble Mano', descripcion: 'Reducción del ancho de la vía en ambos sentidos', categoria: 'restricciones', imagen: 'estrechamiento (en sus dos manos).png' },
+    { id: 15, nombre: 'Altura Limitada', descripcion: 'Paso con restricción de altura', categoria: 'restricciones', imagen: 'altura limitada.png' },
+    { id: 16, nombre: 'Ancho Limitado', descripcion: 'Paso con restricción de ancho', categoria: 'restricciones', imagen: 'ancho limitado.png' },
+    { id: 17, nombre: 'Cruce Escolar', descripcion: 'Zona de cruce frecuente de escolares', categoria: 'cruces', imagen: 'escolares.png' },
+    { id: 18, nombre: 'Encrucijada Bifurcación', descripcion: 'División del camino en dos vías', categoria: 'intersecciones', imagen: 'encrucijada (bifurcación).png' },
+    { id: 19, nombre: 'Encrucijada Cruce', descripcion: 'Cruce de caminos adelante', categoria: 'intersecciones', imagen: 'encrucijada (cruce).png' },
+    { id: 20, nombre: 'Encrucijada Empalme', descripcion: 'Unión de caminos', categoria: 'intersecciones', imagen: 'encrucijada (empalme).png' },
+    { id: 21, nombre: 'Incorporación de Tránsito Lateral', descripcion: 'Vía que se incorpora lateralmente', categoria: 'incorporaciones', imagen: 'incorporacion de transito lateral.png' },
+    { id: 22, nombre: 'Inicio Doble Circulación', descripcion: 'Cambio a vía de doble mano', categoria: 'circulacion', imagen: 'inicio doble ciculacion.png' },
+    { id: 23, nombre: 'Calzada Dividida', descripcion: 'Separación central de la calzada', categoria: 'circulacion', imagen: 'calzada dividida.png' },
+    { id: 24, nombre: 'Puente Angosto', descripcion: 'Puente con ancho reducido', categoria: 'estructuras', imagen: 'puente angosto.png' },
+    { id: 25, nombre: 'Puente Móvil', descripcion: 'Puente levadizo o móvil', categoria: 'estructuras', imagen: 'puente movil.png' },
+    { id: 26, nombre: 'Túnel', descripcion: 'Paso subterráneo adelante', categoria: 'estructuras', imagen: 'tunel.png' },
+    { id: 27, nombre: 'Rotonda', descripcion: 'Rotonda o glorieta adelante', categoria: 'intersecciones', imagen: 'rotonda.png' }
   ];
 
   const categorias = {
@@ -195,7 +208,7 @@ const SenalesPreventivas: React.FC = () => {
             className="mb-12"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center px-4">
-              14 Señales Preventivas Principales
+              27 Señales Preventivas Principales
             </h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
@@ -234,7 +247,7 @@ const SenalesPreventivas: React.FC = () => {
             
             <div className="text-center mt-8">
               <p className="text-gray-600 text-sm">
-                * 14 imágenes reales disponibles - Las restantes se irán agregando próximamente
+                * 27 imágenes reales disponibles - Las restantes se irán agregando próximamente
               </p>
             </div>
           </motion.div>
