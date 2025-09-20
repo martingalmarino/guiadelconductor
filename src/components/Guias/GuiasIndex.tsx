@@ -31,8 +31,8 @@ const GuiasIndex: React.FC = () => {
       icon: AlertTriangle,
       color: 'bg-yellow-50 border-yellow-200 hover:bg-yellow-100',
       iconColor: 'text-yellow-600',
-      status: 'Próximamente',
-      statusColor: 'bg-gray-100 text-gray-600'
+      status: 'Disponible',
+      statusColor: 'bg-green-100 text-green-800'
     },
     {
       slug: 'senales-reglamentarias',
