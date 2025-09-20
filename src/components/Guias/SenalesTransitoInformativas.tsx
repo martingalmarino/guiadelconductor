@@ -126,34 +126,9 @@ const SenalesTransitoInformativas: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 mb-12"
           >
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Las señales informativas son elementos fundamentales de la señalización vial que proporcionan 
-              información útil a los conductores sobre servicios, lugares de interés y referencias turísticas. 
-              A diferencia de las señales reglamentarias y preventivas, estas no imponen obligaciones sino 
-              que orientan y facilitan la navegación.
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Las señales de tránsito informativas en Argentina cumplen un rol esencial al orientar y guiar a los conductores durante su recorrido. A diferencia de las señales reglamentarias o preventivas, estas no imponen obligaciones ni advierten sobre peligros, sino que brindan datos prácticos para facilitar la circulación y mejorar la experiencia de viaje. Reconocerlas y comprender su significado es clave para una conducción más segura y eficiente.
             </p>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
-                <h3 className="font-semibold text-blue-900 mb-3">Características principales</h3>
-                <ul className="space-y-2 text-blue-800">
-                  <li>• Fondo generalmente azul o verde</li>
-                  <li>• Símbolos y texto en blanco</li>
-                  <li>• Forma rectangular</li>
-                  <li>• Proporcionan orientación sin obligar</li>
-                </ul>
-              </div>
-              
-              <div className="bg-green-50 rounded-xl p-6 border border-green-200">
-                <h3 className="font-semibold text-green-900 mb-3">Importancia en el examen</h3>
-                <ul className="space-y-2 text-green-800">
-                  <li>• Parte del examen teórico nacional</li>
-                  <li>• Ayudan a la orientación vial</li>
-                  <li>• Mejoran la seguridad del conductor</li>
-                  <li>• Facilitan el turismo y los viajes</li>
-                </ul>
-              </div>
-            </div>
           </motion.div>
 
           {/* Señales Grid */}
