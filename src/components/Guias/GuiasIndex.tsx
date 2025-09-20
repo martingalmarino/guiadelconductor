@@ -79,17 +79,17 @@ const GuiasIndex: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
           >
             <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-6">
               <BookOpen className="w-8 h-8 text-primary-600" />
             </div>
             
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 px-4">
               Guías de Tránsito
             </h1>
             
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Recursos completos para aprender sobre señalización, normas de tránsito y 
               prepararte para el examen teórico de conducir en Córdoba
             </p>
@@ -100,7 +100,7 @@ const GuiasIndex: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid gap-6 mb-12"
+            className="grid gap-4 sm:gap-6 mb-12"
           >
             {guias.map((guia, index) => {
               const IconComponent = guia.icon;
@@ -115,25 +115,25 @@ const GuiasIndex: React.FC = () => {
                 >
                   {isAvailable ? (
                     <Link to={`/guias/${guia.slug}`}>
-                      <div className={`${guia.color} border-2 rounded-2xl p-6 transition-all duration-300 cursor-pointer group`}>
-                        <div className="flex items-start gap-4">
+                      <div className={`${guia.color} border-2 rounded-2xl p-4 sm:p-6 transition-all duration-300 cursor-pointer group`}>
+                        <div className="flex items-start gap-3 sm:gap-4">
                           <div className="flex-shrink-0">
-                            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                              <IconComponent className={`w-6 h-6 ${guia.iconColor}`} />
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                              <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 ${guia.iconColor}`} />
                             </div>
                           </div>
                           
-                          <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-2">
-                              <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                              <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors leading-tight">
                                 {guia.title}
                               </h3>
-                              <span className={`px-2 py-1 rounded-full text-xs font-medium ${guia.statusColor}`}>
+                              <span className={`px-2 py-1 rounded-full text-xs font-medium ${guia.statusColor} self-start sm:self-auto`}>
                                 {guia.status}
                               </span>
                             </div>
                             
-                            <p className="text-gray-700 leading-relaxed">
+                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                               {guia.description}
                             </p>
                           </div>
@@ -141,25 +141,25 @@ const GuiasIndex: React.FC = () => {
                       </div>
                     </Link>
                   ) : (
-                    <div className={`${guia.color} border-2 rounded-2xl p-6 opacity-60 cursor-not-allowed`}>
-                      <div className="flex items-start gap-4">
+                    <div className={`${guia.color} border-2 rounded-2xl p-4 sm:p-6 opacity-60 cursor-not-allowed`}>
+                      <div className="flex items-start gap-3 sm:gap-4">
                         <div className="flex-shrink-0">
-                          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
-                            <IconComponent className={`w-6 h-6 ${guia.iconColor}`} />
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-xl flex items-center justify-center">
+                            <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 ${guia.iconColor}`} />
                           </div>
                         </div>
                         
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-xl font-bold text-gray-900">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">
                               {guia.title}
                             </h3>
-                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${guia.statusColor}`}>
+                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${guia.statusColor} self-start sm:self-auto`}>
                               {guia.status}
                             </span>
                           </div>
                           
-                          <p className="text-gray-700 leading-relaxed">
+                          <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                             {guia.description}
                           </p>
                         </div>
