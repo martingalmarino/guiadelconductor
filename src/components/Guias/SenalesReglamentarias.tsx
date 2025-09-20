@@ -122,7 +122,13 @@ const SenalesReglamentarias: React.FC = () => {
     // Obligaciones especiales de circulación
     { id: 44, nombre: 'Peatones por la Izquierda', descripcion: 'Peatones deben circular por la izquierda', categoria: 'peatonal', imagen: 'peatones por la izquierda.png' },
     { id: 45, nombre: 'Tránsito Pesado a la Derecha', descripcion: 'Vehículos pesados deben circular por la derecha', categoria: 'pesado', imagen: 'transito pesado a la derecha.png' },
-    { id: 46, nombre: 'Puesto de Control', descripcion: 'Obligatorio detenerse en puesto de control', categoria: 'control', imagen: 'puesto de control.png' }
+    { id: 46, nombre: 'Puesto de Control', descripcion: 'Obligatorio detenerse en puesto de control', categoria: 'control', imagen: 'puesto de control.png' },
+    
+    // Señales fundamentales de control
+    { id: 47, nombre: 'PARE', descripcion: 'Detención obligatoria completa', categoria: 'control', imagen: 'pare.png' },
+    { id: 48, nombre: 'Ceda el Paso', descripcion: 'Debe ceder prioridad a otros vehículos', categoria: 'control', imagen: 'ceda el paso.png' },
+    { id: 49, nombre: 'Barreras Ferroviarias', descripcion: 'Señalización de paso a nivel ferroviario', categoria: 'ferroviario', imagen: 'barreras ferroviales.png' },
+    { id: 50, nombre: 'Referencia de Avance', descripcion: 'Indicación de avance permitido', categoria: 'referencia', imagen: 'referencia de avance.png' }
   ];
 
   const categorias = {
@@ -134,7 +140,9 @@ const SenalesReglamentarias: React.FC = () => {
     direcciones: { color: 'bg-indigo-50 border-indigo-200', icon: CheckCircle, iconColor: 'text-indigo-600' },
     peatonal: { color: 'bg-teal-50 border-teal-200', icon: Users, iconColor: 'text-teal-600' },
     pesado: { color: 'bg-amber-50 border-amber-200', icon: Car, iconColor: 'text-amber-600' },
-    control: { color: 'bg-slate-50 border-slate-200', icon: Info, iconColor: 'text-slate-600' }
+    control: { color: 'bg-slate-50 border-slate-200', icon: Info, iconColor: 'text-slate-600' },
+    ferroviario: { color: 'bg-yellow-50 border-yellow-200', icon: Info, iconColor: 'text-yellow-600' },
+    referencia: { color: 'bg-gray-50 border-gray-200', icon: CheckCircle, iconColor: 'text-gray-600' }
   };
 
   const faqItems = [
