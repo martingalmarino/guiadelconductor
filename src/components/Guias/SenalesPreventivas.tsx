@@ -159,14 +159,6 @@ const SenalesPreventivas: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-8"
           >
-            <Link 
-              to="/" 
-              className="inline-flex items-center text-primary-600 hover:text-primary-700 transition-colors mb-4"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Volver al inicio
-            </Link>
-            
             <nav className="text-sm text-gray-600">
               <Link to="/" className="hover:text-primary-600">Inicio</Link>
               <span className="mx-2">/</span>
