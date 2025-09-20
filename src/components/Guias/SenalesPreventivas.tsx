@@ -256,11 +256,6 @@ const SenalesPreventivas: React.FC = () => {
               })}
             </div>
             
-            <div className="text-center mt-8">
-              <p className="text-gray-600 text-sm">
-                * Todas las señales mostradas cuentan con imágenes reales
-              </p>
-            </div>
           </motion.div>
 
           {/* FAQ Section */}
