@@ -83,7 +83,7 @@ const GuiasIndex: React.FC = () => {
             
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Recursos completos para aprender sobre señalización, normas de tránsito y 
-              prepararte para el examen teórico de conducir en Córdoba
+              prepararte para el examen teórico de conducir en toda Argentina
             </p>
           </motion.div>
 
