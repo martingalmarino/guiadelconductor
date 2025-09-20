@@ -8,8 +8,59 @@ import Footer from '../Footer';
 const SenalesTransitoInformativas: React.FC = () => {
   useEffect(() => {
     document.title = 'Señales de Tránsito Informativas en Argentina | Guía del Conductor';
+    
+    // Add FAQ JSON-LD for SEO
+    const faqJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué significan las señales de tránsito informativas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Son señales que orientan y guían a los conductores sobre servicios, lugares de interés y referencias turísticas, sin imponer obligaciones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué color tienen las señales informativas en Argentina?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Generalmente presentan fondo azul o verde con símbolos blancos, lo que las diferencia de las reglamentarias (rojas) y preventivas (amarillas)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde se colocan las señales de información turística y de servicios?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se instalan en rutas, accesos a ciudades y zonas turísticas para indicar servicios como hospitales, alojamientos, estaciones de servicio y más."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué es importante conocer las señales informativas para el examen de manejo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque forman parte del examen teórico en todo el país y ayudan a circular con mayor seguridad y confianza en la vía pública."
+          }
+        }
+      ]
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(faqJsonLd);
+    document.head.appendChild(script);
+    
     return () => {
       document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
+      // Remove the JSON-LD script when component unmounts
+      const existingScript = document.querySelector('script[type="application/ld+json"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
     };
   }, []);
 
@@ -174,11 +225,6 @@ const SenalesTransitoInformativas: React.FC = () => {
               })}
             </div>
             
-            <div className="text-center mt-8">
-              <p className="text-gray-600 text-sm">
-                * Todas las señales mostradas cuentan con imágenes reales
-              </p>
-            </div>
           </motion.div>
 
           {/* FAQ Section */}
