@@ -86,15 +86,35 @@ const SenalesReglamentarias: React.FC = () => {
     { id: 17, nombre: 'Prohibido Circular Carro de Mano', descripcion: 'Prohibido carros de mano', categoria: 'prohibiciones', imagen: 'prohibicion de circular carro de mano.png' },
     { id: 18, nombre: 'Prohibido Circular Jinetes', descripcion: 'Prohibido paso de jinetes', categoria: 'prohibiciones', imagen: 'prohibicion de circular jinetes.png' },
     { id: 19, nombre: 'Prohibido Tracción Animal', descripcion: 'Prohibido vehículos de tracción animal', categoria: 'prohibiciones', imagen: 'prohibicion de circular traccion animal.png' },
-    { id: 20, nombre: 'Prohibido Circular Tractor', descripcion: 'Prohibido paso de tractores', categoria: 'prohibiciones', imagen: 'prohibicion de circular tractor.png' }
+    { id: 20, nombre: 'Prohibido Circular Tractor', descripcion: 'Prohibido paso de tractores', categoria: 'prohibiciones', imagen: 'prohibicion de circular tractor.png' },
+    
+    // Limitaciones (fondo blanco, borde rojo con números/símbolos)
+    { id: 21, nombre: 'Limitación Velocidad Máxima', descripcion: 'Límite máximo de velocidad permitida', categoria: 'limitaciones', imagen: 'limitacion velocidad maxima.png' },
+    { id: 22, nombre: 'Limitación Velocidad Mínima', descripcion: 'Velocidad mínima obligatoria', categoria: 'limitaciones', imagen: 'limitacion velocidad minima.png' },
+    { id: 23, nombre: 'Limitación de Altura', descripcion: 'Límite máximo de altura del vehículo', categoria: 'limitaciones', imagen: 'lmitacion de altura.png' },
+    { id: 24, nombre: 'Limitación de Altura 2', descripcion: 'Límite de altura alternativo', categoria: 'limitaciones', imagen: 'lmitacion de altura 2.png' },
+    { id: 25, nombre: 'Limitación de Altura 3', descripcion: 'Límite de altura variante', categoria: 'limitaciones', imagen: 'limitacion de altura 1.png' },
+    { id: 26, nombre: 'Limitación de Ancho', descripcion: 'Límite máximo de ancho del vehículo', categoria: 'limitaciones', imagen: 'lmitacion de ancho.png' },
+    { id: 27, nombre: 'Limitación Largo del Vehículo', descripcion: 'Límite máximo de longitud del vehículo', categoria: 'limitaciones', imagen: 'lmitacion largo del vehiculo.png' },
+    
+    // Circulación Exclusiva (fondo azul)
+    { id: 28, nombre: 'Circulación Exclusiva Bicicletas', descripcion: 'Carril de uso exclusivo para bicicletas', categoria: 'exclusivas', imagen: 'circulacion exclusiva bicicletas.png' },
+    { id: 29, nombre: 'Circulación Exclusiva Motos', descripcion: 'Carril de uso exclusivo para motocicletas', categoria: 'exclusivas', imagen: 'circulacion exclusiva motos.png' },
+    { id: 30, nombre: 'Circulación Exclusiva Peatones', descripcion: 'Área de uso exclusivo para peatones', categoria: 'exclusivas', imagen: 'circulacion exclusiva peatones.png' },
+    { id: 31, nombre: 'Circulación Exclusiva Jinetes', descripcion: 'Área de uso exclusivo para jinetes', categoria: 'exclusivas', imagen: 'cirulacion exclusiva jinetes.png' },
+    { id: 32, nombre: 'Circulación Exclusiva Transporte Público', descripcion: 'Carril exclusivo para transporte público', categoria: 'exclusivas', imagen: 'circulacin exclusiva trasnporte publico.png' },
+    
+    // Estacionamiento y obligaciones especiales
+    { id: 33, nombre: 'Estacionamiento Exclusivo', descripcion: 'Zona de estacionamiento reservado', categoria: 'estacionamiento', imagen: 'estacionamiento exclusivo.png' },
+    { id: 34, nombre: 'Uso de Cadenas para Nieve', descripcion: 'Obligatorio usar cadenas en condiciones de nieve', categoria: 'obligaciones', imagen: 'uso de cadenas para nieve.png' }
   ];
 
   const categorias = {
     prohibiciones: { color: 'bg-red-50 border-red-200', icon: XCircle, iconColor: 'text-red-600' },
-    limites: { color: 'bg-orange-50 border-orange-200', icon: Info, iconColor: 'text-orange-600' },
-    obligaciones: { color: 'bg-blue-50 border-blue-200', icon: CheckCircle, iconColor: 'text-blue-600' },
-    exclusivos: { color: 'bg-purple-50 border-purple-200', icon: Users, iconColor: 'text-purple-600' },
-    horarios: { color: 'bg-green-50 border-green-200', icon: Clock, iconColor: 'text-green-600' }
+    limitaciones: { color: 'bg-orange-50 border-orange-200', icon: Info, iconColor: 'text-orange-600' },
+    exclusivas: { color: 'bg-blue-50 border-blue-200', icon: CheckCircle, iconColor: 'text-blue-600' },
+    estacionamiento: { color: 'bg-purple-50 border-purple-200', icon: Car, iconColor: 'text-purple-600' },
+    obligaciones: { color: 'bg-green-50 border-green-200', icon: Users, iconColor: 'text-green-600' }
   };
 
   const faqItems = [
@@ -181,7 +201,7 @@ const SenalesReglamentarias: React.FC = () => {
             className="mb-12"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center px-4">
-              Señales de Prohibición en Argentina
+              Señales Reglamentarias en Argentina
             </h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
