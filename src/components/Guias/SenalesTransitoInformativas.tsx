@@ -22,25 +22,26 @@ const SenalesTransitoInformativas: React.FC = () => {
     { id: 5, nombre: 'Información Turística', descripcion: 'Centro de información para turistas', categoria: 'turismo' },
     { id: 6, nombre: 'Teléfono', descripcion: 'Ubicación de teléfono público', categoria: 'servicios', imagen: 'servicio telefonico.png' },
     { id: 7, nombre: 'Estación de Servicio', descripcion: 'Combustible y servicios para vehículos', categoria: 'servicios', imagen: 'estacion de servicio.png' },
-    { id: 8, nombre: 'Mecánico', descripción: 'Taller mecánico o servicios de reparación', categoria: 'servicios' },
-    { id: 9, nombre: 'Hotel', descripcion: 'Alojamiento y hospedaje', categoria: 'turismo' },
-    { id: 10, nombre: 'Restaurante', descripcion: 'Servicio de comidas', categoria: 'turismo' },
-    { id: 11, nombre: 'Zona de Camping', descripcion: 'Área habilitada para acampar', categoria: 'turismo' },
+    { id: 8, nombre: 'Mecánico', descripcion: 'Taller mecánico o servicios de reparación', categoria: 'servicios', imagen: 'servicio mecanico.png' },
+    { id: 9, nombre: 'Hotel', descripcion: 'Alojamiento y hospedaje', categoria: 'turismo', imagen: 'hotel.png' },
+    { id: 10, nombre: 'Restaurante', descripcion: 'Servicio de comidas', categoria: 'turismo', imagen: 'bar.png' },
+    { id: 11, nombre: 'Zona de Camping', descripcion: 'Área habilitada para acampar', categoria: 'turismo', imagen: 'campamento.png' },
     { id: 12, nombre: 'Aeropuerto', descripcion: 'Dirección hacia el aeropuerto', categoria: 'transporte' },
     { id: 13, nombre: 'Puerto', descripcion: 'Ubicación del puerto marítimo', categoria: 'transporte' },
     { id: 14, nombre: 'Terminal de Ómnibus', descripcion: 'Estación de autobuses', categoria: 'transporte' },
     { id: 15, nombre: 'Estación de Tren', descripcion: 'Terminal ferroviaria', categoria: 'transporte' },
-    { id: 16, nombre: 'Taxi', descripcion: 'Parada de taxis', categoria: 'transporte' },
+    { id: 16, nombre: 'Taxi', descripcion: 'Parada de taxis', categoria: 'transporte', imagen: 'taxi.png' },
     { id: 17, nombre: 'Estacionamiento', descripcion: 'Zona de estacionamiento', categoria: 'servicios' },
     { id: 18, nombre: 'WC / Sanitarios', descripcion: 'Servicios higiénicos públicos', categoria: 'servicios' },
     { id: 19, nombre: 'Agua Potable', descripcion: 'Fuente de agua potable', categoria: 'servicios' },
-    { id: 20, nombre: 'Zona Recreativa', descripcion: 'Área de recreación y esparcimiento', categoria: 'turismo' },
+    { id: 20, nombre: 'Zona Recreativa', descripcion: 'Área de recreación y esparcimiento', categoria: 'turismo', imagen: 'lugar para recreacion.png' },
     { id: 21, nombre: 'Mirador', descripcion: 'Punto panorámico o mirador', categoria: 'turismo' },
     { id: 22, nombre: 'Museo', descripcion: 'Museo o sitio de interés cultural', categoria: 'turismo' },
     { id: 23, nombre: 'Iglesia', descripcion: 'Templo religioso', categoria: 'servicios' },
     { id: 24, nombre: 'Correo', descripcion: 'Oficina postal', categoria: 'servicios' },
     { id: 25, nombre: 'Policía', descripcion: 'Comisaría o puesto policial', categoria: 'servicios' },
-    { id: 26, nombre: 'Telesférico', descripcion: 'Transporte aéreo por cable', categoria: 'transporte', imagen: 'telesférico.png' }
+    { id: 26, nombre: 'Telesférico', descripcion: 'Transporte aéreo por cable', categoria: 'transporte', imagen: 'telesférico.png' },
+    { id: 27, nombre: 'Balneario', descripcion: 'Zona de playa y recreación acuática', categoria: 'turismo', imagen: 'balneario.png' }
   ];
 
   const categorias = {
@@ -139,7 +140,7 @@ const SenalesTransitoInformativas: React.FC = () => {
             className="mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              26 Señales Informativas Principales
+              27 Señales Informativas Principales
             </h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -182,7 +183,7 @@ const SenalesTransitoInformativas: React.FC = () => {
             
             <div className="text-center mt-8">
               <p className="text-gray-600 text-sm">
-                * 4 imágenes reales disponibles - Las restantes se irán agregando próximamente
+                * 11 imágenes reales disponibles - Las restantes se irán agregando próximamente
               </p>
             </div>
           </motion.div>
