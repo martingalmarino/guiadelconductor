@@ -13,35 +13,29 @@ const SenalesTransitoInformativas: React.FC = () => {
     };
   }, []);
 
-  // Datos de las 25 señales informativas más comunes
+  // Señales informativas con imágenes reales disponibles
   const senales = [
     { id: 1, nombre: 'Puesto Sanitario', descripcion: 'Indica la ubicación de un puesto de primeros auxilios', categoria: 'salud', imagen: 'puesto sanitario.png' },
-    { id: 2, nombre: 'Hospital', descripcion: 'Señala la dirección hacia un hospital', categoria: 'salud' },
-    { id: 3, nombre: 'Cruz Roja', descripcion: 'Indica servicios de la Cruz Roja', categoria: 'salud' },
-    { id: 4, nombre: 'Farmacia', descripcion: 'Ubicación de farmacia o servicio médico', categoria: 'salud' },
-    { id: 5, nombre: 'Información Turística', descripcion: 'Centro de información para turistas', categoria: 'turismo' },
-    { id: 6, nombre: 'Teléfono', descripcion: 'Ubicación de teléfono público', categoria: 'servicios', imagen: 'servicio telefonico.png' },
-    { id: 7, nombre: 'Estación de Servicio', descripcion: 'Combustible y servicios para vehículos', categoria: 'servicios', imagen: 'estacion de servicio.png' },
-    { id: 8, nombre: 'Mecánico', descripcion: 'Taller mecánico o servicios de reparación', categoria: 'servicios', imagen: 'servicio mecanico.png' },
-    { id: 9, nombre: 'Hotel', descripcion: 'Alojamiento y hospedaje', categoria: 'turismo', imagen: 'hotel.png' },
-    { id: 10, nombre: 'Restaurante', descripcion: 'Servicio de comidas', categoria: 'turismo', imagen: 'bar.png' },
-    { id: 11, nombre: 'Zona de Camping', descripcion: 'Área habilitada para acampar', categoria: 'turismo', imagen: 'campamento.png' },
-    { id: 12, nombre: 'Aeropuerto', descripcion: 'Dirección hacia el aeropuerto', categoria: 'transporte' },
-    { id: 13, nombre: 'Puerto', descripcion: 'Ubicación del puerto marítimo', categoria: 'transporte' },
-    { id: 14, nombre: 'Terminal de Ómnibus', descripcion: 'Estación de autobuses', categoria: 'transporte' },
-    { id: 15, nombre: 'Estación de Tren', descripcion: 'Terminal ferroviaria', categoria: 'transporte' },
-    { id: 16, nombre: 'Taxi', descripcion: 'Parada de taxis', categoria: 'transporte', imagen: 'taxi.png' },
-    { id: 17, nombre: 'Estacionamiento', descripcion: 'Zona de estacionamiento', categoria: 'servicios' },
-    { id: 18, nombre: 'WC / Sanitarios', descripcion: 'Servicios higiénicos públicos', categoria: 'servicios' },
-    { id: 19, nombre: 'Agua Potable', descripcion: 'Fuente de agua potable', categoria: 'servicios' },
-    { id: 20, nombre: 'Zona Recreativa', descripcion: 'Área de recreación y esparcimiento', categoria: 'turismo', imagen: 'lugar para recreacion.png' },
-    { id: 21, nombre: 'Mirador', descripcion: 'Punto panorámico o mirador', categoria: 'turismo' },
-    { id: 22, nombre: 'Museo', descripcion: 'Museo o sitio de interés cultural', categoria: 'turismo' },
-    { id: 23, nombre: 'Iglesia', descripcion: 'Templo religioso', categoria: 'servicios' },
-    { id: 24, nombre: 'Correo', descripcion: 'Oficina postal', categoria: 'servicios' },
-    { id: 25, nombre: 'Policía', descripcion: 'Comisaría o puesto policial', categoria: 'servicios' },
-    { id: 26, nombre: 'Telesférico', descripcion: 'Transporte aéreo por cable', categoria: 'transporte', imagen: 'telesférico.png' },
-    { id: 27, nombre: 'Balneario', descripcion: 'Zona de playa y recreación acuática', categoria: 'turismo', imagen: 'balneario.png' }
+    { id: 2, nombre: 'Teléfono', descripcion: 'Ubicación de teléfono público', categoria: 'servicios', imagen: 'servicio telefonico.png' },
+    { id: 3, nombre: 'Estación de Servicio', descripcion: 'Combustible y servicios para vehículos', categoria: 'servicios', imagen: 'estacion de servicio.png' },
+    { id: 4, nombre: 'Mecánico', descripcion: 'Taller mecánico o servicios de reparación', categoria: 'servicios', imagen: 'servicio mecanico.png' },
+    { id: 5, nombre: 'Hotel', descripcion: 'Alojamiento y hospedaje', categoria: 'turismo', imagen: 'hotel.png' },
+    { id: 6, nombre: 'Restaurante', descripcion: 'Servicio de comidas', categoria: 'turismo', imagen: 'restaurante.png' },
+    { id: 7, nombre: 'Zona de Camping', descripcion: 'Área habilitada para acampar', categoria: 'turismo', imagen: 'campamento.png' },
+    { id: 8, nombre: 'Aeropuerto', descripcion: 'Dirección hacia el aeropuerto', categoria: 'transporte', imagen: 'aeropuerto.png' },
+    { id: 9, nombre: 'Taxi', descripcion: 'Parada de taxis', categoria: 'transporte', imagen: 'taxi.png' },
+    { id: 10, nombre: 'Estacionamiento', descripcion: 'Zona de estacionamiento', categoria: 'servicios', imagen: 'estacionamiento.png' },
+    { id: 11, nombre: 'Zona Recreativa', descripcion: 'Área de recreación y esparcimiento', categoria: 'turismo', imagen: 'lugar para recreacion.png' },
+    { id: 12, nombre: 'Museo', descripcion: 'Museo o sitio de interés cultural', categoria: 'turismo', imagen: 'museo.png' },
+    { id: 13, nombre: 'Correo', descripcion: 'Oficina postal', categoria: 'servicios', imagen: 'correo.png' },
+    { id: 14, nombre: 'Policía', descripcion: 'Comisaría o puesto policial', categoria: 'servicios', imagen: 'policia.png' },
+    { id: 15, nombre: 'Telesférico', descripcion: 'Transporte aéreo por cable', categoria: 'transporte', imagen: 'telesférico.png' },
+    { id: 16, nombre: 'Balneario', descripcion: 'Zona de playa y recreación acuática', categoria: 'turismo', imagen: 'balneario.png' },
+    { id: 17, nombre: 'Gomería', descripcion: 'Servicio de reparación de neumáticos', categoria: 'servicios', imagen: 'gomeria.png' },
+    { id: 18, nombre: 'Plaza', descripcion: 'Espacio público de recreación', categoria: 'turismo', imagen: 'plaza.png' },
+    { id: 19, nombre: 'Detención Transporte Público', descripcion: 'Parada de autobús o transporte público', categoria: 'transporte', imagen: 'detencion transporte publico.png' },
+    { id: 20, nombre: 'Estacionamiento Casas Rodantes', descripcion: 'Área específica para casas rodantes', categoria: 'servicios', imagen: 'estacionamiento casas rodantes.png' },
+    { id: 21, nombre: 'Fiscalización de Velocidad', descripcion: 'Zona de control de velocidad', categoria: 'servicios', imagen: 'fiscalizacion de velocidad.png' }
   ];
 
   const categorias = {
@@ -140,7 +134,7 @@ const SenalesTransitoInformativas: React.FC = () => {
             className="mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              27 Señales Informativas Principales
+              21 Señales Informativas Principales
             </h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -156,17 +150,13 @@ const SenalesTransitoInformativas: React.FC = () => {
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group"
                   >
-                    {/* Imagen real de la señal o icono placeholder */}
+                    {/* Imagen real de la señal */}
                     <div className="w-16 h-16 mx-auto mb-3 bg-gray-50 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
-                      {senal.imagen ? (
-                        <img 
-                          src={`/assets/senales-informativas/${senal.imagen}`}
-                          alt={senal.nombre}
-                          className="w-full h-full object-contain"
-                        />
-                      ) : (
-                        <IconComponent className={`w-8 h-8 ${categoria.iconColor}`} />
-                      )}
+                      <img 
+                        src={`/assets/senales-informativas/${senal.imagen}`}
+                        alt={senal.nombre}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     
                     <h3 className="font-semibold text-gray-900 text-sm mb-2 leading-tight">
@@ -183,7 +173,7 @@ const SenalesTransitoInformativas: React.FC = () => {
             
             <div className="text-center mt-8">
               <p className="text-gray-600 text-sm">
-                * 11 imágenes reales disponibles - Las restantes se irán agregando próximamente
+                * Todas las señales mostradas cuentan con imágenes reales
               </p>
             </div>
           </motion.div>
