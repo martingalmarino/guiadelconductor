@@ -41,8 +41,8 @@ const GuiasIndex: React.FC = () => {
       icon: CheckCircle,
       color: 'bg-red-50 border-red-200 hover:bg-red-100',
       iconColor: 'text-red-600',
-      status: 'Próximamente',
-      statusColor: 'bg-gray-100 text-gray-600'
+      status: 'Disponible',
+      statusColor: 'bg-green-100 text-green-800'
     }
   ];
 

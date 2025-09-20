@@ -17,6 +17,7 @@ import NotFound from './components/NotFound';
 import GuiasIndex from './components/Guias/GuiasIndex';
 import SenalesTransitoInformativas from './components/Guias/SenalesTransitoInformativas';
 import SenalesPreventivas from './components/Guias/SenalesPreventivas';
+import SenalesReglamentarias from './components/Guias/SenalesReglamentarias';
 import ScrollToTop from './components/ScrollToTop';
 
 // Home Page Component
@@ -78,6 +79,7 @@ function App() {
           <Route path="/guias" element={<GuiasIndex />} />
           <Route path="/guias/senales-transito-informativas" element={<SenalesTransitoInformativas />} />
           <Route path="/guias/senales-preventivas" element={<SenalesPreventivas />} />
+          <Route path="/guias/senales-reglamentarias" element={<SenalesReglamentarias />} />
           {/* Catch-all route for 404 pages */}
           <Route path="*" element={<NotFound />} />
         </Routes>
