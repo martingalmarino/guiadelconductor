@@ -187,11 +187,11 @@ const SenalesTransitoInformativas: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center px-4">
               24 Señales Informativas Principales
             </h2>
             
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
               {senales.map((senal, index) => {
                 const categoria = categorias[senal.categoria as keyof typeof categorias];
                 const IconComponent = categoria.icon;
@@ -202,10 +202,10 @@ const SenalesTransitoInformativas: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                    className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group"
                   >
                     {/* Imagen real de la señal */}
-                    <div className="w-16 h-16 mx-auto mb-3 bg-gray-50 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-3 bg-gray-50 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
                       <img 
                         src={`/assets/senales-informativas/${senal.imagen}`}
                         alt={senal.nombre}
@@ -213,11 +213,11 @@ const SenalesTransitoInformativas: React.FC = () => {
                       />
                     </div>
                     
-                    <h3 className="font-semibold text-gray-900 text-sm mb-2 leading-tight">
+                    <h3 className="font-semibold text-gray-900 text-xs sm:text-sm mb-1 sm:mb-2 leading-tight px-1">
                       {senal.nombre}
                     </h3>
                     
-                    <p className="text-xs text-gray-600 leading-tight">
+                    <p className="text-xs text-gray-600 leading-tight px-1 hidden sm:block">
                       {senal.descripcion}
                     </p>
                   </motion.div>
