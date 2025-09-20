@@ -21,21 +21,24 @@ const SenalesTransitoInformativas: React.FC = () => {
     { id: 4, nombre: 'Mecánico', descripcion: 'Taller mecánico o servicios de reparación', categoria: 'servicios', imagen: 'servicio mecanico.png' },
     { id: 5, nombre: 'Hotel', descripcion: 'Alojamiento y hospedaje', categoria: 'turismo', imagen: 'hotel.png' },
     { id: 6, nombre: 'Restaurante', descripcion: 'Servicio de comidas', categoria: 'turismo', imagen: 'restaurante.png' },
-    { id: 7, nombre: 'Zona de Camping', descripcion: 'Área habilitada para acampar', categoria: 'turismo', imagen: 'campamento.png' },
-    { id: 8, nombre: 'Aeropuerto', descripcion: 'Dirección hacia el aeropuerto', categoria: 'transporte', imagen: 'aeropuerto.png' },
-    { id: 9, nombre: 'Taxi', descripcion: 'Parada de taxis', categoria: 'transporte', imagen: 'taxi.png' },
-    { id: 10, nombre: 'Estacionamiento', descripcion: 'Zona de estacionamiento', categoria: 'servicios', imagen: 'estacionamiento.png' },
-    { id: 11, nombre: 'Zona Recreativa', descripcion: 'Área de recreación y esparcimiento', categoria: 'turismo', imagen: 'lugar para recreacion.png' },
-    { id: 12, nombre: 'Museo', descripcion: 'Museo o sitio de interés cultural', categoria: 'turismo', imagen: 'museo.png' },
-    { id: 13, nombre: 'Correo', descripcion: 'Oficina postal', categoria: 'servicios', imagen: 'correo.png' },
-    { id: 14, nombre: 'Policía', descripcion: 'Comisaría o puesto policial', categoria: 'servicios', imagen: 'policia.png' },
-    { id: 15, nombre: 'Telesférico', descripcion: 'Transporte aéreo por cable', categoria: 'transporte', imagen: 'telesférico.png' },
-    { id: 16, nombre: 'Balneario', descripcion: 'Zona de playa y recreación acuática', categoria: 'turismo', imagen: 'balneario.png' },
-    { id: 17, nombre: 'Gomería', descripcion: 'Servicio de reparación de neumáticos', categoria: 'servicios', imagen: 'gomeria.png' },
-    { id: 18, nombre: 'Plaza', descripcion: 'Espacio público de recreación', categoria: 'turismo', imagen: 'plaza.png' },
-    { id: 19, nombre: 'Detención Transporte Público', descripcion: 'Parada de autobús o transporte público', categoria: 'transporte', imagen: 'detencion transporte publico.png' },
-    { id: 20, nombre: 'Estacionamiento Casas Rodantes', descripcion: 'Área específica para casas rodantes', categoria: 'servicios', imagen: 'estacionamiento casas rodantes.png' },
-    { id: 21, nombre: 'Fiscalización de Velocidad', descripcion: 'Zona de control de velocidad', categoria: 'servicios', imagen: 'fiscalizacion de velocidad.png' }
+    { id: 7, nombre: 'Bar', descripcion: 'Servicio de bebidas y comidas', categoria: 'turismo', imagen: 'bar.png' },
+    { id: 8, nombre: 'Zona de Camping', descripcion: 'Área habilitada para acampar', categoria: 'turismo', imagen: 'campamento.png' },
+    { id: 9, nombre: 'Aeropuerto', descripcion: 'Dirección hacia el aeropuerto', categoria: 'transporte', imagen: 'aeropuerto.png' },
+    { id: 10, nombre: 'Terminal de Ómnibus', descripcion: 'Estación de autobuses', categoria: 'transporte', imagen: 'terminal de omnibus.png' },
+    { id: 11, nombre: 'Taxi', descripcion: 'Parada de taxis', categoria: 'transporte', imagen: 'taxi.png' },
+    { id: 12, nombre: 'Telesférico', descripcion: 'Transporte aéreo por cable', categoria: 'transporte', imagen: 'telesférico.png' },
+    { id: 13, nombre: 'Detención Transporte Público', descripcion: 'Parada de autobús o transporte público', categoria: 'transporte', imagen: 'detencion transporte publico.png' },
+    { id: 14, nombre: 'Estacionamiento', descripcion: 'Zona de estacionamiento', categoria: 'servicios', imagen: 'estacionamiento.png' },
+    { id: 15, nombre: 'Estacionamiento Casas Rodantes', descripcion: 'Área específica para casas rodantes', categoria: 'servicios', imagen: 'estacionamiento casas rodantes.png' },
+    { id: 16, nombre: 'Correo', descripcion: 'Oficina postal', categoria: 'servicios', imagen: 'correo.png' },
+    { id: 17, nombre: 'Policía', descripcion: 'Comisaría o puesto policial', categoria: 'servicios', imagen: 'policia.png' },
+    { id: 18, nombre: 'Gomería', descripcion: 'Servicio de reparación de neumáticos', categoria: 'servicios', imagen: 'gomeria.png' },
+    { id: 19, nombre: 'Fiscalización de Velocidad', descripcion: 'Zona de control de velocidad', categoria: 'servicios', imagen: 'fiscalizacion de velocidad.png' },
+    { id: 20, nombre: 'Zona Recreativa', descripcion: 'Área de recreación y esparcimiento', categoria: 'turismo', imagen: 'lugar para recreacion.png' },
+    { id: 21, nombre: 'Museo', descripcion: 'Museo o sitio de interés cultural', categoria: 'turismo', imagen: 'museo.png' },
+    { id: 22, nombre: 'Plaza', descripcion: 'Espacio público de recreación', categoria: 'turismo', imagen: 'plaza.png' },
+    { id: 23, nombre: 'Balneario', descripcion: 'Zona de playa y recreación acuática', categoria: 'turismo', imagen: 'balneario.png' },
+    { id: 24, nombre: 'Punto Panorámico', descripcion: 'Mirador o punto de vista panorámico', categoria: 'turismo', imagen: 'punto panoramico.png' }
   ];
 
   const categorias = {
@@ -134,7 +137,7 @@ const SenalesTransitoInformativas: React.FC = () => {
             className="mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              21 Señales Informativas Principales
+              24 Señales Informativas Principales
             </h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
