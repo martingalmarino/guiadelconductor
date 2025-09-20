@@ -178,10 +178,10 @@ const SenalesTransitoInformativas: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className={`${categoria.color} border-2 rounded-xl p-4 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group`}
+                    className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group"
                   >
                     {/* Imagen real de la señal o icono placeholder */}
-                    <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-lg border-2 border-gray-300 flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
+                    <div className="w-16 h-16 mx-auto mb-3 bg-gray-50 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
                       {senal.imagen ? (
                         <img 
                           src={`/assets/senales-informativas/${senal.imagen}`}
