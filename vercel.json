@@ -4,5 +4,20 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
+  ],
+  "routes": [
+    {
+      "src": "^/(test|guia-del-buen-conductor-cordoba|terminos-y-condiciones|politica-de-privacidad|politica-de-cookies)/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/(?!data|static|favicon|manifest|robots).*",
+      "dest": "/index.html",
+      "status": 404
+    }
   ]
 }

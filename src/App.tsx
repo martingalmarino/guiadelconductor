@@ -13,6 +13,7 @@ import GuiaBuenConductor from './components/GuiaBuenConductor';
 import TerminosCondiciones from './components/TerminosCondiciones';
 import PoliticaPrivacidad from './components/PoliticaPrivacidad';
 import PoliticaCookies from './components/PoliticaCookies';
+import NotFound from './components/NotFound';
 import ScrollToTop from './components/ScrollToTop';
 
 // Home Page Component
@@ -70,6 +71,8 @@ function App() {
           <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
           <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/politica-de-cookies" element={<PoliticaCookies />} />
+          {/* Catch-all route for 404 pages */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
