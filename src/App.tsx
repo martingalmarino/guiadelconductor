@@ -14,6 +14,8 @@ import TerminosCondiciones from './components/TerminosCondiciones';
 import PoliticaPrivacidad from './components/PoliticaPrivacidad';
 import PoliticaCookies from './components/PoliticaCookies';
 import NotFound from './components/NotFound';
+import GuiasIndex from './components/Guias/GuiasIndex';
+import SenalesTransitoInformativas from './components/Guias/SenalesTransitoInformativas';
 import ScrollToTop from './components/ScrollToTop';
 
 // Home Page Component
@@ -71,6 +73,9 @@ function App() {
           <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
           <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/politica-de-cookies" element={<PoliticaCookies />} />
+          {/* Guías routes */}
+          <Route path="/guias" element={<GuiasIndex />} />
+          <Route path="/guias/senales-transito-informativas" element={<SenalesTransitoInformativas />} />
           {/* Catch-all route for 404 pages */}
           <Route path="*" element={<NotFound />} />
         </Routes>

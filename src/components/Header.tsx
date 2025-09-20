@@ -18,7 +18,7 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Inicio', href: '/' },
-    { name: 'Guías', href: '#guias' },
+    { name: 'Guías', href: '/guias' },
     { name: 'Exámenes', href: '#examenes' },
   ];
 
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 flex-1 justify-center">
             {navItems.map((item) => (
-              item.name === 'Inicio' ? (
+              (item.name === 'Inicio' || item.name === 'Guías') ? (
                 <Link key={item.name} to={item.href}>
                   <motion.div
                     whileHover={{ y: -2 }}
@@ -138,7 +138,7 @@ const Header: React.FC = () => {
             >
               <nav className="py-4 space-y-2">
                 {navItems.map((item) => (
-                  item.name === 'Inicio' ? (
+                  (item.name === 'Inicio' || item.name === 'Guías') ? (
                     <Link key={item.name} to={item.href} onClick={() => setIsMenuOpen(false)}>
                       <motion.div
                         whileHover={{ x: 10 }}
