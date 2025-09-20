@@ -64,52 +64,29 @@ const SenalesReglamentarias: React.FC = () => {
     };
   }, []);
 
-  // Señales reglamentarias principales - se irán agregando las imágenes progresivamente
+  // Señales reglamentarias con imágenes reales disponibles
   const senales = [
     // Prohibiciones (fondo blanco, borde rojo)
-    { id: 1, nombre: 'Prohibido Girar a la Izquierda', descripcion: 'No se permite giro hacia la izquierda', categoria: 'prohibiciones' },
-    { id: 2, nombre: 'Prohibido Girar a la Derecha', descripcion: 'No se permite giro hacia la derecha', categoria: 'prohibiciones' },
-    { id: 3, nombre: 'Prohibido Girar en U', descripcion: 'No se permite cambio de sentido', categoria: 'prohibiciones' },
-    { id: 4, nombre: 'Prohibido Adelantar', descripcion: 'No se permite sobrepasar otros vehículos', categoria: 'prohibiciones' },
-    { id: 5, nombre: 'Prohibido el Paso', descripcion: 'Acceso restringido a la vía', categoria: 'prohibiciones' },
-    { id: 6, nombre: 'Prohibido Estacionar', descripcion: 'No se permite dejar el vehículo', categoria: 'prohibiciones' },
-    { id: 7, nombre: 'Prohibido Detenerse', descripcion: 'No se permite parar el vehículo', categoria: 'prohibiciones' },
-    { id: 8, nombre: 'Prohibido Bocina', descripcion: 'No se permite usar señales acústicas', categoria: 'prohibiciones' },
-    { id: 9, nombre: 'Prohibido Motocicletas', descripcion: 'Acceso restringido para motocicletas', categoria: 'prohibiciones' },
-    { id: 10, nombre: 'Prohibido Bicicletas', descripcion: 'Acceso restringido para bicicletas', categoria: 'prohibiciones' },
-    { id: 11, nombre: 'Prohibido Peatones', descripcion: 'Acceso restringido para peatones', categoria: 'prohibiciones' },
-    { id: 12, nombre: 'Prohibido Camiones', descripcion: 'Acceso restringido para vehículos de carga', categoria: 'prohibiciones' },
-    
-    // Restricciones de límites
-    { id: 13, nombre: 'Velocidad Máxima', descripcion: 'Límite máximo de velocidad permitida', categoria: 'limites' },
-    { id: 14, nombre: 'Peso Máximo', descripcion: 'Límite máximo de peso del vehículo', categoria: 'limites' },
-    { id: 15, nombre: 'Altura Máxima', descripcion: 'Límite máximo de altura del vehículo', categoria: 'limites' },
-    { id: 16, nombre: 'Ancho Máximo', descripcion: 'Límite máximo de ancho del vehículo', categoria: 'limites' },
-    { id: 17, nombre: 'Largo Máximo', descripcion: 'Límite máximo de longitud del vehículo', categoria: 'limites' },
-    
-    // Obligaciones (fondo azul)
-    { id: 18, nombre: 'Sentido Único', descripcion: 'Circulación obligatoria en una dirección', categoria: 'obligaciones' },
-    { id: 19, nombre: 'Dirección Obligatoria Derecha', descripcion: 'Debe girar obligatoriamente a la derecha', categoria: 'obligaciones' },
-    { id: 20, nombre: 'Dirección Obligatoria Izquierda', descripcion: 'Debe girar obligatoriamente a la izquierda', categoria: 'obligaciones' },
-    { id: 21, nombre: 'Dirección Obligatoria Recto', descripcion: 'Debe continuar en línea recta', categoria: 'obligaciones' },
-    { id: 22, nombre: 'Uso Obligatorio de Cinturón', descripcion: 'Obligatorio usar cinturón de seguridad', categoria: 'obligaciones' },
-    { id: 23, nombre: 'Uso Obligatorio de Casco', descripcion: 'Obligatorio usar casco protector', categoria: 'obligaciones' },
-    { id: 24, nombre: 'Carril Exclusivo Buses', descripcion: 'Carril de uso exclusivo para autobuses', categoria: 'obligaciones' },
-    { id: 25, nombre: 'Carril Exclusivo Bicicletas', descripcion: 'Carril de uso exclusivo para bicicletas', categoria: 'obligaciones' },
-    
-    // Restricciones especiales
-    { id: 26, nombre: 'Solo Buses', descripcion: 'Acceso exclusivo para autobuses', categoria: 'exclusivos' },
-    { id: 27, nombre: 'Solo Taxis', descripcion: 'Acceso exclusivo para taxis', categoria: 'exclusivos' },
-    { id: 28, nombre: 'Solo Bicicletas', descripcion: 'Acceso exclusivo para bicicletas', categoria: 'exclusivos' },
-    { id: 29, nombre: 'Solo Peatones', descripcion: 'Acceso exclusivo para peatones', categoria: 'exclusivos' },
-    { id: 30, nombre: 'Velocidad Mínima', descripcion: 'Velocidad mínima obligatoria', categoria: 'limites' },
-    
-    // Horarios y condiciones
-    { id: 31, nombre: 'Estacionamiento con Horario', descripcion: 'Estacionamiento permitido en horarios específicos', categoria: 'horarios' },
-    { id: 32, nombre: 'Prohibido en Horarios', descripcion: 'Restricción aplicable en horarios determinados', categoria: 'horarios' },
-    { id: 33, nombre: 'Carga y Descarga', descripcion: 'Zona exclusiva para operaciones de carga', categoria: 'horarios' },
-    { id: 34, nombre: 'Estacionamiento Medido', descripcion: 'Zona de estacionamiento tarifado', categoria: 'horarios' },
-    { id: 35, nombre: 'Prohibido Fumar', descripcion: 'Prohibición de fumar en el área', categoria: 'prohibiciones' }
+    { id: 1, nombre: 'Prohibido Girar a la Izquierda', descripcion: 'No se permite giro hacia la izquierda', categoria: 'prohibiciones', imagen: 'no girar a la izquierda.png' },
+    { id: 2, nombre: 'Prohibido Girar a la Derecha', descripcion: 'No se permite giro hacia la derecha', categoria: 'prohibiciones', imagen: 'no girar a la derecha.png' },
+    { id: 3, nombre: 'Prohibido Girar en U', descripcion: 'No se permite cambio de sentido', categoria: 'prohibiciones', imagen: 'no girar en U (no retornar).png' },
+    { id: 4, nombre: 'Prohibido Adelantar', descripcion: 'No se permite sobrepasar otros vehículos', categoria: 'prohibiciones', imagen: 'prohibido adelantar.png' },
+    { id: 5, nombre: 'No Avanzar', descripcion: 'Prohibido continuar o avanzar', categoria: 'prohibiciones', imagen: 'no avanzar.png' },
+    { id: 6, nombre: 'Prohibido Estacionar', descripcion: 'No se permite dejar el vehículo', categoria: 'prohibiciones', imagen: 'no estacionar.png' },
+    { id: 7, nombre: 'Prohibido Estacionar ni Detenerse', descripcion: 'No se permite parar ni estacionar', categoria: 'prohibiciones', imagen: 'no estacionar ni detenerse.png' },
+    { id: 8, nombre: 'Prohibido Ruidos Molestos', descripcion: 'No se permite usar bocina o hacer ruido', categoria: 'prohibiciones', imagen: 'no ruidos molestos.png' },
+    { id: 9, nombre: 'Contramano', descripcion: 'Prohibido circular en sentido contrario', categoria: 'prohibiciones', imagen: 'contramano.png' },
+    { id: 10, nombre: 'Prohibido Cambiar de Carril', descripcion: 'No se permite cambio de carril', categoria: 'prohibiciones', imagen: 'prohibicion de cambiar de carril.png' },
+    { id: 11, nombre: 'Prohibido Circular Autos', descripcion: 'Acceso restringido para automóviles', categoria: 'prohibiciones', imagen: 'prohibicion de cirular autos.png' },
+    { id: 12, nombre: 'Prohibido Circular Bicicletas', descripcion: 'Acceso restringido para bicicletas', categoria: 'prohibiciones', imagen: 'prohibicion de cirular bicicletas.png' },
+    { id: 13, nombre: 'Prohibido Circular Motos', descripcion: 'Acceso restringido para motocicletas', categoria: 'prohibiciones', imagen: 'prohibicion de circular motos.png' },
+    { id: 14, nombre: 'Prohibido Circular Peatón', descripcion: 'Acceso restringido para peatones', categoria: 'prohibiciones', imagen: 'prohibicion de circular peaton.png' },
+    { id: 15, nombre: 'Prohibido Circular Camiones', descripcion: 'Acceso restringido para vehículos de carga', categoria: 'prohibiciones', imagen: 'prohibicion de circular camiones.png' },
+    { id: 16, nombre: 'Prohibido Circular Acoplado', descripcion: 'Prohibido vehículos con acoplado', categoria: 'prohibiciones', imagen: 'prohibicion de circular acoplado.png' },
+    { id: 17, nombre: 'Prohibido Circular Carro de Mano', descripcion: 'Prohibido carros de mano', categoria: 'prohibiciones', imagen: 'prohibicion de circular carro de mano.png' },
+    { id: 18, nombre: 'Prohibido Circular Jinetes', descripcion: 'Prohibido paso de jinetes', categoria: 'prohibiciones', imagen: 'prohibicion de circular jinetes.png' },
+    { id: 19, nombre: 'Prohibido Tracción Animal', descripcion: 'Prohibido vehículos de tracción animal', categoria: 'prohibiciones', imagen: 'prohibicion de circular traccion animal.png' },
+    { id: 20, nombre: 'Prohibido Circular Tractor', descripcion: 'Prohibido paso de tractores', categoria: 'prohibiciones', imagen: 'prohibicion de circular tractor.png' }
   ];
 
   const categorias = {
@@ -204,7 +181,7 @@ const SenalesReglamentarias: React.FC = () => {
             className="mb-12"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center px-4">
-              35 Señales Reglamentarias Principales
+              20 Señales de Prohibición
             </h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
@@ -220,9 +197,13 @@ const SenalesReglamentarias: React.FC = () => {
                     transition={{ duration: 0.3, delay: index * 0.02 }}
                     className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group"
                   >
-                    {/* Placeholder para imagen - se agregará cuando estén las imágenes reales */}
+                    {/* Imagen real de la señal */}
                     <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-3 bg-gray-50 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
-                      <IconComponent className={`w-6 h-6 sm:w-8 sm:h-8 ${categoria.iconColor}`} />
+                      <img 
+                        src={`/assets/senales-reglamentarias/${senal.imagen}`}
+                        alt={senal.nombre}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     
                     <h3 className="font-semibold text-gray-900 text-xs sm:text-sm mb-1 sm:mb-2 leading-tight px-1">
@@ -237,11 +218,6 @@ const SenalesReglamentarias: React.FC = () => {
               })}
             </div>
             
-            <div className="text-center mt-8">
-              <p className="text-gray-600 text-sm">
-                * Las imágenes reales se irán agregando próximamente
-              </p>
-            </div>
           </motion.div>
 
           {/* FAQ Section */}
