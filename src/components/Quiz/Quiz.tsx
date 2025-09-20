@@ -41,7 +41,7 @@ const Quiz: React.FC = () => {
         }
         const allQuestions: Question[] = await response.json();
         
-        // Shuffle and select 40 questions from 42 available
+        // Shuffle and select 40 questions from all available
         const shuffledQuestions = [...allQuestions].sort(() => Math.random() - 0.5);
         const selectedQuestions = shuffledQuestions.slice(0, 40);
         
