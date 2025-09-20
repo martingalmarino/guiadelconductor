@@ -64,51 +64,22 @@ const SenalesPreventivas: React.FC = () => {
     };
   }, []);
 
-  // Placeholder para las 43 señales preventivas - se irán agregando las imágenes progresivamente
+  // Señales preventivas con imágenes reales disponibles
   const senales = [
-    { id: 1, nombre: 'Curva Peligrosa Derecha', descripcion: 'Advierte sobre una curva pronunciada hacia la derecha', categoria: 'curvas' },
-    { id: 2, nombre: 'Curva Peligrosa Izquierda', descripcion: 'Advierte sobre una curva pronunciada hacia la izquierda', categoria: 'curvas' },
-    { id: 3, nombre: 'Curvas Sucesivas', descripcion: 'Serie de curvas consecutivas en el camino', categoria: 'curvas' },
-    { id: 4, nombre: 'Calzada Resbaladiza', descripcion: 'Superficie de la vía con riesgo de deslizamiento', categoria: 'condiciones' },
-    { id: 5, nombre: 'Pendiente Pronunciada Bajada', descripcion: 'Declive pronunciado en el camino', categoria: 'pendientes' },
-    { id: 6, nombre: 'Pendiente Pronunciada Subida', descripcion: 'Inclinación pronunciada ascendente', categoria: 'pendientes' },
-    { id: 7, nombre: 'Cruce Escolar', descripcion: 'Zona de cruce frecuente de escolares', categoria: 'cruces' },
-    { id: 8, nombre: 'Cruce Peatonal', descripcion: 'Área de cruce de peatones', categoria: 'cruces' },
-    { id: 9, nombre: 'Animales Sueltos', descripcion: 'Posible presencia de animales en la vía', categoria: 'animales' },
-    { id: 10, nombre: 'Ganado', descripcion: 'Zona de tránsito de ganado', categoria: 'animales' },
-    { id: 11, nombre: 'Intersección', descripcion: 'Cruce de caminos adelante', categoria: 'intersecciones' },
-    { id: 12, nombre: 'Bifurcación', descripcion: 'División del camino en dos vías', categoria: 'intersecciones' },
-    { id: 13, nombre: 'Incorporación Derecha', descripcion: 'Vía que se incorpora por la derecha', categoria: 'incorporaciones' },
-    { id: 14, nombre: 'Incorporación Izquierda', descripcion: 'Vía que se incorpora por la izquierda', categoria: 'incorporaciones' },
-    { id: 15, nombre: 'Puente Angosto', descripcion: 'Puente con ancho reducido', categoria: 'estructuras' },
-    { id: 16, nombre: 'Túnel', descripcion: 'Paso subterráneo adelante', categoria: 'estructuras' },
-    { id: 17, nombre: 'Obras en la Vía', descripcion: 'Trabajos de construcción o mantenimiento', categoria: 'obras' },
-    { id: 18, nombre: 'Maquinaria Agrícola', descripcion: 'Posible presencia de tractores o maquinaria', categoria: 'vehiculos' },
-    { id: 19, nombre: 'Ciclistas', descripcion: 'Zona frecuentada por ciclistas', categoria: 'vehiculos' },
-    { id: 20, nombre: 'Motocicletas', descripcion: 'Área de tránsito de motocicletas', categoria: 'vehiculos' },
-    { id: 21, nombre: 'Semáforo Adelante', descripcion: 'Proximidad de semáforo', categoria: 'señalizacion' },
-    { id: 22, nombre: 'Señal PARE Adelante', descripcion: 'Señal de detención próxima', categoria: 'señalizacion' },
-    { id: 23, nombre: 'Cruce Ferroviario', descripcion: 'Paso a nivel con vías de tren', categoria: 'ferroviario' },
-    { id: 24, nombre: 'Cruce Ferroviario sin Barreras', descripcion: 'Paso de tren sin protección', categoria: 'ferroviario' },
-    { id: 25, nombre: 'Viento Lateral', descripcion: 'Zona de vientos cruzados fuertes', categoria: 'condiciones' },
-    { id: 26, nombre: 'Pavimento Irregular', descripcion: 'Superficie de la vía en mal estado', categoria: 'condiciones' },
-    { id: 27, nombre: 'Piedras que Saltan', descripcion: 'Riesgo de proyección de piedras', categoria: 'condiciones' },
-    { id: 28, nombre: 'Altura Limitada', descripcion: 'Paso con restricción de altura', categoria: 'restricciones' },
-    { id: 29, nombre: 'Ancho Limitado', descripcion: 'Paso con restricción de ancho', categoria: 'restricciones' },
-    { id: 30, nombre: 'Doble Circulación', descripcion: 'Cambio a vía de doble mano', categoria: 'circulacion' },
-    { id: 31, nombre: 'Fin de Pavimento', descripcion: 'Término del asfalto, inicia ripio', categoria: 'pavimento' },
-    { id: 32, nombre: 'Badén', descripcion: 'Depresión en la calzada para drenaje', categoria: 'estructuras' },
-    { id: 33, nombre: 'Resalto', descripcion: 'Elevación en la calzada', categoria: 'estructuras' },
-    { id: 34, nombre: 'Zona Escolar', descripcion: 'Proximidad de establecimiento educativo', categoria: 'zonas' },
-    { id: 35, nombre: 'Hospital', descripcion: 'Cercanía de centro de salud', categoria: 'zonas' },
-    { id: 36, nombre: 'Aeropuerto', descripcion: 'Proximidad de aeropuerto', categoria: 'zonas' },
-    { id: 37, nombre: 'Cruce de Aviones', descripcion: 'Paso de aeronaves a baja altura', categoria: 'aereo' },
-    { id: 38, nombre: 'Superficie Deslizante', descripcion: 'Pavimento con riesgo de patinaje', categoria: 'condiciones' },
-    { id: 39, nombre: 'Curva y Contracurva', descripcion: 'Secuencia de curvas en S', categoria: 'curvas' },
-    { id: 40, nombre: 'Descenso Peligroso', descripcion: 'Bajada con alta pendiente', categoria: 'pendientes' },
-    { id: 41, nombre: 'Cruce a Nivel', descripcion: 'Intersección al mismo nivel', categoria: 'cruces' },
-    { id: 42, nombre: 'Peligro Indefinido', descripcion: 'Riesgo no especificado, precaución general', categoria: 'general' },
-    { id: 43, nombre: 'Zona de Derrumbes', descripcion: 'Área propensa a caída de rocas o tierra', categoria: 'condiciones' }
+    { id: 1, nombre: 'Curva Común', descripcion: 'Advierte sobre una curva en el camino', categoria: 'curvas', imagen: 'curva comun.png' },
+    { id: 2, nombre: 'Curva y Contracurva', descripcion: 'Advierte sobre curvas consecutivas', categoria: 'curvas', imagen: 'curva (contracurva).png' },
+    { id: 3, nombre: 'Curva en S', descripcion: 'Secuencia de curvas en forma de S', categoria: 'curvas', imagen: 'curva en S.png' },
+    { id: 4, nombre: 'Camino Sinuoso', descripcion: 'Tramo con múltiples curvas sucesivas', categoria: 'curvas', imagen: 'camino sinuoso.png' },
+    { id: 5, nombre: 'Calzada Resbaladiza', descripcion: 'Superficie de la vía con riesgo de deslizamiento', categoria: 'condiciones', imagen: 'calzada resbaladiza.png' },
+    { id: 6, nombre: 'Pendiente Descendente', descripcion: 'Declive pronunciado en el camino', categoria: 'pendientes', imagen: 'pendiente (Descendente).png' },
+    { id: 7, nombre: 'Pendiente Ascendente', descripcion: 'Inclinación pronunciada ascendente', categoria: 'pendientes', imagen: 'pendiente (Ascendente).png' },
+    { id: 8, nombre: 'Perfil Irregular', descripcion: 'Superficie de la vía en mal estado', categoria: 'condiciones', imagen: 'perfil irregular.png' },
+    { id: 9, nombre: 'Proyección de Piedras', descripcion: 'Riesgo de proyección de piedras', categoria: 'condiciones', imagen: 'proyeccion de piedas.png' },
+    { id: 10, nombre: 'Derrumbes', descripcion: 'Zona propensa a caída de rocas o tierra', categoria: 'condiciones', imagen: 'derrumbes.png' },
+    { id: 11, nombre: 'Badén', descripcion: 'Depresión en la calzada para drenaje', categoria: 'estructuras', imagen: 'Baden.png' },
+    { id: 12, nombre: 'Lomada', descripcion: 'Elevación en la calzada', categoria: 'estructuras', imagen: 'lomada.png' },
+    { id: 13, nombre: 'Estrechamiento Una Mano', descripcion: 'Reducción del ancho de la vía en un sentido', categoria: 'restricciones', imagen: 'estechamiento (una sola mano).png' },
+    { id: 14, nombre: 'Estrechamiento Doble Mano', descripcion: 'Reducción del ancho de la vía en ambos sentidos', categoria: 'restricciones', imagen: 'estrechamiento (en sus dos manos).png' }
   ];
 
   const categorias = {
@@ -224,7 +195,7 @@ const SenalesPreventivas: React.FC = () => {
             className="mb-12"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center px-4">
-              43 Señales Preventivas Principales
+              14 Señales Preventivas Principales
             </h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
@@ -240,9 +211,13 @@ const SenalesPreventivas: React.FC = () => {
                     transition={{ duration: 0.3, delay: index * 0.02 }}
                     className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group"
                   >
-                    {/* Placeholder para imagen - se agregará cuando estén las imágenes reales */}
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-3 bg-yellow-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
-                      <IconComponent className={`w-6 h-6 sm:w-8 sm:h-8 ${categoria.iconColor}`} />
+                    {/* Imagen real de la señal */}
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-3 bg-gray-50 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
+                      <img 
+                        src={`/assets/senales-preventivas/${senal.imagen}`}
+                        alt={senal.nombre}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     
                     <h3 className="font-semibold text-gray-900 text-xs sm:text-sm mb-1 sm:mb-2 leading-tight px-1">
@@ -259,7 +234,7 @@ const SenalesPreventivas: React.FC = () => {
             
             <div className="text-center mt-8">
               <p className="text-gray-600 text-sm">
-                * Las imágenes reales se irán agregando próximamente
+                * 14 imágenes reales disponibles - Las restantes se irán agregando próximamente
               </p>
             </div>
           </motion.div>
