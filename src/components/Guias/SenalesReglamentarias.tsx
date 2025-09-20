@@ -106,7 +106,23 @@ const SenalesReglamentarias: React.FC = () => {
     
     // Estacionamiento y obligaciones especiales
     { id: 33, nombre: 'Estacionamiento Exclusivo', descripcion: 'Zona de estacionamiento reservado', categoria: 'estacionamiento', imagen: 'estacionamiento exclusivo.png' },
-    { id: 34, nombre: 'Uso de Cadenas para Nieve', descripcion: 'Obligatorio usar cadenas en condiciones de nieve', categoria: 'obligaciones', imagen: 'uso de cadenas para nieve.png' }
+    { id: 34, nombre: 'Uso de Cadenas para Nieve', descripcion: 'Obligatorio usar cadenas en condiciones de nieve', categoria: 'obligaciones', imagen: 'uso de cadenas para nieve.png' },
+    
+    // Direcciones y sentidos obligatorios (fondo azul)
+    { id: 35, nombre: 'Giro Obligatorio Derecha', descripcion: 'Debe girar obligatoriamente a la derecha', categoria: 'direcciones', imagen: 'giro obligatorio derecha.png' },
+    { id: 36, nombre: 'Giro Obligatorio Izquierda', descripcion: 'Debe girar obligatoriamente a la izquierda', categoria: 'direcciones', imagen: 'giro obligatorio izquierda.png' },
+    { id: 37, nombre: 'Paso Obligado Derecha', descripcion: 'Debe pasar por la derecha del obstáculo', categoria: 'direcciones', imagen: 'paso obligado derecha.png' },
+    { id: 38, nombre: 'Paso Obligado Izquierda', descripcion: 'Debe pasar por la izquierda del obstáculo', categoria: 'direcciones', imagen: 'paso obligado izquierda.png' },
+    { id: 39, nombre: 'Sentido de Circulación Derecha', descripcion: 'Circulación obligatoria hacia la derecha', categoria: 'direcciones', imagen: 'sentido de cirulacion (derecha).png' },
+    { id: 40, nombre: 'Sentido de Circulación Izquierda', descripcion: 'Circulación obligatoria hacia la izquierda', categoria: 'direcciones', imagen: 'sentido de circulacion (izquierda).png' },
+    { id: 41, nombre: 'Sentido de Circulación Alternativa', descripcion: 'Circulación en sentido alternativo', categoria: 'direcciones', imagen: 'sentido de ciruclacion alternativa.png' },
+    { id: 42, nombre: 'Comienzo Sentido Único', descripcion: 'Inicio de vía de sentido único', categoria: 'direcciones', imagen: 'comienzo sentido unico.png' },
+    { id: 43, nombre: 'Comienzo de Doble Mano', descripcion: 'Inicio de vía de doble circulación', categoria: 'direcciones', imagen: 'comienzo de doble mano.png' },
+    
+    // Obligaciones especiales de circulación
+    { id: 44, nombre: 'Peatones por la Izquierda', descripcion: 'Peatones deben circular por la izquierda', categoria: 'peatonal', imagen: 'peatones por la izquierda.png' },
+    { id: 45, nombre: 'Tránsito Pesado a la Derecha', descripcion: 'Vehículos pesados deben circular por la derecha', categoria: 'pesado', imagen: 'transito pesado a la derecha.png' },
+    { id: 46, nombre: 'Puesto de Control', descripcion: 'Obligatorio detenerse en puesto de control', categoria: 'control', imagen: 'puesto de control.png' }
   ];
 
   const categorias = {
@@ -114,7 +130,11 @@ const SenalesReglamentarias: React.FC = () => {
     limitaciones: { color: 'bg-orange-50 border-orange-200', icon: Info, iconColor: 'text-orange-600' },
     exclusivas: { color: 'bg-blue-50 border-blue-200', icon: CheckCircle, iconColor: 'text-blue-600' },
     estacionamiento: { color: 'bg-purple-50 border-purple-200', icon: Car, iconColor: 'text-purple-600' },
-    obligaciones: { color: 'bg-green-50 border-green-200', icon: Users, iconColor: 'text-green-600' }
+    obligaciones: { color: 'bg-green-50 border-green-200', icon: Users, iconColor: 'text-green-600' },
+    direcciones: { color: 'bg-indigo-50 border-indigo-200', icon: CheckCircle, iconColor: 'text-indigo-600' },
+    peatonal: { color: 'bg-teal-50 border-teal-200', icon: Users, iconColor: 'text-teal-600' },
+    pesado: { color: 'bg-amber-50 border-amber-200', icon: Car, iconColor: 'text-amber-600' },
+    control: { color: 'bg-slate-50 border-slate-200', icon: Info, iconColor: 'text-slate-600' }
   };
 
   const faqItems = [
