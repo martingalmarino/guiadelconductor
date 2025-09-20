@@ -15,13 +15,13 @@ const SenalesTransitoInformativas: React.FC = () => {
 
   // Datos de las 25 señales informativas más comunes
   const senales = [
-    { id: 1, nombre: 'Puesto Sanitario', descripcion: 'Indica la ubicación de un puesto de primeros auxilios', categoria: 'salud' },
+    { id: 1, nombre: 'Puesto Sanitario', descripcion: 'Indica la ubicación de un puesto de primeros auxilios', categoria: 'salud', imagen: 'puesto sanitario.png' },
     { id: 2, nombre: 'Hospital', descripcion: 'Señala la dirección hacia un hospital', categoria: 'salud' },
     { id: 3, nombre: 'Cruz Roja', descripcion: 'Indica servicios de la Cruz Roja', categoria: 'salud' },
     { id: 4, nombre: 'Farmacia', descripcion: 'Ubicación de farmacia o servicio médico', categoria: 'salud' },
     { id: 5, nombre: 'Información Turística', descripcion: 'Centro de información para turistas', categoria: 'turismo' },
-    { id: 6, nombre: 'Teléfono', descripcion: 'Ubicación de teléfono público', categoria: 'servicios' },
-    { id: 7, nombre: 'Estación de Servicio', descripcion: 'Combustible y servicios para vehículos', categoria: 'servicios' },
+    { id: 6, nombre: 'Teléfono', descripcion: 'Ubicación de teléfono público', categoria: 'servicios', imagen: 'servicio telefonico.png' },
+    { id: 7, nombre: 'Estación de Servicio', descripcion: 'Combustible y servicios para vehículos', categoria: 'servicios', imagen: 'estacion de servicio.png' },
     { id: 8, nombre: 'Mecánico', descripción: 'Taller mecánico o servicios de reparación', categoria: 'servicios' },
     { id: 9, nombre: 'Hotel', descripcion: 'Alojamiento y hospedaje', categoria: 'turismo' },
     { id: 10, nombre: 'Restaurante', descripcion: 'Servicio de comidas', categoria: 'turismo' },
@@ -39,7 +39,8 @@ const SenalesTransitoInformativas: React.FC = () => {
     { id: 22, nombre: 'Museo', descripcion: 'Museo o sitio de interés cultural', categoria: 'turismo' },
     { id: 23, nombre: 'Iglesia', descripcion: 'Templo religioso', categoria: 'servicios' },
     { id: 24, nombre: 'Correo', descripcion: 'Oficina postal', categoria: 'servicios' },
-    { id: 25, nombre: 'Policía', descripcion: 'Comisaría o puesto policial', categoria: 'servicios' }
+    { id: 25, nombre: 'Policía', descripcion: 'Comisaría o puesto policial', categoria: 'servicios' },
+    { id: 26, nombre: 'Telesférico', descripcion: 'Transporte aéreo por cable', categoria: 'transporte', imagen: 'telesférico.png' }
   ];
 
   const categorias = {
@@ -163,7 +164,7 @@ const SenalesTransitoInformativas: React.FC = () => {
             className="mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              25 Señales Informativas Principales
+              26 Señales Informativas Principales
             </h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -179,9 +180,17 @@ const SenalesTransitoInformativas: React.FC = () => {
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     className={`${categoria.color} border-2 rounded-xl p-4 text-center hover:shadow-lg transition-all duration-300 cursor-pointer group`}
                   >
-                    {/* Placeholder para la imagen de la señal */}
-                    <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-lg border-2 border-gray-300 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <IconComponent className={`w-8 h-8 ${categoria.iconColor}`} />
+                    {/* Imagen real de la señal o icono placeholder */}
+                    <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-lg border-2 border-gray-300 flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
+                      {senal.imagen ? (
+                        <img 
+                          src={`/assets/senales-informativas/${senal.imagen}`}
+                          alt={senal.nombre}
+                          className="w-full h-full object-contain"
+                        />
+                      ) : (
+                        <IconComponent className={`w-8 h-8 ${categoria.iconColor}`} />
+                      )}
                     </div>
                     
                     <h3 className="font-semibold text-gray-900 text-sm mb-2 leading-tight">
@@ -198,7 +207,7 @@ const SenalesTransitoInformativas: React.FC = () => {
             
             <div className="text-center mt-8">
               <p className="text-gray-600 text-sm">
-                * Las imágenes de las señales se irán agregando próximamente
+                * 4 imágenes reales disponibles - Las restantes se irán agregando próximamente
               </p>
             </div>
           </motion.div>
