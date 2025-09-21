@@ -199,11 +199,12 @@ const SenalesTransitoInformativas: React.FC = () => {
                     {/* Imagen real de la señal */}
                     <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-3 bg-gray-50 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
                       <img 
-                        src={`/assets/senales-informativas/${encodeURIComponent(senal.imagen)}`}
+                        src={`/assets/senales-informativas/${senal.imagen}`}
                         alt={senal.nombre}
                         className="w-full h-full object-contain"
                         onError={(e) => {
                           console.error(`Error loading image: ${senal.imagen}`);
+                          console.error(`Full URL: /assets/senales-informativas/${senal.imagen}`);
                           (e.target as HTMLImageElement).style.display = 'none';
                         }}
                       />
