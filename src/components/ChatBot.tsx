@@ -203,7 +203,7 @@ const ChatBot: React.FC = () => {
       {/* Botón flotante */}
       <motion.button
         onClick={toggleChat}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-[0_15px_0_15px] shadow-lg hover:shadow-xl hover:shadow-primary-600/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
+        className="fixed bottom-16 right-4 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-[0_15px_0_15px] shadow-lg hover:shadow-xl hover:shadow-primary-600/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         title="Abrir chat"
@@ -223,7 +223,7 @@ const ChatBot: React.FC = () => {
             className={`fixed right-2 sm:right-6 w-[calc(100vw-16px)] sm:w-96 max-w-md mx-auto bg-white rounded-2xl shadow-2xl border border-gray-200 z-40 flex flex-col overflow-hidden ${
               isKeyboardOpen 
                 ? 'bottom-2 h-[50vh] max-h-[350px]' 
-                : 'bottom-16 h-[70vh] sm:h-[600px] max-h-[500px]'
+                : 'bottom-20 h-[70vh] sm:h-[600px] max-h-[500px]'
             }`}
           >
             {/* Header */}
