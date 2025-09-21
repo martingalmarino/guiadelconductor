@@ -238,7 +238,7 @@ const ChatBot: React.FC = () => {
       {!isOpen && (
         <motion.button
           onClick={toggleChat}
-          className="fixed bottom-16 right-4 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
+          className="fixed bottom-16 right-8 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           title="Abrir chat"
@@ -256,13 +256,13 @@ const ChatBot: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className={`fixed bg-white z-[9999] flex flex-col overflow-hidden ${
-              isMobile 
-                ? 'inset-0 w-full h-full' 
-                : `left-6 w-96 h-[600px] max-w-md mx-auto rounded-2xl shadow-2xl border border-gray-200 ${
-                    isKeyboardOpen ? 'bottom-2' : 'bottom-20'
-                  }`
-            }`}
+          className={`fixed bg-white z-[9999] flex flex-col overflow-hidden ${
+            isMobile
+              ? 'inset-0 w-full h-full'
+              : `right-6 w-96 h-[600px] max-w-md mx-auto rounded-2xl shadow-2xl border border-gray-200 ${
+                  isKeyboardOpen ? 'bottom-2' : 'bottom-20'
+                }`
+          }`}
           >
             {/* Header */}
             <div className="bg-primary-600 text-white p-4 flex items-center justify-between">
