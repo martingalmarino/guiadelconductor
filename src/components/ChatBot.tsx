@@ -23,6 +23,7 @@ const ChatBot: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [predefinedResponses, setPredefinedResponses] = useState<Record<string, string>>({});
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -66,6 +67,22 @@ const ChatBot: React.FC = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages, isTyping]);
+
+  // Detectar teclado virtual en móviles
+  useEffect(() => {
+    const handleResize = () => {
+      const initialHeight = window.innerHeight;
+      const currentHeight = window.innerHeight;
+      
+      // Si la altura cambió significativamente, probablemente el teclado se abrió/cerró
+      if (Math.abs(initialHeight - currentHeight) > 150) {
+        setIsKeyboardOpen(currentHeight < initialHeight);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -186,7 +203,7 @@ const ChatBot: React.FC = () => {
       {/* Botón flotante */}
       <motion.button
         onClick={toggleChat}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-[0_15px_0_15px] shadow-lg hover:shadow-xl hover:shadow-primary-600/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-50 flex items-center justify-center touch-manipulation"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-[0_15px_0_15px] shadow-lg hover:shadow-xl hover:shadow-primary-600/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         title="Abrir chat"
@@ -203,7 +220,11 @@ const ChatBot: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-20 right-2 sm:right-6 w-[calc(100vw-16px)] sm:w-96 h-[calc(100vh-120px)] sm:h-[600px] max-w-md mx-auto bg-white rounded-2xl shadow-2xl border border-gray-200 z-40 flex flex-col overflow-hidden"
+            className={`fixed right-2 sm:right-6 w-[calc(100vw-16px)] sm:w-96 max-w-md mx-auto bg-white rounded-2xl shadow-2xl border border-gray-200 z-40 flex flex-col overflow-hidden ${
+              isKeyboardOpen 
+                ? 'bottom-2 h-[50vh] max-h-[350px]' 
+                : 'bottom-16 h-[70vh] sm:h-[600px] max-h-[500px]'
+            }`}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white p-4 sm:p-5 flex items-center justify-between">
@@ -283,14 +304,14 @@ const ChatBot: React.FC = () => {
             </div>
 
             {/* Quick Replies */}
-            <div className="p-3 sm:p-4 border-t border-gray-200 bg-white">
-              <div className="grid grid-cols-2 gap-2 sm:gap-2 mb-3 sm:mb-4">
+            <div className="p-2 sm:p-4 border-t border-gray-200 bg-white">
+              <div className="grid grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-2 mb-2 sm:mb-4">
                 {quickReplies.map((reply) => (
                   <button
                     key={reply.id}
                     onClick={() => handleSendMessage(reply.action)}
                     disabled={isLoading}
-                    className="flex items-center justify-center gap-1 sm:gap-2 px-2 py-2 sm:px-3 sm:py-2 text-xs font-medium text-primary-600 border-2 border-primary-600 rounded-[0_15px_0_15px] hover:bg-primary-600 hover:text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed min-h-[40px] sm:min-h-[44px]"
+                    className="flex flex-col items-center justify-center gap-0.5 sm:gap-2 px-1 py-2 sm:px-3 sm:py-2 text-[10px] sm:text-xs font-medium text-primary-600 border-2 border-primary-600 rounded-[0_15px_0_15px] hover:bg-primary-600 hover:text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed min-h-[36px] sm:min-h-[44px]"
                   >
                     <span>{reply.icon}</span>
                     <span>{reply.text}</span>
@@ -299,7 +320,7 @@ const ChatBot: React.FC = () => {
               </div>
 
               {/* Input Area */}
-              <div className="flex gap-2">
+              <div className="flex gap-2 p-2 sm:p-0">
                 <input
                   ref={inputRef}
                   type="text"
@@ -308,12 +329,12 @@ const ChatBot: React.FC = () => {
                   onKeyPress={handleKeyPress}
                   placeholder="Escribe tu consulta..."
                   disabled={isLoading}
-                  className="flex-1 px-3 py-3 sm:px-4 border-2 border-gray-200 rounded-[0_15px_0_15px] focus:border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600/20 text-sm disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]"
+                  className="flex-1 px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-[0_15px_0_15px] focus:border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600/20 text-sm disabled:opacity-50 disabled:cursor-not-allowed min-h-[40px] sm:min-h-[44px]"
                 />
                 <button
                   onClick={() => handleSendMessage()}
                   disabled={isLoading || !inputValue.trim()}
-                  className="px-3 py-3 sm:px-4 bg-primary-600 text-white rounded-[0_15px_0_15px] hover:bg-primary-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center min-w-[44px] min-h-[44px]"
+                  className="px-3 py-2 sm:px-4 sm:py-3 bg-primary-600 text-white rounded-[0_15px_0_15px] hover:bg-primary-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px]"
                   title="Enviar mensaje"
                   aria-label="Enviar mensaje"
                 >
