@@ -103,7 +103,7 @@ const SenalesPreventivas: React.FC = () => {
     { id: 35, nombre: 'Tranvía', descripcion: 'Cruce o proximidad de tranvía', categoria: 'vehiculos', imagen: 'tranvia.png' },
     { id: 36, nombre: 'Ambulancia', descripcion: 'Zona de tránsito de ambulancias', categoria: 'vehiculos', imagen: 'Ambulancia.png' },
     { id: 37, nombre: 'Proximidad de Semáforo', descripcion: 'Semáforo próximo en el camino', categoria: 'señalizacion', imagen: 'proximidad de semaforo.png' },
-    { id: 38, nombre: 'Proximidad Señal PARE', descripcion: 'Señal de detención próxima', categoria: 'señalizacion', imagen: 'proximidad de señal restrictiva (pare).png' },
+    { id: 38, nombre: 'Proximidad Señal PARE', descripcion: 'Señal de detención próxima', categoria: 'señalizacion', imagen: 'proximidad-senal-restrictiva-pare.png' },
     { id: 39, nombre: 'Proximidad Señal Restrictiva (Paso)', descripcion: 'Señal restrictiva de paso próxima', categoria: 'señalizacion', imagen: 'proximidad-senal-restrictiva-paso.png' },
     { id: 40, nombre: 'Proximidad Señal Restrictiva (Otras)', descripcion: 'Otras señales restrictivas próximas', categoria: 'señalizacion', imagen: 'proximidad-senal-restrictiva-otras.png' },
     { id: 41, nombre: 'Flecha Direccional', descripcion: 'Indicación de dirección obligatoria', categoria: 'direccional', imagen: 'flecha direccional.png' },
