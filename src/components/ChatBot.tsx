@@ -24,7 +24,7 @@ const ChatBot: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [predefinedResponses, setPredefinedResponses] = useState<Record<string, string>>({});
+  const [predefinedResponses, setPredefinedResponses] = useState<Record<string, any>>({});
 
   // API Key de OpenAI desde variable de entorno
   const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY || "";
@@ -141,11 +141,24 @@ const ChatBot: React.FC = () => {
   // Función para detectar clave de respuesta predefinida
   const detectarClave = (texto: string): string | null => {
     const lower = texto.toLowerCase();
+    
+    // Primero intentar con las respuestas predefinidas del JSON
+    for (const clave in predefinedResponses) {
+      const item = predefinedResponses[clave];
+      if (item && item.keywords) {
+        if (item.keywords.some((palabra: string) => lower.includes(palabra.toLowerCase()))) {
+          return clave;
+        }
+      }
+    }
+    
+    // Fallback al mapeo local si no hay respuestas cargadas
     for (const clave in mapeoClaves) {
       if (mapeoClaves[clave as keyof typeof mapeoClaves].some(palabra => lower.includes(palabra))) {
         return clave;
       }
     }
+    
     return null;
   };
 
@@ -316,7 +329,8 @@ const ChatBot: React.FC = () => {
         setIsTyping(true);
         setTimeout(() => {
           setIsTyping(false);
-          addMessage('bot', predefinedResponses[keyword]);
+          const response = predefinedResponses[keyword].respuesta || predefinedResponses[keyword];
+          addMessage('bot', response);
           setIsLoading(false);
         }, 1000 + Math.random() * 1000);
         return;

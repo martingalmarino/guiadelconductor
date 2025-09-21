@@ -1,16 +1,58 @@
 {
-  "requisitos": "<strong>📋 Requisitos para sacar el carnet por primera vez</strong><br><br>1. <strong>Edad mínima:</strong> Tener al menos 17 años (válido plenamente a partir de los 18).<br><br>2. <strong>Documentación:</strong><br>- DNI original y copia.<br>- Autorización de padres/tutores si sos menor.<br><br>3. <strong>Certificado médico:</strong> De aptitud física y psicológica emitido por centro habilitado.<br><br>4. <strong>Curso de educación vial:</strong> Puede ser obligatorio en algunos municipios.<br><br>5. <strong>Exámenes:</strong><br>- 📝 Teórico: normas de tránsito.<br>- 🚗 Práctico: prueba de manejo en circuito.",
-  "costos": "<strong>💰 Costos de la Licencia en Córdoba</strong><br><br>1. <strong>Tasa municipal:</strong> $6.000 a $10.000 aprox.<br><br>2. <strong>Certificado médico:</strong> $4.000 a $6.000.<br><br>3. <strong>Curso de educación vial:</strong> Gratuito en algunos municipios, pago en otros.<br><br>4. <strong>Total estimado:</strong> $10.000 a $16.000.<br><br>👉 Confirmar siempre en el CPC o municipio correspondiente.",
-  "lugares": "<strong>📍 Lugares oficiales para rendir</strong><br><br>Examen teórico y práctico en los <strong>CPC (Centros de Participación Comunal)</strong> y en el <strong>ERSEP</strong>.<br><br>Principales CPC:<br>- Centro América<br>- Argüello<br>- Colón<br>- Ruta 20<br>- Monseñor Pablo Cabrera<br><br>👉 Se requiere turno online previo.",
-  "examen": "<strong>❓ Examen Teórico</strong><br><br>Incluye:<br>- 🚦 Señales de tránsito<br>- 📚 Ley Nacional de Tránsito<br>- 🛡️ Seguridad vial<br>- ⚠️ Conducción defensiva<br><br>👉 Se aprueba con mínimo 80% de respuestas correctas.",
-  "renovacion": "<strong>🔄 Renovación de la Licencia</strong><br><br>1. DNI + licencia vencida o por vencer.<br>2. Certificado médico actualizado.<br>3. Pago de tasas municipales.<br>4. En algunos casos, examen teórico breve.<br><br>👉 Podés renovar hasta 30 días antes del vencimiento.",
-  "categorias": "<strong>🚘 Categorías de licencias en Argentina</strong><br><br>- A: Motocicletas.<br>- B1: Autos hasta 3.500 kg.<br>- B2: Autos con acoplados pesados.<br>- C: Camiones.<br>- D: Transporte de pasajeros.<br>- E: Vehículos articulados.<br>- F: Adaptados para personas con discapacidad.<br><br>👉 Las categorías profesionales (C, D, E) requieren experiencia previa y antecedentes limpios.",
-  "multas": "<strong>⚠️ Multas y antecedentes</strong><br><br>- Se consultan a nivel municipal y nacional (CENAT).<br>- No podés obtener ni renovar licencia si tenés multas impagas.<br>- Podés regularizarlas online o en el CPC.",
-  "validez": "<strong>📅 Vigencia de la licencia</strong><br><br>- 17 a 20 años: 1 año.<br>- 21 a 65 años: 5 años.<br>- 66 a 70 años: 3 años.<br>- Más de 70 años: 1 año.<br><br>👉 Puede variar según categoría y examen médico.",
-  "turnos": "<strong>⏰ Turnos para la Licencia</strong><br><br>1. Ingresá a la web de la Municipalidad de Córdoba.<br>2. Seleccioná 'Licencia de Conducir'.<br>3. Elegí tu CPC.<br>4. Confirmá día y horario.<br><br>👉 El turno es obligatorio para iniciar el trámite.",
-  "profesionales": "<strong>👷 Licencias profesionales (C, D, E)</strong><br><br>- Requieren mínimo 1 año de antigüedad con categoría B.<br>- Examen médico psicofísico más estricto.<br>- Chequeo de antecedentes penales y viales.<br>- Cursos de formación específicos.",
-  "duplicado": "<strong>📑 Duplicado de licencia</strong><br><br>1. Presentar denuncia de extravío o robo.<br>2. DNI actualizado.<br>3. Pago de tasas.<br>👉 No necesitás volver a rendir exámenes.",
-  "documentacion": "<strong>🗂️ Documentación necesaria</strong><br><br>- DNI original y copia.<br>- CUIL (a veces solicitado).<br>- Comprobante de turno.<br>- Certificado médico.<br><br>👉 Si es renovación: llevar licencia anterior.",
-  "horarios": "<strong>🕐 Horarios habituales de CPC</strong><br><br>- Lunes a viernes: 8:00 a 18:00.<br>- Sábados: solo algunos CPC abren medio día.<br><br>👉 Verificá en la web municipal el horario actualizado.",
-  "contacto": "<strong>☎️ Contacto Municipalidad Córdoba</strong><br><br>- Teléfono Atención Ciudadana: 0800-888-3333.<br>- Web oficial: <a href='https://cordoba.gob.ar'>cordoba.gob.ar</a><br>- WhatsApp: +54 351 610 0444."
+  "requisitos": {
+    "keywords": ["requisito", "primer carnet", "sacar carnet", "sacar licencia", "registro por primera vez", "documentación", "documento", "papeles"],
+    "respuesta": "<strong>📋 Requisitos para sacar el carnet por primera vez</strong><br><br>- DNI original y copia.<br>- Autorización de padres/tutores si sos menor.<br>- Certificado médico de aptitud física y psicológica emitido por centro habilitado.<br>- Curso de educación vial (si aplica en tu municipio).<br>- Aprobar examen teórico y práctico.<br><br>👉 Más info oficial en: <a href='https://cordoba.gob.ar/tramites/licencia-de-conducir/' target='_blank'>Municipalidad de Córdoba</a><br>"
+  },
+  "costos": {
+    "keywords": ["costo", "costos", "precio", "precios", "valor", "tasa", "tasas", "importe", "arancel", "pagar", "cuánto sale", "cuanto cuesta"],
+    "respuesta": "<strong>💰 Costos de la Licencia en Córdoba</strong><br><br>- Tasa municipal: $6.000 a $10.000 aprox.<br>- Certificado médico: $4.000 a $6.000.<br>- Curso de educación vial: gratuito en algunos municipios, pago en otros.<br>- Total estimado: $10.000 a $16.000.<br><br>👉 Consultá tarifas actualizadas en: <a href='https://cordoba.gob.ar/tramites/licencia-de-conducir/' target='_blank'>Tarifas oficiales Municipalidad</a><br>"
+  },
+  "lugares": {
+    "keywords": ["lugar", "lugares", "donde rendir", "dónde rendir", "cpc", "centro de participación comunal", "municipalidad", "sede", "oficina"],
+    "respuesta": "<strong>📍 Lugares oficiales para rendir</strong><br><br>Examen teórico y práctico en los <strong>CPC</strong> y en el <strong>ERSEP</strong>.<br><br>Principales CPC habilitados:<br>- 📍 Centro América<br>- 📍 Argüello<br>- 📍 Colón<br>- 📍 Ruta 20<br>- 📍 Monseñor Pablo Cabrera<br><br>👉 Sacar turno en: <a href='https://cordoba.gob.ar/tramites/licencia-de-conducir/' target='_blank'>Portal de Turnos Municipalidad</a><br>"
+  },
+  "examen": {
+    "keywords": ["examen", "teórico", "teorico", "práctico", "practico", "test", "prueba", "simulacro", "preguntas", "evaluación"],
+    "respuesta": "<strong>❓ Examen Teórico y Práctico</strong><br><br>📘 Contenidos evaluados:<br>- 🚦 Señales de tránsito<br>- 📚 Ley Nacional de Tránsito<br>- 🛡️ Seguridad vial<br>- ⚠️ Conducción defensiva<br><br>👉 Se aprueba con mínimo <strong>80%</strong> de respuestas correctas.<br>📍 Material de estudio disponible en: <a href='https://www.argentina.gob.ar/seguridadvial/licencia/examen-teorico' target='_blank'>Seguridad Vial Nación</a><br>"
+  },
+  "renovacion": {
+    "keywords": ["renovar", "renovación", "renovacion", "renovando", "vencer", "vencimiento", "revalidar", "extender licencia"],
+    "respuesta": "<strong>🔄 Renovación de la Licencia</strong><br><br>- Presentar DNI y licencia vencida o por vencer.<br>- Certificado médico actualizado.<br>- Pago de tasas municipales.<br>- En algunos casos, examen teórico breve.<br><br>👉 Renovación online: <a href='https://cordoba.gob.ar/tramites/licencia-de-conducir/' target='_blank'>Portal Municipalidad</a><br>"
+  },
+  "categorias": {
+    "keywords": ["categoría", "categoria", "categorías", "categorias", "tipo de licencia", "tipo de carnet", "clase de licencia", "clase b", "clase a", "profesional"],
+    "respuesta": "<strong>🚘 Categorías de licencias en Argentina</strong><br><br>- <strong>A</strong>: Motocicletas.<br>- <strong>B1</strong>: Autos hasta 3.500 kg.<br>- <strong>B2</strong>: Autos con acoplados pesados.<br>- <strong>C</strong>: Camiones.<br>- <strong>D</strong>: Transporte de pasajeros.<br>- <strong>E</strong>: Vehículos articulados.<br>- <strong>F</strong>: Adaptados para discapacidad.<br><br>👉 Info oficial: <a href='https://www.argentina.gob.ar/seguridadvial/licencia/clases' target='_blank'>Clases de Licencia - Seguridad Vial Nación</a><br>"
+  },
+  "multas": {
+    "keywords": ["multa", "multas", "infracción", "infraccion", "infracciones", "antecedente", "antecedentes", "cenat", "boleta", "pago de multas"],
+    "respuesta": "<strong>⚠️ Multas y antecedentes</strong><br><br>- Se verifican en el <strong>CENAT</strong> y en la Municipalidad de Córdoba.<br>- No podés obtener ni renovar licencia si tenés multas impagas.<br><br>👉 Consultá tus infracciones en:<br>- <a href='https://www.cenat.gob.ar' target='_blank'>CENAT (antecedentes nacionales)</a><br>- <a href='https://cordoba.gob.ar/tramites/multas' target='_blank'>Multas Córdoba</a><br>"
+  },
+  "validez": {
+    "keywords": ["vigencia", "validez", "duración", "caducidad", "valido", "vence", "tiempo de validez"],
+    "respuesta": "<strong>📅 Vigencia de la licencia</strong><br><br>- 17 a 20 años: 1 año.<br>- 21 a 65 años: 5 años.<br>- 66 a 70 años: 3 años.<br>- Más de 70 años: 1 año.<br><br>👉 Info oficial: <a href='https://www.argentina.gob.ar/seguridadvial/licencia/duracion' target='_blank'>Duración de la Licencia</a><br>"
+  },
+  "turnos": {
+    "keywords": ["turno", "turnos", "cita", "citas", "sacar turno", "pedir turno", "solicitar turno", "reserva", "agenda", "turnero"],
+    "respuesta": "<strong>⏰ Turnos</strong><br><br>Podés sacar turno online ingresando en:<br><a href='https://cordoba.gob.ar/tramites/licencia-de-conducir/' target='_blank'>📌 Portal de Turnos Municipalidad</a><br><br>👉 El turno es obligatorio para iniciar el trámite.<br>"
+  },
+  "profesionales": {
+    "keywords": ["profesional", "camión", "camion", "colectivo", "taxi", "remis", "transporte de pasajeros", "categoría d", "categoría e", "categoria c"],
+    "respuesta": "<strong>👷 Licencias profesionales (C, D, E)</strong><br><br>- Requieren mínimo 1 año de antigüedad con categoría B.<br>- Examen médico psicofísico más estricto.<br>- Control de antecedentes viales y penales.<br>- Cursos específicos según categoría.<br><br>👉 Info oficial: <a href='https://www.argentina.gob.ar/seguridadvial/licencia/clases' target='_blank'>Clases Profesionales - Seguridad Vial Nación</a><br>"
+  },
+  "duplicado": {
+    "keywords": ["duplicado", "reposición", "reposicion", "copia de licencia", "perdí", "perdi", "robo", "extravié", "extravie", "extravío"],
+    "respuesta": "<strong>📑 Duplicado de licencia</strong><br><br>- Presentar denuncia de extravío o robo.<br>- DNI actualizado.<br>- Pago de tasas.<br><br>👉 Solicitalo en: <a href='https://cordoba.gob.ar/tramites/licencia-de-conducir/' target='_blank'>Duplicado - Municipalidad</a><br>"
+  },
+  "documentacion": {
+    "keywords": ["documentación", "documentacion", "documentos", "dni", "papeles", "que llevar", "qué necesito"],
+    "respuesta": "<strong>🗂️ Documentación necesaria</strong><br><br>- DNI original y copia.<br>- CUIL (si lo solicitan).<br>- Comprobante de turno.<br>- Certificado médico.<br>- Licencia anterior (en caso de renovación).<br>"
+  },
+  "horarios": {
+    "keywords": ["horario", "horarios", "hora", "atención", "atencion", "cpc abierto", "a qué hora", "cuando atienden"],
+    "respuesta": "<strong>🕐 Horarios CPC</strong><br><br>- Lunes a viernes: 8:00 a 18:00.<br>- Sábados: algunos CPC medio día.<br><br>👉 Consultá horarios en: <a href='https://cordoba.gob.ar' target='_blank'>Municipalidad de Córdoba</a><br>"
+  },
+  "contacto": {
+    "keywords": ["contacto", "teléfono", "telefono", "mail", "correo", "email", "whatsapp"],
+    "respuesta": "<strong>☎️ Contacto Municipalidad Córdoba</strong><br><br>- Teléfono: 0800-888-3333<br>- Web oficial: <a href='https://cordoba.gob.ar' target='_blank'>cordoba.gob.ar</a><br>- WhatsApp: +54 351 610 0444<br>"
+  }
 }
