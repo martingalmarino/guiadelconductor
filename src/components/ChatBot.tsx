@@ -60,12 +60,10 @@ const ChatBot: React.FC = () => {
     loadResponses();
   }, []);
 
-  // Mensaje de bienvenida
+  // Mensaje de bienvenida - agregar inmediatamente cuando se abre el chat
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      setTimeout(() => {
-        addMessage('bot', '¡Hola! Soy GuíaBot, tu asistente especializado en tránsito y licencias de conducir en Córdoba. ¿En qué puedo ayudarte?');
-      }, 500);
+      addMessage('bot', '¡Hola! Soy GuíaBot, tu asistente especializado en tránsito y licencias de conducir en Córdoba. ¿En qué puedo ayudarte?');
     }
   }, [isOpen, messages.length]);
 
@@ -95,6 +93,28 @@ const ChatBot: React.FC = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Ocultar menú de navegación cuando el chatbot esté abierto en móviles
+  useEffect(() => {
+    if (isMobile && isOpen) {
+      // Ocultar el menú de navegación del navegador
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      // Restaurar el comportamiento normal
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+
+    // Cleanup al desmontar
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  }, [isMobile, isOpen]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -239,7 +259,7 @@ const ChatBot: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className={`fixed bg-white z-40 flex flex-col overflow-hidden ${
+            className={`fixed bg-white z-[9999] flex flex-col overflow-hidden ${
               isMobile 
                 ? 'inset-0 w-full h-full' 
                 : `left-6 w-96 h-[600px] max-w-md mx-auto rounded-2xl shadow-2xl border border-gray-200 ${
@@ -260,11 +280,11 @@ const ChatBot: React.FC = () => {
               </div>
               <button
                 onClick={toggleChat}
-                className="w-10 h-10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+                className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
                 title="Cerrar chat"
                 aria-label="Cerrar chat"
               >
-                <X className="w-6 h-6" />
+                <X className="w-7 h-7" />
               </button>
             </div>
 
