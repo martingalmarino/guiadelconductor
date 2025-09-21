@@ -30,6 +30,7 @@ const Quiz: React.FC = () => {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const questionRef = React.useRef<HTMLDivElement>(null);
 
   // Load questions from JSON and select 60 random questions
   useEffect(() => {
@@ -89,6 +90,21 @@ const Quiz: React.FC = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quizState.timeRemaining]);
+
+  // Scroll to question when currentQuestionIndex changes
+  useEffect(() => {
+    if (quizState.isStarted && !quizState.isCompleted && questionRef.current) {
+      // Smooth scroll to the question with some offset for better UX
+      const element = questionRef.current;
+      const elementTop = element.offsetTop;
+      const offset = 100; // Space from top
+      
+      window.scrollTo({
+        top: elementTop - offset,
+        behavior: 'smooth'
+      });
+    }
+  }, [quizState.currentQuestionIndex, quizState.isStarted, quizState.isCompleted]);
 
   const handleStartQuiz = () => {
     setQuizState(prev => ({
@@ -276,16 +292,18 @@ const Quiz: React.FC = () => {
           </div>
 
           {/* Question */}
-          <QuizQuestion
-            question={currentQuestion}
-            selectedOption={quizState.selectedOption}
-            showFeedback={quizState.showFeedback}
-            onSelectOption={handleSelectOption}
-            onNext={handleNextQuestion}
-            onPrevious={handlePreviousQuestion}
-            canGoNext={quizState.showFeedback}
-            canGoPrevious={quizState.currentQuestionIndex > 0}
-          />
+          <div ref={questionRef}>
+            <QuizQuestion
+              question={currentQuestion}
+              selectedOption={quizState.selectedOption}
+              showFeedback={quizState.showFeedback}
+              onSelectOption={handleSelectOption}
+              onNext={handleNextQuestion}
+              onPrevious={handlePreviousQuestion}
+              canGoNext={quizState.showFeedback}
+              canGoPrevious={quizState.currentQuestionIndex > 0}
+            />
+          </div>
 
           {/* Navigation */}
           <QuizNavigation
