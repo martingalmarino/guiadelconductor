@@ -378,16 +378,104 @@ const ChatBot: React.FC = () => {
     <>
       {/* Botón flotante - solo visible cuando el chat está cerrado */}
       {!isOpen && (
-        <motion.button
-          onClick={toggleChat}
-          className="fixed bottom-16 right-8 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          title="Abrir chat"
-          aria-label="Abrir chat GuíaBot"
-        >
-          <Bot className="w-6 h-6 sm:w-7 sm:h-7" />
-        </motion.button>
+        <div className="fixed bottom-16 right-8 sm:bottom-6 sm:right-6 z-[60]">
+          {/* Anillo de pulso sutil */}
+          <div className="absolute inset-0 rounded-full bg-green-400 opacity-20 animate-ping"></div>
+          
+          {/* Anillo de respiración */}
+          <motion.div
+            className="absolute inset-0 rounded-full bg-green-300 opacity-30"
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.1, 0.3]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Botón principal con efectos suaves */}
+          <motion.button
+            onClick={toggleChat}
+            className="relative w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full shadow-lg hover:shadow-xl hover:shadow-green-500/40 transition-all duration-500 flex items-center justify-center touch-manipulation overflow-hidden"
+            whileHover={{ 
+              scale: 1.05,
+              y: -2,
+              boxShadow: "0 20px 40px rgba(34, 197, 94, 0.3)"
+            }}
+            whileTap={{ scale: 0.95 }}
+            animate={{
+              y: [0, -2, 0],
+            }}
+            transition={{
+              y: {
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }
+            }}
+            title="Abrir chat"
+            aria-label="Abrir chat GuíaBot"
+          >
+            {/* Brillo sutil que se mueve */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
+              animate={{
+                x: ['-100%', '100%']
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                repeatDelay: 2,
+                ease: "easeInOut"
+              }}
+            />
+            
+            {/* Icono con micro-animación */}
+            <motion.div
+              animate={{
+                rotate: [0, 5, -5, 0]
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <Bot className="w-6 h-6 sm:w-7 sm:h-7 relative z-10" />
+            </motion.div>
+            
+            {/* Partículas sutiles */}
+            <motion.div
+              className="absolute top-1 right-1 w-1 h-1 bg-white rounded-full opacity-60"
+              animate={{
+                scale: [0, 1, 0],
+                opacity: [0, 0.8, 0]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: 0.5,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div
+              className="absolute bottom-2 left-2 w-0.5 h-0.5 bg-white rounded-full opacity-40"
+              animate={{
+                scale: [0, 1, 0],
+                opacity: [0, 0.6, 0]
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                delay: 1,
+                ease: "easeInOut"
+              }}
+            />
+          </motion.button>
+        </div>
       )}
 
       {/* Chat Container */}
