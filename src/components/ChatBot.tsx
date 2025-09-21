@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
+import { X, Send, Bot, User } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 
 interface Message {
@@ -67,20 +67,7 @@ const ChatBot: React.FC = () => {
     }
   }, [isOpen, messages.length]);
 
-  // Scroll automático - solo para nuevos mensajes, no para el mensaje de bienvenida inicial
-  useEffect(() => {
-    // Solo hacer scroll automático si hay más de 1 mensaje (no solo el de bienvenida)
-    if (messages.length > 1) {
-      scrollToBottom();
-    }
-  }, [messages.length]);
-
-  // Scroll automático cuando el bot está escribiendo
-  useEffect(() => {
-    if (isTyping) {
-      scrollToBottom();
-    }
-  }, [isTyping]);
+  // Eliminar scroll automático - mantener siempre el principio del texto visible
 
   // Detectar si es móvil y teclado virtual
   useEffect(() => {
@@ -126,9 +113,6 @@ const ChatBot: React.FC = () => {
     };
   }, [isMobile, isOpen]);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const addMessage = (type: 'user' | 'bot', content: string) => {
     const newMessage: Message = {
@@ -254,13 +238,13 @@ const ChatBot: React.FC = () => {
       {!isOpen && (
         <motion.button
           onClick={toggleChat}
-          className="fixed bottom-16 left-4 sm:bottom-6 sm:left-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-[0_15px_0_15px] shadow-lg hover:shadow-xl hover:shadow-primary-600/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
+          className="fixed bottom-16 left-4 sm:bottom-6 sm:left-6 w-14 h-14 sm:w-16 sm:h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           title="Abrir chat"
           aria-label="Abrir chat GuíaBot"
         >
-          <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />
+          <Bot className="w-6 h-6 sm:w-7 sm:h-7" />
         </motion.button>
       )}
 
