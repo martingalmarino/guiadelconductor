@@ -18,6 +18,7 @@ import GuiasIndex from './components/Guias/GuiasIndex';
 import SenalesTransitoInformativas from './components/Guias/SenalesTransitoInformativas';
 import SenalesPreventivas from './components/Guias/SenalesPreventivas';
 import SenalesReglamentarias from './components/Guias/SenalesReglamentarias';
+import ProhibidoEstacionar from './components/Guias/ProhibidoEstacionar';
 import ScrollToTop from './components/ScrollToTop';
 import ChatBot from './components/ChatBot';
 
@@ -78,9 +79,10 @@ function App() {
           <Route path="/politica-de-cookies" element={<PoliticaCookies />} />
           {/* Guías routes */}
           <Route path="/guias" element={<GuiasIndex />} />
-          <Route path="/guias/senales-transito-informativas" element={<SenalesTransitoInformativas />} />
-          <Route path="/guias/senales-preventivas" element={<SenalesPreventivas />} />
-          <Route path="/guias/senales-reglamentarias" element={<SenalesReglamentarias />} />
+            <Route path="/guias/senales-transito-informativas" element={<SenalesTransitoInformativas />} />
+            <Route path="/guias/senales-preventivas" element={<SenalesPreventivas />} />
+            <Route path="/guias/senales-reglamentarias" element={<SenalesReglamentarias />} />
+            <Route path="/guias/prohibido-estacionar-guia-por-colores-de-cordon" element={<ProhibidoEstacionar />} />
           {/* Catch-all route for 404 pages */}
           <Route path="*" element={<NotFound />} />
         </Routes>
