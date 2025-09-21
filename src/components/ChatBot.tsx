@@ -129,7 +129,6 @@ const ChatBot: React.FC = () => {
   };
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [showBubble, setShowBubble] = useState(true);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -287,14 +286,6 @@ const ChatBot: React.FC = () => {
     };
   }, [isMobile, isOpen]);
 
-  // Ocultar la burbuja después de 10 segundos
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowBubble(false);
-    }, 10000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const addMessage = (type: 'user' | 'bot', content: string) => {
     const newMessage: Message = {
@@ -368,7 +359,6 @@ const ChatBot: React.FC = () => {
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
-    setShowBubble(false); // Ocultar la burbuja al abrir el chat
     if (!isOpen) {
       // En móviles, no hacer focus automático para mostrar primero el mensaje de bienvenida
       if (!isMobile) {
@@ -388,43 +378,16 @@ const ChatBot: React.FC = () => {
     <>
       {/* Botón flotante - solo visible cuando el chat está cerrado */}
       {!isOpen && (
-        <div className="fixed bottom-16 right-8 sm:bottom-6 sm:right-6 z-[60]">
-          {/* Speech Bubble */}
-          <AnimatePresence>
-            {showBubble && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8, x: 20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.8, x: 20 }}
-                transition={{ delay: 2, duration: 0.5, ease: "easeOut" }}
-                className="absolute -left-44 sm:-left-48 -top-4 sm:-top-6 bg-white text-gray-800 px-3 py-2 sm:px-4 sm:py-2 rounded-lg shadow-xl border border-gray-200 text-xs sm:text-sm font-medium whitespace-nowrap cursor-pointer z-[70]"
-                onClick={() => setShowBubble(false)}
-              >
-                Poné primera y consultame
-                {/* Arrow pointing to button */}
-                <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-full">
-                  <div className="w-0 h-0 border-t-8 border-t-white border-l-4 border-l-transparent border-r-4 border-r-transparent"></div>
-                  <div className="absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-1 w-0 h-0 border-t-6 border-t-gray-200 border-l-3 border-l-transparent border-r-3 border-r-transparent"></div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Botón del chatbot */}
-          <motion.button
-            onClick={toggleChat}
-            className="w-14 h-14 sm:w-16 sm:h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 flex items-center justify-center touch-manipulation relative"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            title="Abrir chat"
-            aria-label="Abrir chat GuíaBot"
-          >
-            <Bot className="w-6 h-6 sm:w-7 sm:h-7" />
-            
-            {/* Pulse animation ring */}
-            <div className="absolute inset-0 rounded-full bg-green-400 opacity-20 animate-ping"></div>
-          </motion.button>
-        </div>
+        <motion.button
+          onClick={toggleChat}
+          className="fixed bottom-16 right-8 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          title="Abrir chat"
+          aria-label="Abrir chat GuíaBot"
+        >
+          <Bot className="w-6 h-6 sm:w-7 sm:h-7" />
+        </motion.button>
       )}
 
       {/* Chat Container */}
