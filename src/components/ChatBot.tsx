@@ -237,14 +237,14 @@ const ChatBot: React.FC = () => {
             }`}
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white p-4 sm:p-5 flex items-center justify-between">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <Bot className="w-4 h-4 sm:w-5 sm:h-5" />
+            <div className="bg-primary-600 text-white p-3 sm:p-4 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                  <Bot className="w-3 h-3" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-base sm:text-lg font-heading">GuíaBot</h3>
-                  <p className="text-xs opacity-90 hidden sm:block">Tu asistente de tránsito</p>
+                  <h3 className="font-semibold text-sm">GuíaBot</h3>
+                  <p className="text-xs opacity-80">Disponible ahora</p>
                 </div>
               </div>
               <button
@@ -258,7 +258,7 @@ const ChatBot: React.FC = () => {
             </div>
 
             {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto bg-gray-50 p-3 sm:p-4 space-y-3 sm:space-y-4">
+            <div className="flex-1 overflow-y-auto bg-gray-100 p-3 sm:p-4 space-y-2 sm:space-y-3">
               {messages.map((message) => (
                 <motion.div
                   key={message.id}
@@ -272,15 +272,15 @@ const ChatBot: React.FC = () => {
                     </div>
                   )}
                   <div
-                    className={`max-w-[85%] sm:max-w-[75%] px-3 py-2 sm:px-4 sm:py-3 rounded-[0_15px_0_15px] ${
+                    className={`max-w-[85%] sm:max-w-[75%] px-3 py-2 rounded-2xl ${
                       message.type === 'user'
-                        ? 'bg-primary-600 text-white rounded-br-sm'
-                        : 'bg-white text-gray-800 border border-gray-200 rounded-bl-sm shadow-sm'
+                        ? 'bg-primary-600 text-white ml-auto'
+                        : 'bg-white text-gray-800 shadow-sm'
                     }`}
                   >
                     <div
                       dangerouslySetInnerHTML={{ __html: message.content }}
-                      className="text-xs sm:text-sm leading-relaxed"
+                      className="text-sm leading-relaxed"
                     />
                   </div>
                   {message.type === 'user' && (
@@ -301,7 +301,7 @@ const ChatBot: React.FC = () => {
                   <div className="w-6 h-6 sm:w-8 sm:h-8 bg-secondary-600 rounded-full flex items-center justify-center">
                     <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                   </div>
-                  <div className="bg-white border border-gray-200 rounded-[0_15px_0_15px] rounded-bl-sm px-3 py-2 sm:px-4 sm:py-3 shadow-sm">
+                  <div className="bg-white rounded-2xl px-3 py-2 shadow-sm">
                     <div className="flex space-x-1">
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce bounce-delay-1" />
@@ -314,14 +314,14 @@ const ChatBot: React.FC = () => {
             </div>
 
             {/* Quick Replies */}
-            <div className="p-2 sm:p-4 border-t border-gray-200 bg-white">
-              <div className="grid grid-cols-2 gap-1 sm:grid-cols-2 sm:gap-2 mb-2 sm:mb-4">
+            <div className="p-3 border-t border-gray-200 bg-white">
+              <div className="grid grid-cols-2 gap-2 mb-3">
                 {quickReplies.map((reply) => (
                   <button
                     key={reply.id}
                     onClick={() => handleSendMessage(reply.action)}
                     disabled={isLoading}
-                    className="flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2 text-[11px] sm:text-xs font-medium text-primary-600 border-2 border-primary-600 rounded-[0_15px_0_15px] hover:bg-primary-600 hover:text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed min-h-[32px] sm:min-h-[40px] text-center leading-tight"
+                    className="flex items-center justify-center px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-primary-600 hover:text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed min-h-[36px] text-center"
                   >
                     <span>{reply.text}</span>
                   </button>
@@ -329,21 +329,21 @@ const ChatBot: React.FC = () => {
               </div>
 
               {/* Input Area */}
-              <div className="flex gap-2 p-2 sm:p-0">
+              <div className="flex gap-2 p-3 pt-0">
                 <input
                   ref={inputRef}
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Escribe tu consulta..."
+                  placeholder="Escribe un mensaje..."
                   disabled={isLoading}
-                  className="flex-1 px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-[0_15px_0_15px] focus:border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600/20 text-sm disabled:opacity-50 disabled:cursor-not-allowed min-h-[40px] sm:min-h-[44px]"
+                  className="flex-1 px-3 py-2 border border-gray-300 rounded-full focus:border-primary-600 focus:outline-none text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 />
                 <button
                   onClick={() => handleSendMessage()}
                   disabled={isLoading || !inputValue.trim()}
-                  className="px-3 py-2 sm:px-4 sm:py-3 bg-primary-600 text-white rounded-[0_15px_0_15px] hover:bg-primary-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px]"
+                  className="w-8 h-8 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   title="Enviar mensaje"
                   aria-label="Enviar mensaje"
                 >
