@@ -26,6 +26,7 @@ const ChatBot: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [predefinedResponses, setPredefinedResponses] = useState<Record<string, string>>({});
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -73,9 +74,14 @@ const ChatBot: React.FC = () => {
     scrollToBottom();
   }, [messages, isTyping]);
 
-  // Detectar teclado virtual en móviles
+  // Detectar si es móvil y teclado virtual
   useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
     const handleResize = () => {
+      checkIsMobile();
       const initialHeight = window.innerHeight;
       const currentHeight = window.innerHeight;
       
@@ -85,6 +91,7 @@ const ChatBot: React.FC = () => {
       }
     };
 
+    checkIsMobile();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -230,21 +237,23 @@ const ChatBot: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className={`fixed left-2 sm:left-6 w-[calc(100vw-16px)] sm:w-96 max-w-md mx-auto bg-white rounded-2xl shadow-2xl border border-gray-200 z-40 flex flex-col overflow-hidden ${
-              isKeyboardOpen 
-                ? 'bottom-2 h-[50vh] max-h-[350px]' 
-                : 'bottom-20 h-[70vh] sm:h-[600px] max-h-[500px]'
+            className={`fixed bg-white z-40 flex flex-col overflow-hidden ${
+              isMobile 
+                ? 'inset-0 w-full h-full' 
+                : `left-6 w-96 h-[600px] max-w-md mx-auto rounded-2xl shadow-2xl border border-gray-200 ${
+                    isKeyboardOpen ? 'bottom-2' : 'bottom-20'
+                  }`
             }`}
           >
             {/* Header */}
-            <div className="bg-primary-600 text-white p-3 sm:p-4 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-                  <Bot className="w-3 h-3" />
+            <div className="bg-primary-600 text-white p-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                  <Bot className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-sm">GuíaBot</h3>
-                  <p className="text-xs opacity-80">Disponible ahora</p>
+                  <h3 className="font-semibold text-base">GuíaBot</h3>
+                  <p className="text-sm opacity-80">Disponible ahora</p>
                 </div>
               </div>
               <button
@@ -258,7 +267,7 @@ const ChatBot: React.FC = () => {
             </div>
 
             {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto bg-gray-100 p-3 sm:p-4 space-y-2 sm:space-y-3">
+            <div className="flex-1 overflow-y-auto bg-gray-100 p-4 space-y-3">
               {messages.map((message) => (
                 <motion.div
                   key={message.id}
@@ -314,14 +323,14 @@ const ChatBot: React.FC = () => {
             </div>
 
             {/* Quick Replies */}
-            <div className="p-3 border-t border-gray-200 bg-white">
-              <div className="grid grid-cols-2 gap-2 mb-3">
+            <div className="p-4 border-t border-gray-200 bg-white">
+              <div className="grid grid-cols-2 gap-3 mb-4">
                 {quickReplies.map((reply) => (
                   <button
                     key={reply.id}
                     onClick={() => handleSendMessage(reply.action)}
                     disabled={isLoading}
-                    className="flex items-center justify-center px-3 py-2 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-primary-600 hover:text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed min-h-[36px] text-center"
+                    className="flex items-center justify-center px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-primary-600 hover:text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] text-center"
                   >
                     <span>{reply.text}</span>
                   </button>
@@ -329,7 +338,7 @@ const ChatBot: React.FC = () => {
               </div>
 
               {/* Input Area */}
-              <div className="flex gap-2 p-3 pt-0">
+              <div className="flex gap-3 p-4">
                 <input
                   ref={inputRef}
                   type="text"
@@ -338,16 +347,16 @@ const ChatBot: React.FC = () => {
                   onKeyPress={handleKeyPress}
                   placeholder="Escribe un mensaje..."
                   disabled={isLoading}
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-full focus:border-primary-600 focus:outline-none text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-full focus:border-primary-600 focus:outline-none text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 />
                 <button
                   onClick={() => handleSendMessage()}
                   disabled={isLoading || !inputValue.trim()}
-                  className="w-8 h-8 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-10 h-10 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   title="Enviar mensaje"
                   aria-label="Enviar mensaje"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-5 h-5" />
                 </button>
               </div>
             </div>
