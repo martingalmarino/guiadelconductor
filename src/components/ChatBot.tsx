@@ -238,7 +238,7 @@ const ChatBot: React.FC = () => {
       {!isOpen && (
         <motion.button
           onClick={toggleChat}
-          className="fixed bottom-16 left-4 sm:bottom-6 sm:left-6 w-14 h-14 sm:w-16 sm:h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
+          className="fixed bottom-16 right-4 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           title="Abrir chat"
