@@ -95,4 +95,13 @@
   .text-small {
     @apply text-sm sm:text-base leading-relaxed font-sans;
   }
+  
+  /* ChatBot animations */
+  .bounce-delay-1 {
+    animation-delay: 0.1s;
+  }
+  
+  .bounce-delay-2 {
+    animation-delay: 0.2s;
+  }
 }

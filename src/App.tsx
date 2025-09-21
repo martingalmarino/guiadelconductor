@@ -19,6 +19,7 @@ import SenalesTransitoInformativas from './components/Guias/SenalesTransitoInfor
 import SenalesPreventivas from './components/Guias/SenalesPreventivas';
 import SenalesReglamentarias from './components/Guias/SenalesReglamentarias';
 import ScrollToTop from './components/ScrollToTop';
+import ChatBot from './components/ChatBot';
 
 // Home Page Component
 const HomePage: React.FC = () => (
@@ -83,6 +84,9 @@ function App() {
           {/* Catch-all route for 404 pages */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        
+        {/* ChatBot disponible en todas las páginas */}
+        <ChatBot />
       </div>
     </Router>
   );
