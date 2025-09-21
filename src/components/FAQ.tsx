@@ -29,7 +29,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: '¿Cuánto tiempo tengo para completar cada simulacro?',
-      answer: 'Los simulacros replican exactamente las condiciones del examen real: tenés 25 minutos para responder 50 preguntas. También ofrecemos modos de práctica sin límite de tiempo para que puedas estudiar a tu ritmo y revisar las explicaciones detalladas de cada respuesta.'
+      answer: 'Los simulacros replican exactamente las condiciones del examen real: tenés 20 minutos para responder 60 preguntas. También ofrecemos modos de práctica sin límite de tiempo para que puedas estudiar a tu ritmo y revisar las explicaciones detalladas de cada respuesta.'
     },
     {
       question: '¿Qué pasa si no apruebo el simulacro?',

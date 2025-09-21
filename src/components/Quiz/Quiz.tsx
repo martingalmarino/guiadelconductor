@@ -22,7 +22,7 @@ const Quiz: React.FC = () => {
     answers: [],
     selectedOption: null,
     showFeedback: false,
-    timeRemaining: 25 * 60, // 25 minutes in seconds
+    timeRemaining: 20 * 60, // 20 minutes in seconds
     isCompleted: false,
     isStarted: false,
     score: 0
@@ -31,7 +31,7 @@ const Quiz: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Load questions from JSON and select 50 random questions
+  // Load questions from JSON and select 60 random questions
   useEffect(() => {
     const loadQuestions = async () => {
       try {
@@ -41,9 +41,9 @@ const Quiz: React.FC = () => {
         }
         const allQuestions: Question[] = await response.json();
         
-        // Shuffle and select 50 questions from all available
+        // Shuffle and select 60 questions from all available
         const shuffledQuestions = [...allQuestions].sort(() => Math.random() - 0.5);
-        const selectedQuestions = shuffledQuestions.slice(0, 50);
+        const selectedQuestions = shuffledQuestions.slice(0, 60);
         
         // Re-assign sequential IDs to maintain order
         const questionsWithNewIds = selectedQuestions.map((question, index) => ({
@@ -168,7 +168,7 @@ const Quiz: React.FC = () => {
       answers: new Array(quizState.questions.length).fill(null),
       selectedOption: null,
       showFeedback: false,
-      timeRemaining: 25 * 60,
+      timeRemaining: 20 * 60,
       isCompleted: false,
       isStarted: false,
       score: 0

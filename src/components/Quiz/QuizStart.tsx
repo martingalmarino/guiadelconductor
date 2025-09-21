@@ -65,11 +65,11 @@ const QuizStart: React.FC<QuizStartProps> = ({ totalQuestions, onStart }) => {
               <div className="grid sm:grid-cols-2 gap-4 text-blue-700">
                 <div className="flex items-center gap-3">
                   <Clock className="w-5 h-5 text-blue-600" />
-                  <span className="text-sm sm:text-base">25 minutos de duración</span>
+                  <span className="text-sm sm:text-base">20 minutos de duración</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <BookOpen className="w-5 h-5 text-blue-600" />
-                  <span className="text-sm sm:text-base">50 preguntas (de 87 disponibles)</span>
+                  <span className="text-sm sm:text-base">60 preguntas (de 87 disponibles)</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-blue-600" />
@@ -88,7 +88,7 @@ const QuizStart: React.FC<QuizStartProps> = ({ totalQuestions, onStart }) => {
               </h4>
               <ul className="space-y-2 text-green-700">
                 <li>• Preguntas oficiales del examen real de Córdoba</li>
-                <li>• 50 preguntas seleccionadas aleatoriamente de 87 disponibles</li>
+                <li>• 60 preguntas seleccionadas aleatoriamente de 87 disponibles</li>
                 <li>• Explicación detallada para cada respuesta</li>
                 <li>• Navegación libre entre preguntas</li>
                 <li>• Resultados detallados al finalizar</li>
