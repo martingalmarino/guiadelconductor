@@ -67,10 +67,20 @@ const ChatBot: React.FC = () => {
     }
   }, [isOpen, messages.length]);
 
-  // Scroll automático
+  // Scroll automático - solo para nuevos mensajes, no para el mensaje de bienvenida inicial
   useEffect(() => {
-    scrollToBottom();
-  }, [messages, isTyping]);
+    // Solo hacer scroll automático si hay más de 1 mensaje (no solo el de bienvenida)
+    if (messages.length > 1) {
+      scrollToBottom();
+    }
+  }, [messages.length]);
+
+  // Scroll automático cuando el bot está escribiendo
+  useEffect(() => {
+    if (isTyping) {
+      scrollToBottom();
+    }
+  }, [isTyping]);
 
   // Detectar si es móvil y teclado virtual
   useEffect(() => {
@@ -224,9 +234,12 @@ const ChatBot: React.FC = () => {
   const toggleChat = () => {
     setIsOpen(!isOpen);
     if (!isOpen) {
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 300);
+      // En móviles, no hacer focus automático para mostrar primero el mensaje de bienvenida
+      if (!isMobile) {
+        setTimeout(() => {
+          inputRef.current?.focus();
+        }, 300);
+      }
     }
   };
 
