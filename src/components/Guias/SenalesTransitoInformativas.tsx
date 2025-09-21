@@ -77,7 +77,7 @@ const SenalesTransitoInformativas: React.FC = () => {
     { id: 9, nombre: 'Aeropuerto', descripcion: 'Dirección hacia el aeropuerto', categoria: 'transporte', imagen: 'aeropuerto.png' },
     { id: 10, nombre: 'Terminal de Ómnibus', descripcion: 'Estación de autobuses', categoria: 'transporte', imagen: 'terminal de omnibus.png' },
     { id: 11, nombre: 'Taxi', descripcion: 'Parada de taxis', categoria: 'transporte', imagen: 'taxi.png' },
-    { id: 12, nombre: 'Telesférico', descripcion: 'Transporte aéreo por cable', categoria: 'transporte', imagen: 'telesférico.png' },
+    { id: 12, nombre: 'Telesférico', descripcion: 'Transporte aéreo por cable', categoria: 'transporte', imagen: 'telesferico.png' },
     { id: 13, nombre: 'Detención Transporte Público', descripcion: 'Parada de autobús o transporte público', categoria: 'transporte', imagen: 'detencion transporte publico.png' },
     { id: 14, nombre: 'Estacionamiento', descripcion: 'Zona de estacionamiento', categoria: 'servicios', imagen: 'estacionamiento.png' },
     { id: 15, nombre: 'Estacionamiento Casas Rodantes', descripcion: 'Área específica para casas rodantes', categoria: 'servicios', imagen: 'estacionamiento casas rodantes.png' },
