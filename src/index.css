@@ -104,4 +104,22 @@
   .bounce-delay-2 {
     animation-delay: 0.2s;
   }
+  
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .touch-manipulation {
+      touch-action: manipulation;
+    }
+    
+    /* Prevent zoom on input focus */
+    input[type="text"] {
+      font-size: 16px;
+    }
+    
+    /* Better touch targets */
+    button, .quick-reply-btn {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
 }
