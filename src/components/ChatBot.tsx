@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 interface Message {
   id: string;
@@ -17,6 +18,7 @@ interface QuickReply {
 }
 
 const ChatBot: React.FC = () => {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
@@ -28,13 +30,16 @@ const ChatBot: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Ocultar chatbot en la página de test
+  const shouldHideChatbot = location.pathname === '/test';
+
   const quickReplies: QuickReply[] = [
-    { id: 'requisitos', text: 'Requisitos', icon: '📋', action: 'requisitos' },
-    { id: 'costos', text: 'Costos', icon: '💰', action: 'costos' },
-    { id: 'lugares', text: 'Lugares', icon: '📍', action: 'lugares' },
-    { id: 'examen', text: 'Examen teórico', icon: '❓', action: 'examen' },
-    { id: 'renovacion', text: 'Renovación', icon: '🔄', action: 'renovacion' },
-    { id: 'categorias', text: 'Categorías', icon: '🚘', action: 'categorias' },
+    { id: 'requisitos', text: 'Requisitos', icon: '', action: 'requisitos' },
+    { id: 'costos', text: 'Costos', icon: '', action: 'costos' },
+    { id: 'lugares', text: 'Lugares', icon: '', action: 'lugares' },
+    { id: 'examen', text: 'Examen teórico', icon: '', action: 'examen' },
+    { id: 'renovacion', text: 'Renovación', icon: '', action: 'renovacion' },
+    { id: 'categorias', text: 'Categorías', icon: '', action: 'categorias' },
   ];
 
   // Cargar respuestas predefinidas
@@ -198,12 +203,17 @@ const ChatBot: React.FC = () => {
     }
   };
 
+  // No mostrar el chatbot en la página de test
+  if (shouldHideChatbot) {
+    return null;
+  }
+
   return (
     <>
       {/* Botón flotante */}
       <motion.button
         onClick={toggleChat}
-        className="fixed bottom-16 right-4 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-[0_15px_0_15px] shadow-lg hover:shadow-xl hover:shadow-primary-600/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
+        className="fixed bottom-16 left-4 sm:bottom-6 sm:left-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-[0_15px_0_15px] shadow-lg hover:shadow-xl hover:shadow-primary-600/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         title="Abrir chat"
@@ -220,7 +230,7 @@ const ChatBot: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className={`fixed right-2 sm:right-6 w-[calc(100vw-16px)] sm:w-96 max-w-md mx-auto bg-white rounded-2xl shadow-2xl border border-gray-200 z-40 flex flex-col overflow-hidden ${
+            className={`fixed left-2 sm:left-6 w-[calc(100vw-16px)] sm:w-96 max-w-md mx-auto bg-white rounded-2xl shadow-2xl border border-gray-200 z-40 flex flex-col overflow-hidden ${
               isKeyboardOpen 
                 ? 'bottom-2 h-[50vh] max-h-[350px]' 
                 : 'bottom-20 h-[70vh] sm:h-[600px] max-h-[500px]'
@@ -305,15 +315,14 @@ const ChatBot: React.FC = () => {
 
             {/* Quick Replies */}
             <div className="p-2 sm:p-4 border-t border-gray-200 bg-white">
-              <div className="grid grid-cols-3 gap-1 sm:grid-cols-2 sm:gap-2 mb-2 sm:mb-4">
+              <div className="grid grid-cols-2 gap-1 sm:grid-cols-2 sm:gap-2 mb-2 sm:mb-4">
                 {quickReplies.map((reply) => (
                   <button
                     key={reply.id}
                     onClick={() => handleSendMessage(reply.action)}
                     disabled={isLoading}
-                    className="flex flex-col items-center justify-center gap-0.5 sm:gap-2 px-1 py-2 sm:px-3 sm:py-2 text-[10px] sm:text-xs font-medium text-primary-600 border-2 border-primary-600 rounded-[0_15px_0_15px] hover:bg-primary-600 hover:text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed min-h-[36px] sm:min-h-[44px]"
+                    className="flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2 text-[11px] sm:text-xs font-medium text-primary-600 border-2 border-primary-600 rounded-[0_15px_0_15px] hover:bg-primary-600 hover:text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed min-h-[32px] sm:min-h-[40px] text-center leading-tight"
                   >
-                    <span>{reply.icon}</span>
                     <span>{reply.text}</span>
                   </button>
                 ))}
