@@ -256,40 +256,6 @@ const ProhibidoEstacionar: React.FC = () => {
             </h1>
           </motion.div>
 
-          {/* TL;DR Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-12"
-          >
-            <h2 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
-              <Clock className="w-5 h-5" />
-              TL;DR - Resumen Rápido
-            </h2>
-            <ul className="space-y-2 text-blue-800">
-              <li className="flex items-start gap-2">
-                <span className="text-red-500 font-bold">🚫</span>
-                <span><strong>Cordón rojo:</strong> prohibido estacionar y detenerse las 24 hs.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-yellow-500 font-bold">⚠️</span>
-                <span><strong>Cordón amarillo:</strong> no estacionar, solo detenciones breves para ascenso/descenso.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-green-500 font-bold">✅</span>
-                <span><strong>Cordón blanco o sin pintar:</strong> se puede estacionar salvo señalización contraria.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-red-500 font-bold">❌</span>
-                <span><strong>Lugares prohibidos siempre:</strong> paradas de colectivo, entradas de cocheras, hospitales, escuelas, rotondas.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-blue-500 font-bold">📜</span>
-                <span><strong>Basado en la Ordenanza Municipal Nº 9981/98.</strong></span>
-              </li>
-            </ul>
-          </motion.div>
 
           {/* Table of Contents */}
           <motion.div
