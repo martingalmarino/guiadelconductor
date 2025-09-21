@@ -217,17 +217,19 @@ const ChatBot: React.FC = () => {
 
   return (
     <>
-      {/* Botón flotante */}
-      <motion.button
-        onClick={toggleChat}
-        className="fixed bottom-16 left-4 sm:bottom-6 sm:left-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-[0_15px_0_15px] shadow-lg hover:shadow-xl hover:shadow-primary-600/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        title="Abrir chat"
-        aria-label="Abrir chat GuíaBot"
-      >
-        <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />
-      </motion.button>
+      {/* Botón flotante - solo visible cuando el chat está cerrado */}
+      {!isOpen && (
+        <motion.button
+          onClick={toggleChat}
+          className="fixed bottom-16 left-4 sm:bottom-6 sm:left-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-[0_15px_0_15px] shadow-lg hover:shadow-xl hover:shadow-primary-600/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 z-[60] flex items-center justify-center touch-manipulation"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          title="Abrir chat"
+          aria-label="Abrir chat GuíaBot"
+        >
+          <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />
+        </motion.button>
+      )}
 
       {/* Chat Container */}
       <AnimatePresence>
@@ -258,11 +260,11 @@ const ChatBot: React.FC = () => {
               </div>
               <button
                 onClick={toggleChat}
-                className="w-8 h-8 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors"
+                className="w-10 h-10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
                 title="Cerrar chat"
                 aria-label="Cerrar chat"
               >
-                <X className="w-5 h-5" />
+                <X className="w-6 h-6" />
               </button>
             </div>
 
