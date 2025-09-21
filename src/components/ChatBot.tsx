@@ -25,11 +25,171 @@ const ChatBot: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [predefinedResponses, setPredefinedResponses] = useState<Record<string, string>>({});
+
+  // API Key de OpenAI desde variable de entorno
+  const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY || "";
+
+  // Lista de temas permitidos para validación
+  const temasPermitidos = [
+    // Licencia / carnet
+    "licencia", "carnet", "carné", "carne", "carnet de conducir", "sacar licencia", "sacar carnet", 
+    "permiso de conducir", "registro", "registro de conducir",
+    
+    // Examen
+    "examen", "teórico", "práctico", "practico", "test", "prueba", 
+    "simulacro", "preguntas", "teorico de manejo", "examen de manejo",
+    
+    // Trámite / requisitos
+    "requisitos", "documentación", "documento", "papeles", "dni", "cuota", "trámite", "tramite",
+    "gestoría", "gestoria",
+    
+    // Lugares / CPC
+    "cpc", "centro de participación comunal", "municipalidad", "municipio", "oficina", "sede", "lugar", "donde rendir", "dónde rendir",
+    
+    // Costos / tasas
+    "costo", "costos", "precio", "precios", "valor", "tasa", "tasas", "importe", "pagar", "arancel",
+    
+    // Renovación / duplicado
+    "renovar", "renovación", "renovacion", "renueve", "vencer", "vencimiento", 
+    "duplicado", "reposición", "reposición de licencia", "perdí", "perdi", "robo", "extravié", "extravie", "extravío",
+    
+    // Categorías
+    "categoría", "categoria", "categorías", "categorias", "tipo de licencia", "tipo de carnet", "clase de licencia", "clase b", "clase a", "profesional",
+    
+    // Multas / antecedentes
+    "multa", "multas", "infracción", "infraccion", "infracciones", "antecedente", "antecedentes", "cenat", "boleta", "pago de multas",
+    
+    // Vigencia / validez
+    "vigencia", "validez", "duración", "caducidad", "vencimiento",
+    
+    // Turnos
+    "turno", "turnos", "cita", "citas", "sacar turno", "pedir turno", "solicitar turno", "reserva",
+    
+    // Otros relacionados
+    "autoescuela", "escuela de manejo", "curso de manejo", "curso de conducir",
+    "vehículo", "vehiculo", "moto", "camión", "colectivo", "taxi", "remis", "transporte"
+  ];
+
+  // Diccionario de mapeo para respuestas predefinidas
+  const mapeoClaves = {
+    "requisitos": [
+      "requisito", "sacar carnet", "sacar licencia", "primer carnet", 
+      "registro por primera vez", "documentación", "documento", "papeles"
+    ],
+    "costos": [
+      "costo", "costos", "precio", "precios", "valor", "tasa", "tasas", 
+      "importe", "arancel", "pagar", "cuánto sale", "cuanto cuesta"
+    ],
+    "lugares": [
+      "lugar", "lugares", "donde rendir", "dónde rendir", "cpc", 
+      "centro de participación comunal", "municipalidad", "sede", "oficina"
+    ],
+    "examen": [
+      "examen", "teórico", "teorico", "práctico", "practico", "test", 
+      "prueba", "simulacro", "preguntas", "evaluación"
+    ],
+    "renovacion": [
+      "renovar", "renovación", "renovacion", "renovando", 
+      "vencer", "vencimiento", "revalidar", "extender licencia"
+    ],
+    "categorias": [
+      "categoría", "categoria", "categorías", "categorias", 
+      "tipo de licencia", "tipo de carnet", "clase de licencia", "clase b", "clase a", "profesional"
+    ],
+    "multas": [
+      "multa", "multas", "infracción", "infraccion", "infracciones", 
+      "antecedente", "antecedentes", "cenat", "boleta", "pago de multas"
+    ],
+    "validez": [
+      "vigencia", "validez", "duración", "caducidad", "valido", "vence", "tiempo de validez"
+    ],
+    "turnos": [
+      "turno", "turnos", "cita", "citas", "sacar turno", "pedir turno", 
+      "solicitar turno", "reserva", "agenda", "turnero"
+    ],
+    "profesionales": [
+      "profesional", "camión", "camion", "colectivo", "taxi", 
+      "remis", "transporte de pasajeros", "categoría d", "categoría e", "categoria c"
+    ],
+    "duplicado": [
+      "duplicado", "reposición", "reposicion", "copia de licencia", 
+      "perdí", "perdi", "robo", "extravié", "extravie", "extravío"
+    ],
+    "documentacion": [
+      "documentación", "documentacion", "documentos", "dni", 
+      "papeles", "que llevar", "qué necesito"
+    ],
+    "horarios": [
+      "horario", "horarios", "hora", "atención", "atencion", 
+      "cpc abierto", "a qué hora", "cuando atienden"
+    ],
+    "contacto": [
+      "contacto", "teléfono", "telefono", "mail", "correo", "email", "whatsapp"
+    ]
+  };
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Función de validación
+  const esConsultaValida = (userText: string): boolean => {
+    return temasPermitidos.some(t => userText.toLowerCase().includes(t));
+  };
+
+  // Función para detectar clave de respuesta predefinida
+  const detectarClave = (texto: string): string | null => {
+    const lower = texto.toLowerCase();
+    for (const clave in mapeoClaves) {
+      if (mapeoClaves[clave as keyof typeof mapeoClaves].some(palabra => lower.includes(palabra))) {
+        return clave;
+      }
+    }
+    return null;
+  };
+
+  // Función para llamar a la API de OpenAI
+  const getGPTResponse = async (message: string): Promise<string> => {
+    if (!OPENAI_API_KEY) {
+      return 'Lo siento, el servicio de IA no está disponible en este momento. Por favor, usa los botones de respuestas rápidas.';
+    }
+
+    try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${OPENAI_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: 'gpt-4o-mini',
+          messages: [
+            {
+              role: 'system',
+              content: 'Sos GuíaBot, un asistente experto en tránsito y licencias de conducir en Córdoba, Argentina. Tu función es responder únicamente consultas relacionadas con: requisitos para sacar la licencia, examen teórico y práctico, costos y tasas, lugares oficiales para rendir, normativas de tránsito, categorías de licencias, renovación, duplicados, multas, vigencia y turnos. Si el usuario pregunta algo fuera de este tema, respondé siempre: 🚦 Lo siento, solo puedo responder consultas relacionadas con licencias y examen de conducir en Córdoba.'
+            },
+            {
+              role: 'user',
+              content: message
+            }
+          ],
+          max_tokens: 500,
+          temperature: 0.7
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Error en la API de OpenAI');
+      }
+
+      const data = await response.json();
+      return data.choices[0].message.content.trim();
+    } catch (error) {
+      console.error('Error al obtener respuesta de GPT:', error);
+      return 'Lo siento, hubo un error al procesar tu consulta. Por favor, intenta de nuevo.';
+    }
+  };
 
   // Ocultar chatbot en la página de test
   const shouldHideChatbot = location.pathname === '/test';
@@ -124,56 +284,11 @@ const ChatBot: React.FC = () => {
     setMessages(prev => [...prev, newMessage]);
   };
 
+  // Función para detectar clave de respuesta predefinida (mejorada)
   const detectKeyword = (text: string): string | null => {
-    const lowerText = text.toLowerCase();
-    if (lowerText.includes('requisito')) return 'requisitos';
-    if (lowerText.includes('costo') || lowerText.includes('precio') || lowerText.includes('valor')) return 'costos';
-    if (lowerText.includes('lugar') || lowerText.includes('dónde') || lowerText.includes('donde')) return 'lugares';
-    if (lowerText.includes('examen')) return 'examen';
-    if (lowerText.includes('renovar') || lowerText.includes('renovación')) return 'renovacion';
-    if (lowerText.includes('categoria')) return 'categorias';
-    if (lowerText.includes('multa')) return 'multas';
-    if (lowerText.includes('vigencia') || lowerText.includes('validez')) return 'validez';
-    if (lowerText.includes('turno')) return 'turnos';
-    return null;
+    return detectarClave(text);
   };
 
-  const getGPTResponse = async (message: string): Promise<string> => {
-    const API_KEY = process.env.REACT_APP_OPENAI_API_KEY || "TU_API_KEY_DE_OPENAI";
-    const url = "https://api.openai.com/v1/chat/completions";
-
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + API_KEY
-        },
-        body: JSON.stringify({
-          model: "gpt-4o-mini",
-          messages: [
-            { 
-              role: "system", 
-              content: "Sos GuíaBot, un asistente experto en tránsito y licencias de conducir en Córdoba, Argentina. Respondé en formato HTML limpio y con listas cuando sea necesario. Sé amigable, profesional y útil." 
-            },
-            { role: "user", content: message }
-          ],
-          max_tokens: 500,
-          temperature: 0.7
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error('Error en la respuesta de la API');
-      }
-
-      const data = await response.json();
-      return data.choices[0].message.content.trim();
-    } catch (error) {
-      console.error('Error GPT:', error);
-      return "Lo siento, no pude procesar tu consulta en este momento. Por favor, intenta de nuevo o usa los botones de respuestas rápidas.";
-    }
-  };
 
   const handleSendMessage = async (message?: string) => {
     const text = message || inputValue.trim();
@@ -183,29 +298,42 @@ const ChatBot: React.FC = () => {
     setInputValue('');
     setIsLoading(true);
 
-    // Buscar respuesta predefinida
-    const keyword = detectKeyword(text);
-    if (keyword && predefinedResponses[keyword]) {
-      setIsTyping(true);
-      setTimeout(() => {
-        setIsTyping(false);
-        addMessage('bot', predefinedResponses[keyword]);
-        setIsLoading(false);
-      }, 1000 + Math.random() * 1000);
-      return;
-    }
-
-    // Usar GPT si no hay respuesta predefinida
-    setIsTyping(true);
     try {
+      // 1. VALIDACIÓN: Verificar si la consulta es válida
+      if (!esConsultaValida(text)) {
+        setIsTyping(true);
+        setTimeout(() => {
+          setIsTyping(false);
+          addMessage('bot', '🚦 Lo siento, solo puedo responder consultas relacionadas con licencias y examen de conducir en Córdoba.');
+          setIsLoading(false);
+        }, 800);
+        return;
+      }
+
+      // 2. BUSCAR RESPUESTA PREDEFINIDA
+      const keyword = detectKeyword(text);
+      if (keyword && predefinedResponses[keyword]) {
+        setIsTyping(true);
+        setTimeout(() => {
+          setIsTyping(false);
+          addMessage('bot', predefinedResponses[keyword]);
+          setIsLoading(false);
+        }, 1000 + Math.random() * 1000);
+        return;
+      }
+
+      // 3. LLAMAR A GPT para consultas más complejas
+      setIsTyping(true);
       const response = await getGPTResponse(text);
       setIsTyping(false);
       addMessage('bot', response);
     } catch (error) {
+      console.error('Error al procesar mensaje:', error);
       setIsTyping(false);
-      addMessage('bot', "Lo siento, no pude procesar tu consulta en este momento. Por favor, intenta de nuevo.");
+      addMessage('bot', 'Lo siento, hubo un error al procesar tu consulta. Por favor, intenta de nuevo.');
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
