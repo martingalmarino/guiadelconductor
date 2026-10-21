@@ -1,6 +1,6 @@
 /**
  * Prerender SEO shells sin browser (compatible con Vercel).
- * Genera build/<ruta>/index.html y build/<ruta>.html con canonical correcto por página.
+ * Genera build/<ruta>/index.html y build/<ruta>.html con metas/OG por página (sin canonical).
  * AdSense / GA del HTML base se preservan.
  */
 import fs from 'fs';
@@ -44,7 +44,7 @@ function injectHead(html, route) {
   const page = PAGES[route];
   if (!page) throw new Error(`Sin datos SEO para ${route}`);
 
-  const canonical = absolute(route);
+  const pageUrl = absolute(route);
   const ogType = page.ogType || 'website';
   const robots = page.robots || 'index, follow';
   const schemas = schemasFor(route);
@@ -61,6 +61,7 @@ function injectHead(html, route) {
     `<meta name="description" content="${escapeHtml(page.description)}" />`
   );
 
+  // Eliminar cualquier canonical residual; no se vuelven a inyectar
   out = out.replace(/<link\s+rel="canonical"[^>]*>/gi, '');
   out = out.replace(/<meta\s+name="robots"[^>]*>/gi, '');
   out = out.replace(/<meta\s+property="og:[^"]+"[^>]*>/gi, '');
@@ -71,17 +72,16 @@ function injectHead(html, route) {
   );
 
   const headTags = [
-    `<link rel="canonical" href="${canonical}" />`,
     `<meta name="robots" content="${robots}" />`,
     `<meta property="og:type" content="${ogType}" />`,
     `<meta property="og:site_name" content="Guía del Conductor" />`,
     `<meta property="og:locale" content="es_AR" />`,
-    `<meta property="og:url" content="${canonical}" />`,
+    `<meta property="og:url" content="${pageUrl}" />`,
     `<meta property="og:title" content="${escapeHtml(page.title)}" />`,
     `<meta property="og:description" content="${escapeHtml(page.description)}" />`,
     `<meta property="og:image" content="${OG_IMAGE}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
-    `<meta name="twitter:url" content="${canonical}" />`,
+    `<meta name="twitter:url" content="${pageUrl}" />`,
     `<meta name="twitter:title" content="${escapeHtml(page.title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`,
     `<meta name="twitter:image" content="${OG_IMAGE}" />`,
@@ -115,11 +115,10 @@ function main() {
       fs.mkdirSync(path.dirname(out), { recursive: true });
       fs.writeFileSync(out, html, 'utf8');
     }
-    const canonical = absolute(route);
-    console.log(`Prerender SEO: ${route} → ${canonical}`);
+    console.log(`Prerender SEO: ${route} → ${absolute(route)}`);
   }
 
-  console.log(`Prerender OK (${ROUTES.length} rutas)`);
+  console.log(`Prerender OK (${ROUTES.length} rutas, sin canonical)`);
 }
 
 main();

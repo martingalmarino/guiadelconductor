@@ -30,7 +30,7 @@ const Seo: React.FC<SeoProps> = ({
     defaults?.description ??
     'Simulador del examen teórico de conducir para Córdoba, Argentina.';
   const finalPath = defaults?.path ?? path;
-  const canonical = resolveCanonical(finalPath === '/404' ? '/' : finalPath);
+  const pageUrl = resolveCanonical(finalPath === '/404' ? '/' : finalPath);
   const type = ogType ?? defaults?.ogType ?? 'website';
   const image = ogImage ?? defaults?.ogImage ?? defaultOgImage;
   const robotsContent = robots ?? defaults?.robots ?? 'index, follow';
@@ -42,18 +42,17 @@ const Seo: React.FC<SeoProps> = ({
       <title>{finalTitle}</title>
       <meta name="description" content={finalDescription} />
       <meta name="robots" content={robotsContent} />
-      <link rel="canonical" href={finalPath === '/404' ? `${SITE_URL}/` : canonical} />
 
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content={SITE_LOCALE} />
-      <meta property="og:url" content={finalPath === '/404' ? `${SITE_URL}/` : canonical} />
+      <meta property="og:url" content={finalPath === '/404' ? `${SITE_URL}/` : pageUrl} />
       <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={image} />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={finalPath === '/404' ? `${SITE_URL}/` : canonical} />
+      <meta name="twitter:url" content={finalPath === '/404' ? `${SITE_URL}/` : pageUrl} />
       <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={image} />
