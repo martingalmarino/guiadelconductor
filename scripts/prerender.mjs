@@ -1,127 +1,116 @@
 /**
- * Post-build prerender: sirve `build/`, visita cada ruta pública y guarda HTML
- * con title/meta/JSON-LD ya hidratados (Helmet).
- * Mantener ROUTES en sync con src/seo/routes.ts
+ * Prerender SEO-friendly HTML shells sin browser (compatible con Vercel).
+ * Copia build/index.html por ruta e inyecta title, meta, canonical y JSON-LD.
+ * AdSense / GA del HTML base se preservan intactos.
  */
-import http from 'http';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { chromium } from 'playwright';
+import {
+  OG_IMAGE,
+  PAGES,
+  ROUTES,
+  SITE_URL,
+  schemasFor,
+} from './seo-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BUILD_DIR = path.join(__dirname, '..', 'build');
-const PORT = 4173;
 
-const ROUTES = [
-  '/',
-  '/test',
-  '/guia-del-buen-conductor-cordoba',
-  '/terminos-y-condiciones',
-  '/politica-de-privacidad',
-  '/politica-de-cookies',
-  '/guias',
-  '/guias/senales-transito-informativas',
-  '/guias/senales-preventivas',
-  '/guias/senales-reglamentarias',
-  '/guias/prohibido-estacionar-guia-por-colores-de-cordon',
-];
-
-const MIME = {
-  '.html': 'text/html; charset=utf-8',
-  '.js': 'application/javascript',
-  '.css': 'text/css',
-  '.json': 'application/json',
-  '.png': 'image/png',
-  '.jpg': 'image/jpeg',
-  '.jpeg': 'image/jpeg',
-  '.svg': 'image/svg+xml',
-  '.ico': 'image/x-icon',
-  '.txt': 'text/plain',
-  '.xml': 'application/xml',
-  '.webp': 'image/webp',
-  '.woff': 'font/woff',
-  '.woff2': 'font/woff2',
-  '.map': 'application/json',
-};
-
-function contentType(filePath) {
-  return MIME[path.extname(filePath).toLowerCase()] || 'application/octet-stream';
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
-function resolveFile(urlPath) {
-  const clean = decodeURIComponent(urlPath.split('?')[0]);
-  const candidates = [
-    path.join(BUILD_DIR, clean),
-    path.join(BUILD_DIR, clean, 'index.html'),
-  ];
-  for (const candidate of candidates) {
-    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
-      return candidate;
-    }
-  }
-  return path.join(BUILD_DIR, 'index.html');
+function absolute(route) {
+  return route === '/' ? `${SITE_URL}/` : `${SITE_URL}${route}`;
 }
 
-function startServer() {
-  return new Promise((resolve) => {
-    const server = http.createServer((req, res) => {
-      const filePath = resolveFile(req.url || '/');
-      fs.readFile(filePath, (err, data) => {
-        if (err) {
-          res.writeHead(404);
-          res.end('Not found');
-          return;
-        }
-        res.writeHead(200, { 'Content-Type': contentType(filePath) });
-        res.end(data);
-      });
-    });
-    server.listen(PORT, '127.0.0.1', () => resolve(server));
-  });
-}
-
-function outputPathForRoute(route) {
+function outputPath(route) {
   if (route === '/') return path.join(BUILD_DIR, 'index.html');
-  const dir = path.join(BUILD_DIR, route.replace(/^\//, ''));
-  return path.join(dir, 'index.html');
+  return path.join(BUILD_DIR, route.replace(/^\//, ''), 'index.html');
 }
 
-async function prerender() {
-  if (!fs.existsSync(BUILD_DIR)) {
-    console.error('No existe build/. Ejecutá react-scripts build primero.');
+function injectHead(html, route) {
+  const page = PAGES[route];
+  if (!page) throw new Error(`Sin datos SEO para ${route}`);
+
+  const canonical = absolute(route);
+  const ogType = page.ogType || 'website';
+  const robots = page.robots || 'index, follow';
+  const schemas = schemasFor(route);
+
+  let out = html;
+
+  out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(page.title)}</title>`);
+
+  out = out.replace(
+    /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i,
+    `<meta name="description" content="${escapeHtml(page.description)}" />`
+  );
+
+  // Remover metas dinámicas previas / duplicados de canonical/og/twitter/robots/jsonld inyectados
+  out = out.replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+  out = out.replace(/<meta\s+name="robots"[^>]*>/gi, '');
+  out = out.replace(/<meta\s+property="og:[^"]+"[^>]*>/gi, '');
+  out = out.replace(/<meta\s+name="twitter:[^"]+"[^>]*>/gi, '');
+  out = out.replace(
+    /<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi,
+    ''
+  );
+
+  const headTags = [
+    `<link rel="canonical" href="${canonical}" />`,
+    `<meta name="robots" content="${robots}" />`,
+    `<meta property="og:type" content="${ogType}" />`,
+    `<meta property="og:site_name" content="Guía del Conductor" />`,
+    `<meta property="og:locale" content="es_AR" />`,
+    `<meta property="og:url" content="${canonical}" />`,
+    `<meta property="og:title" content="${escapeHtml(page.title)}" />`,
+    `<meta property="og:description" content="${escapeHtml(page.description)}" />`,
+    `<meta property="og:image" content="${OG_IMAGE}" />`,
+    `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta name="twitter:url" content="${canonical}" />`,
+    `<meta name="twitter:title" content="${escapeHtml(page.title)}" />`,
+    `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`,
+    `<meta name="twitter:image" content="${OG_IMAGE}" />`,
+    ...schemas.map(
+      (schema) =>
+        `<script type="application/ld+json">${JSON.stringify(schema)}</script>`
+    ),
+  ].join('\n    ');
+
+  out = out.replace(/<\/head>/i, `    ${headTags}\n  </head>`);
+  return out;
+}
+
+function main() {
+  const templatePath = path.join(BUILD_DIR, 'index.html');
+  if (!fs.existsSync(templatePath)) {
+    console.error('No existe build/index.html. Ejecutá react-scripts build primero.');
     process.exit(1);
   }
 
-  const server = await startServer();
-  const browser = await chromium.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
+  const template = fs.readFileSync(templatePath, 'utf8');
 
-  try {
-    for (const route of ROUTES) {
-      const page = await browser.newPage();
-      const url = `http://127.0.0.1:${PORT}${route}`;
-      console.log(`Prerender: ${route}`);
-      await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
-      await page.waitForSelector('#root', { timeout: 30000 });
-      // Dar tiempo a Helmet / React
-      await new Promise((r) => setTimeout(r, 500));
-      const html = await page.content();
-      const out = outputPathForRoute(route);
-      fs.mkdirSync(path.dirname(out), { recursive: true });
-      fs.writeFileSync(out, html, 'utf8');
-      await page.close();
-    }
-    console.log(`Prerender OK (${ROUTES.length} rutas)`);
-  } finally {
-    await browser.close();
-    server.close();
+  // Verificar que AdSense sigue en el template
+  if (!template.includes('ca-pub-6771833588582297')) {
+    console.error('ERROR: el HTML de build no contiene el script de AdSense.');
+    process.exit(1);
   }
+
+  for (const route of ROUTES) {
+    const html = injectHead(template, route);
+    const out = outputPath(route);
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(out, html, 'utf8');
+    console.log(`Prerender SEO: ${route}`);
+  }
+
+  console.log(`Prerender OK (${ROUTES.length} rutas, sin browser)`);
 }
 
-prerender().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+main();
