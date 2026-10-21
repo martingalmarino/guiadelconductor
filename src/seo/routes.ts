@@ -2,6 +2,7 @@
 export const PUBLIC_ROUTES = [
   '/',
   '/test',
+  '/examenes',
   '/guia-del-buen-conductor-cordoba',
   '/terminos-y-condiciones',
   '/politica-de-privacidad',

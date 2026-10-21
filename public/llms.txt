@@ -21,6 +21,7 @@ Guía del Conductor ayuda a quienes van a rendir el examen teórico de la licenc
 
 - / — Inicio y preguntas frecuentes
 - /test — Simulador / test online del examen teórico
+- /examenes — Cluster de exámenes teóricos por categoría (A, B, D, E; próximamente)
 - /guias — Índice de guías de tránsito
 - /guias/senales-preventivas — Señales preventivas (advertencia)
 - /guias/senales-reglamentarias — Señales reglamentarias

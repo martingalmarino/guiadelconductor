@@ -27,6 +27,13 @@ export const PAGE_SEO: Record<PublicRoute | '/404', PageSeo> = {
       'Simulacro online del examen teórico de Córdoba: 60 preguntas, 20 minutos y 70% para aprobar. Empezá gratis y medí tu nivel antes del examen real.',
     ogType: 'website',
   },
+  '/examenes': {
+    path: '/examenes',
+    title: `Exámenes teóricos por categoría | ${brand}`,
+    description:
+      'Exámenes teóricos por categoría de licencia (A, B, D y E). Próximamente disponibles. Mientras tanto, practicá con el simulador general de Córdoba.',
+    ogType: 'website',
+  },
   '/guia-del-buen-conductor-cordoba': {
     path: '/guia-del-buen-conductor-cordoba',
     title: `Guía del Buen Conductor de Córdoba | ${brand}`,

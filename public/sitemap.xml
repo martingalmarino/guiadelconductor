@@ -13,6 +13,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.guiadelconductor.ar/examenes</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.guiadelconductor.ar/guias</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>

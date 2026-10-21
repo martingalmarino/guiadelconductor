@@ -19,6 +19,7 @@ import SenalesTransitoInformativas from './components/Guias/SenalesTransitoInfor
 import SenalesPreventivas from './components/Guias/SenalesPreventivas';
 import SenalesReglamentarias from './components/Guias/SenalesReglamentarias';
 import ProhibidoEstacionar from './components/Guias/ProhibidoEstacionar';
+import ExamenesIndex from './components/Examenes/ExamenesIndex';
 import ScrollToTop from './components/ScrollToTop';
 import ChatBot from './components/ChatBot';
 import Seo from './seo/Seo';
@@ -90,16 +91,17 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/test" element={<Quiz />} />
+          <Route path="/examenes" element={<ExamenesIndex />} />
           <Route path="/guia-del-buen-conductor-cordoba" element={<GuiaBuenConductor />} />
           <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
           <Route path="/politica-de-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/politica-de-cookies" element={<PoliticaCookies />} />
           {/* Guías routes */}
           <Route path="/guias" element={<GuiasIndex />} />
-            <Route path="/guias/senales-transito-informativas" element={<SenalesTransitoInformativas />} />
-            <Route path="/guias/senales-preventivas" element={<SenalesPreventivas />} />
-            <Route path="/guias/senales-reglamentarias" element={<SenalesReglamentarias />} />
-            <Route path="/guias/prohibido-estacionar-guia-por-colores-de-cordon" element={<ProhibidoEstacionar />} />
+          <Route path="/guias/senales-transito-informativas" element={<SenalesTransitoInformativas />} />
+          <Route path="/guias/senales-preventivas" element={<SenalesPreventivas />} />
+          <Route path="/guias/senales-reglamentarias" element={<SenalesReglamentarias />} />
+          <Route path="/guias/prohibido-estacionar-guia-por-colores-de-cordon" element={<ProhibidoEstacionar />} />
           {/* Catch-all route for 404 pages */}
           <Route path="*" element={<NotFound />} />
         </Routes>

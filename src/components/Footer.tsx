@@ -6,6 +6,7 @@ import { Car, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from 
 const Footer: React.FC = () => {
   const quickLinks = [
     { name: 'Inicio', href: '/' },
+    { name: 'Exámenes', href: '/examenes' },
     { name: 'Guías de Tránsito', href: '/guias' },
     { name: 'Guía del Buen Conductor', href: '/guia-del-buen-conductor-cordoba' },
     { name: 'Test Online', href: '/test' },
