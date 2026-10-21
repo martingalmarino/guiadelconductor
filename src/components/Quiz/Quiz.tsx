@@ -7,15 +7,11 @@ import QuizNavigation from './QuizNavigation';
 import QuizResults from './QuizResults';
 import QuizStart from './QuizStart';
 import { BookOpen } from 'lucide-react';
+import Seo from '../../seo/Seo';
+import { TEST_FAQ } from '../../seo/faqData';
+import { faqPageSchema, webApplicationSchema } from '../../seo/schema';
 
 const Quiz: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Test Online del Examen Conducir Córdoba 2026 | Guía del Conductor';
-    return () => {
-      document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
-    };
-  }, []);
-
   const [quizState, setQuizState] = useState<QuizState>({
     questions: [],
     currentQuestionIndex: 0,
@@ -191,61 +187,82 @@ const Quiz: React.FC = () => {
     });
   };
 
+  const quizSeo = (
+    <Seo
+      path="/test"
+      jsonLd={[webApplicationSchema(), faqPageSchema(TEST_FAQ)]}
+    />
+  );
+
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="text-center"
-        >
-          <div className="w-16 h-16 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin mx-auto mb-4"></div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Cargando examen...</h2>
-          <p className="text-gray-600">Preparando las preguntas del test</p>
-        </motion.div>
-      </div>
+      <>
+        {quizSeo}
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center"
+          >
+            <div className="w-16 h-16 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin mx-auto mb-4"></div>
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">Cargando examen...</h2>
+            <p className="text-gray-600">Preparando las preguntas del test</p>
+          </motion.div>
+        </div>
+      </>
     );
   }
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center max-w-md mx-auto p-6">
-          <div className="text-red-500 text-6xl mb-4">⚠️</div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Error al cargar</h2>
-          <p className="text-gray-600 mb-6">{error}</p>
-          <button
-            onClick={() => window.location.reload()}
-            className="btn-primary"
-          >
-            Reintentar
-          </button>
+      <>
+        {quizSeo}
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="text-center max-w-md mx-auto p-6">
+            <div className="text-red-500 text-6xl mb-4">⚠️</div>
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">Error al cargar</h2>
+            <p className="text-gray-600 mb-6">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="btn-primary"
+            >
+              Reintentar
+            </button>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
   if (!quizState.isStarted) {
     return (
-      <QuizStart
-        totalQuestions={quizState.questions.length}
-        onStart={handleStartQuiz}
-      />
+      <>
+        {quizSeo}
+        <QuizStart
+          totalQuestions={quizState.questions.length}
+          onStart={handleStartQuiz}
+        />
+      </>
     );
   }
 
   if (quizState.isCompleted) {
     return (
-      <QuizResults
-        quizState={quizState}
-        onRestart={handleRestartQuiz}
-      />
+      <>
+        {quizSeo}
+        <QuizResults
+          quizState={quizState}
+          onRestart={handleRestartQuiz}
+        />
+      </>
     );
   }
 
   const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
 
   return (
+    <>
+    {quizSeo}
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 sticky top-0 z-40">
@@ -256,7 +273,7 @@ const Quiz: React.FC = () => {
                 <BookOpen className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h1 className="text-lg font-bold text-gray-900">Examen Teórico</h1>
+                <p className="text-lg font-bold text-gray-900">Examen Teórico</p>
                 <p className="text-sm text-gray-600">Córdoba, Argentina</p>
               </div>
             </div>
@@ -315,6 +332,7 @@ const Quiz: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

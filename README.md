@@ -187,4 +187,6 @@ Desarrollado con ❤️ para los conductores de Córdoba, Argentina.
 
 ---
 
-**¿Necesitás ayuda?** Abrí un [issue](https://github.com/tu-usuario/guia-del-conductor/issues) o contactanos en info@guiadelconductor.com.ar
+**¿Necesitás ayuda?** Abrí un [issue](https://github.com/martingalmarino/guiadelconductor/issues) o contactanos en info@guiadelconductor.ar
+
+**Sitio:** https://www.guiadelconductor.ar/

@@ -1,145 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { AlertTriangle, MapPin, Shield, FileText } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
+import Seo from '../../seo/Seo';
+import { ESTACIONAR_FAQ } from '../../seo/faqData';
+import {
+  articleSchema,
+  breadcrumbSchema,
+  faqPageSchema,
+  howToSchema,
+} from '../../seo/schema';
 
 const ProhibidoEstacionar: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Prohibido estacionar en Córdoba: guía de cordones | Guía del Conductor';
-    
-    // Meta tags for SEO
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Conocé dónde está prohibido estacionar en Córdoba y qué significa cada color de cordón. Evitá multas y remociones con esta guía práctica.');
-    }
-
-    // Open Graph meta tags
-    const ogTitle = document.querySelector('meta[property="og:title"]') || document.createElement('meta');
-    ogTitle.setAttribute('property', 'og:title');
-    ogTitle.setAttribute('content', 'Prohibido estacionar en Córdoba: guía por colores de cordón');
-    if (!document.querySelector('meta[property="og:title"]')) document.head.appendChild(ogTitle);
-
-    const ogDescription = document.querySelector('meta[property="og:description"]') || document.createElement('meta');
-    ogDescription.setAttribute('property', 'og:description');
-    ogDescription.setAttribute('content', 'Descubrí qué significa cada color de cordón en Córdoba, dónde podés y no podés estacionar, y las multas por incumplir.');
-    if (!document.querySelector('meta[property="og:description"]')) document.head.appendChild(ogDescription);
-
-    // Article Schema.org JSON-LD
-    const articleSchema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Dónde está prohibido estacionar en Córdoba: guía por colores de cordón",
-      "description": "Conocé dónde está prohibido estacionar en Córdoba y qué significa cada color de cordón. Evitá multas y remociones con esta guía práctica.",
-      "author": {
-        "@type": "Organization",
-        "name": "Guía del Conductor"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Guía del Conductor",
-        "url": "https://www.guiadelconductor.ar"
-      },
-      "datePublished": "2026-09-21",
-      "dateModified": "2026-09-21",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://www.guiadelconductor.ar/guias/prohibido-estacionar-guia-por-colores-de-cordon/"
-      }
-    };
-
-    // FAQ Schema.org JSON-LD
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Qué significa el cordón amarillo en Córdoba?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Prohíbe estacionar, pero permite detenciones breves para ascenso y descenso."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Puedo estacionar en cordón blanco frente a una escuela?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No, está prohibido por seguridad aunque el cordón no esté pintado."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cuántos metros debo dejar libre en una parada de colectivo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Mínimo 10 metros antes y después de la parada."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué pasa si estaciono en un cordón rojo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Es una infracción grave y el vehículo puede ser removido."
-          }
-        }
-      ]
-    };
-
-    // HowTo Schema.org JSON-LD
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "Cómo identificar dónde está prohibido estacionar en Córdoba",
-      "description": "Guía paso a paso para identificar zonas de estacionamiento permitido y prohibido según colores de cordón",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Identificar el color del cordón",
-          "text": "Observá el color pintado en el cordón de la vereda"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Verificar señalización vertical",
-          "text": "Buscá carteles que complementen o modifiquen las reglas del cordón"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Revisar ubicación específica",
-          "text": "Verificá que no sea frente a escuelas, hospitales, cocheras o paradas de colectivo"
-        }
-      ]
-    };
-
-    const script1 = document.createElement('script');
-    script1.type = 'application/ld+json';
-    script1.textContent = JSON.stringify(articleSchema);
-    document.head.appendChild(script1);
-
-    const script2 = document.createElement('script');
-    script2.type = 'application/ld+json';
-    script2.textContent = JSON.stringify(faqSchema);
-    document.head.appendChild(script2);
-
-    const script3 = document.createElement('script');
-    script3.type = 'application/ld+json';
-    script3.textContent = JSON.stringify(howToSchema);
-    document.head.appendChild(script3);
-    
-    return () => {
-      document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
-      // Remove the JSON-LD scripts when component unmounts
-      const scripts = document.querySelectorAll('script[type="application/ld+json"]');
-      scripts.forEach(script => {
-        if (script.parentNode) {
-          script.parentNode.removeChild(script);
-        }
-      });
-    };
-  }, []);
 
   const coloresCordones = [
     {
@@ -220,6 +94,48 @@ const ProhibidoEstacionar: React.FC = () => {
 
   return (
     <>
+      <Seo
+        path="/guias/prohibido-estacionar-guia-por-colores-de-cordon"
+        jsonLd={[
+          breadcrumbSchema([
+            { name: 'Inicio', path: '/' },
+            { name: 'Guías', path: '/guias' },
+            {
+              name: 'Prohibido estacionar',
+              path: '/guias/prohibido-estacionar-guia-por-colores-de-cordon',
+            },
+          ]),
+          articleSchema({
+            headline:
+              'Dónde está prohibido estacionar en Córdoba: guía por colores de cordón',
+            description:
+              'Conocé dónde está prohibido estacionar en Córdoba y qué significa cada color de cordón. Evitá multas y remociones con esta guía práctica.',
+            path: '/guias/prohibido-estacionar-guia-por-colores-de-cordon',
+            datePublished: '2026-01-15',
+            dateModified: '2026-10-20',
+          }),
+          faqPageSchema(ESTACIONAR_FAQ),
+          howToSchema({
+            name: 'Cómo identificar dónde está prohibido estacionar en Córdoba',
+            description:
+              'Guía paso a paso para identificar zonas de estacionamiento permitido y prohibido según colores de cordón',
+            steps: [
+              {
+                name: 'Identificar el color del cordón',
+                text: 'Observá el color pintado en el cordón de la vereda',
+              },
+              {
+                name: 'Verificar señalización vertical',
+                text: 'Buscá carteles que complementen o modifiquen las reglas del cordón',
+              },
+              {
+                name: 'Revisar ubicación específica',
+                text: 'Verificá que no sea frente a escuelas, hospitales, cocheras o paradas de colectivo',
+              },
+            ],
+          }),
+        ]}
+      />
       <Header />
       
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-24 pb-12">
@@ -231,7 +147,7 @@ const ProhibidoEstacionar: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-8"
           >
-            <nav className="text-sm text-gray-600">
+            <nav className="text-sm text-gray-600" aria-label="Breadcrumb">
               <Link to="/" className="hover:text-primary-600">Inicio</Link>
               <span className="mx-2">/</span>
               <Link to="/guias" className="hover:text-primary-600">Guías</Link>

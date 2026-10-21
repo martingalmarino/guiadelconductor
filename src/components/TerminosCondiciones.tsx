@@ -1,17 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, FileText, Shield, AlertCircle, Edit, Scale } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
+import Seo from '../seo/Seo';
 
 const TerminosCondiciones: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Términos y Condiciones | Guía del Conductor';
-    return () => {
-      document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
-    };
-  }, []);
 
   const sections = [
     {
@@ -57,6 +52,8 @@ const TerminosCondiciones: React.FC = () => {
   ];
 
   return (
+    <>
+    <Seo path="/terminos-y-condiciones" />
     <div className="min-h-screen bg-gray-50">
       <Header />
       
@@ -162,6 +159,7 @@ const TerminosCondiciones: React.FC = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

@@ -21,10 +21,27 @@ import SenalesReglamentarias from './components/Guias/SenalesReglamentarias';
 import ProhibidoEstacionar from './components/Guias/ProhibidoEstacionar';
 import ScrollToTop from './components/ScrollToTop';
 import ChatBot from './components/ChatBot';
+import Seo from './seo/Seo';
+import { HOME_FAQ } from './seo/faqData';
+import {
+  faqPageSchema,
+  organizationSchema,
+  webApplicationSchema,
+  websiteSchema,
+} from './seo/schema';
 
 // Home Page Component
 const HomePage: React.FC = () => (
   <>
+    <Seo
+      path="/"
+      jsonLd={[
+        organizationSchema(),
+        websiteSchema(),
+        webApplicationSchema(),
+        faqPageSchema(HOME_FAQ),
+      ]}
+    />
     {/* Header */}
     <Header />
 

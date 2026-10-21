@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { BookOpen, CheckCircle, AlertCircle, Users, Shield, Car, ArrowLeft, ExternalLink } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
+import Seo from '../seo/Seo';
+import { breadcrumbSchema } from '../seo/schema';
 
 const GuiaBuenConductor: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Guía del Buen Conductor de la Municipalidad de Córdoba | Guía del Conductor';
-    return () => {
-      document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
-    };
-  }, []);
 
   const temas = [
     {
@@ -54,6 +50,16 @@ const GuiaBuenConductor: React.FC = () => {
   ];
 
   return (
+    <>
+    <Seo
+      path="/guia-del-buen-conductor-cordoba"
+      jsonLd={[
+        breadcrumbSchema([
+          { name: 'Inicio', path: '/' },
+          { name: 'Guía del Buen Conductor', path: '/guia-del-buen-conductor-cordoba' },
+        ]),
+      ]}
+    />
     <div className="min-h-screen bg-gray-50">
       <Header />
       
@@ -263,6 +269,7 @@ const GuiaBuenConductor: React.FC = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

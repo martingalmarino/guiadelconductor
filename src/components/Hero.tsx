@@ -42,8 +42,14 @@ const Hero: React.FC = () => {
               </h1>
               
               <p className="text-body text-gray-600">
-                Simulador visual del examen teórico. 100% preguntas reales de Córdoba, 
-                feedback inmediato y recomendaciones personalizadas.
+                Simulador online del examen teórico de conducir para Córdoba, Argentina.
+                Practicá con 60 preguntas en 20 minutos, feedback inmediato y guías de
+                señales alineadas al temario del examen.
+              </p>
+              <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
+                Ideal si estás por rendir la licencia en Córdoba Capital o Provincia:
+                medí tu nivel con simulacros gratis y repasá señales preventivas,
+                reglamentarias e informativas antes del día del examen.
               </p>
             </div>
 

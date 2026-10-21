@@ -1,68 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CheckCircle } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
+import Seo from '../../seo/Seo';
+import { REGLAMENTARIAS_FAQ } from '../../seo/faqData';
+import { breadcrumbSchema, faqPageSchema } from '../../seo/schema';
 
 const SenalesReglamentarias: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Señales de Tránsito Reglamentarias en Argentina | Guía del Conductor';
-    
-    // Add FAQ JSON-LD for SEO
-    const faqJsonLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Qué significan las señales reglamentarias?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Son señales de tránsito que establecen prohibiciones, obligaciones o restricciones que los conductores deben respetar de forma obligatoria."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cómo se reconocen las señales de tránsito reglamentarias?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Tienen forma circular: fondo blanco con borde rojo para prohibiciones/restricciones y fondo azul para obligaciones."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cuáles son ejemplos de señales reglamentarias en Argentina?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Algunos ejemplos son: Prohibido girar a la izquierda, Velocidad máxima, Uso obligatorio de cinturón y Sentido único."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Por qué es importante respetar las señales reglamentarias?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Porque su incumplimiento constituye una infracción de tránsito y pone en riesgo la seguridad propia y de los demás usuarios de la vía."
-          }
-        }
-      ]
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(faqJsonLd);
-    document.head.appendChild(script);
-    
-    return () => {
-      document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
-      // Remove the JSON-LD script when component unmounts
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
-      }
-    };
-  }, []);
 
   // Señales reglamentarias con imágenes reales disponibles
   const senales = [
@@ -152,6 +98,17 @@ const SenalesReglamentarias: React.FC = () => {
 
   return (
     <>
+      <Seo
+        path="/guias/senales-reglamentarias"
+        jsonLd={[
+          breadcrumbSchema([
+            { name: 'Inicio', path: '/' },
+            { name: 'Guías', path: '/guias' },
+            { name: 'Señales Reglamentarias', path: '/guias/senales-reglamentarias' },
+          ]),
+          faqPageSchema(REGLAMENTARIAS_FAQ),
+        ]}
+      />
       <Header />
       
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-24 pb-12">
@@ -163,7 +120,7 @@ const SenalesReglamentarias: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-8"
           >
-            <nav className="text-sm text-gray-600">
+            <nav className="text-sm text-gray-600" aria-label="Breadcrumb">
               <Link to="/" className="hover:text-primary-600">Inicio</Link>
               <span className="mx-2">/</span>
               <Link to="/guias" className="hover:text-primary-600">Guías</Link>
@@ -233,6 +190,8 @@ const SenalesReglamentarias: React.FC = () => {
                       <img 
                         src={`/assets/senales-reglamentarias/${senal.imagen}`}
                         alt={senal.nombre}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-contain"
                       />
                     </div>

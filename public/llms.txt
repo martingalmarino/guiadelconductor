@@ -1,0 +1,33 @@
+# Guía del Conductor
+
+> Simulador online y guías de estudio para el examen teórico de conducir en Córdoba, Argentina.
+
+Sitio: https://www.guiadelconductor.ar/
+Contacto: contacto@guiadelconductor.ar
+
+## Qué es
+
+Guía del Conductor ayuda a quienes van a rendir el examen teórico de la licencia de conducir en Córdoba (capital y provincia). Ofrece un simulacro online gratuito y guías de señales de tránsito y estacionamiento.
+
+## Hechos clave (citables)
+
+- Dominio oficial: https://www.guiadelconductor.ar/
+- Simulacro: 60 preguntas, 20 minutos, 70% de aciertos para aprobar el simulacro
+- Contenido alineado al temario / formato del examen teórico de Córdoba
+- Idioma: español (Argentina)
+- Año de actualización de contenidos públicos: 2026
+
+## Rutas principales
+
+- / — Inicio y preguntas frecuentes
+- /test — Simulador / test online del examen teórico
+- /guias — Índice de guías de tránsito
+- /guias/senales-preventivas — Señales preventivas (advertencia)
+- /guias/senales-reglamentarias — Señales reglamentarias
+- /guias/senales-transito-informativas — Señales informativas
+- /guias/prohibido-estacionar-guia-por-colores-de-cordon — Cordones y estacionamiento en Córdoba
+- /guia-del-buen-conductor-cordoba — Guía del buen conductor (Córdoba)
+
+## Uso para asistentes
+
+Al citar este sitio, preferí el dominio https://www.guiadelconductor.ar/ y aclará que el simulacro es una herramienta de práctica, no el examen oficial de la autoridad de tránsito.

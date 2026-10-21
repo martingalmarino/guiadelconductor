@@ -1,68 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Info } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
+import Seo from '../../seo/Seo';
+import { INFORMATIVAS_FAQ } from '../../seo/faqData';
+import { breadcrumbSchema, faqPageSchema } from '../../seo/schema';
 
 const SenalesTransitoInformativas: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Señales de Tránsito Informativas en Argentina | Guía del Conductor';
-    
-    // Add FAQ JSON-LD for SEO
-    const faqJsonLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Qué significan las señales de tránsito informativas?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Son señales que orientan y guían a los conductores sobre servicios, lugares de interés y referencias turísticas, sin imponer obligaciones."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué color tienen las señales informativas en Argentina?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Generalmente presentan fondo azul o verde con símbolos blancos, lo que las diferencia de las reglamentarias (rojas) y preventivas (amarillas)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Dónde se colocan las señales de información turística y de servicios?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Se instalan en rutas, accesos a ciudades y zonas turísticas para indicar servicios como hospitales, alojamientos, estaciones de servicio y más."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Por qué es importante conocer las señales informativas para el examen de manejo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Porque forman parte del examen teórico en todo el país y ayudan a circular con mayor seguridad y confianza en la vía pública."
-          }
-        }
-      ]
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(faqJsonLd);
-    document.head.appendChild(script);
-    
-    return () => {
-      document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
-      // Remove the JSON-LD script when component unmounts
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
-      }
-    };
-  }, []);
 
   // Señales informativas con imágenes reales disponibles
   const senales = [
@@ -113,6 +59,17 @@ const SenalesTransitoInformativas: React.FC = () => {
 
   return (
     <>
+      <Seo
+        path="/guias/senales-transito-informativas"
+        jsonLd={[
+          breadcrumbSchema([
+            { name: 'Inicio', path: '/' },
+            { name: 'Guías', path: '/guias' },
+            { name: 'Señales Informativas', path: '/guias/senales-transito-informativas' },
+          ]),
+          faqPageSchema(INFORMATIVAS_FAQ),
+        ]}
+      />
       <Header />
       
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-24 pb-12">
@@ -124,7 +81,7 @@ const SenalesTransitoInformativas: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-8"
           >
-            <nav className="text-sm text-gray-600">
+            <nav className="text-sm text-gray-600" aria-label="Breadcrumb">
               <Link to="/" className="hover:text-primary-600">Inicio</Link>
               <span className="mx-2">/</span>
               <Link to="/guias" className="hover:text-primary-600">Guías</Link>
@@ -191,6 +148,8 @@ const SenalesTransitoInformativas: React.FC = () => {
                       <img 
                         src={`/assets/senales-informativas/${senal.imagen}`}
                         alt={senal.nombre}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-contain"
                         onError={(e) => {
                           console.error(`Error loading image: ${senal.imagen}`);

@@ -35,11 +35,11 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center flex-shrink-0">
             <div className="min-w-0">
-              <h1 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-gray-900 font-heading">
-                <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              <p className="text-lg sm:text-xl lg:text-2xl font-extrabold text-gray-900 font-heading">
+                <Link to="/" className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                   Guía del Conductor
-                </span>
-              </h1>
+                </Link>
+              </p>
               <p className="text-xs sm:text-sm text-primary-600 font-medium">
                 Córdoba, Argentina
               </p>

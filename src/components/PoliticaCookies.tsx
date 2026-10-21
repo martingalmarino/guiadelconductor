@@ -1,17 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Cookie, Settings, BarChart3, Target } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
+import Seo from '../seo/Seo';
 
 const PoliticaCookies: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Política de Cookies | Guía del Conductor';
-    return () => {
-      document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
-    };
-  }, []);
 
   const cookieTypes = [
     {
@@ -38,6 +33,8 @@ const PoliticaCookies: React.FC = () => {
   ];
 
   return (
+    <>
+    <Seo path="/politica-de-cookies" />
     <div className="min-h-screen bg-gray-50">
       <Header />
       
@@ -206,6 +203,7 @@ const PoliticaCookies: React.FC = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

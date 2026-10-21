@@ -2,9 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Home, AlertTriangle, Search } from 'lucide-react';
+import Seo from '../seo/Seo';
 
 const NotFound: React.FC = () => {
   return (
+    <>
+    <Seo path="/404" />
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -131,6 +134,7 @@ const NotFound: React.FC = () => {
         </motion.div>
       </motion.div>
     </div>
+    </>
   );
 };
 

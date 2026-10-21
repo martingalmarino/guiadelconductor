@@ -6,9 +6,10 @@ import { Car, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from 
 const Footer: React.FC = () => {
   const quickLinks = [
     { name: 'Inicio', href: '/' },
+    { name: 'Guías de Tránsito', href: '/guias' },
     { name: 'Guía del Buen Conductor', href: '/guia-del-buen-conductor-cordoba' },
-    { name: 'Simulacros', href: '/test' },
     { name: 'Test Online', href: '/test' },
+    { name: 'Estacionar en Córdoba', href: '/guias/prohibido-estacionar-guia-por-colores-de-cordon' },
   ];
 
   const legalLinks = [
@@ -26,7 +27,7 @@ const Footer: React.FC = () => {
   ];
 
   const contactInfo = [
-    { icon: Mail, text: 'info@guiadelconductor.com.ar', href: 'mailto:info@guiadelconductor.com.ar' },
+    { icon: Mail, text: 'info@guiadelconductor.ar', href: 'mailto:info@guiadelconductor.ar' },
     { icon: Phone, text: '+54 351 123-4567', href: 'tel:+543511234567' },
     { icon: MapPin, text: 'Córdoba Capital, Argentina', href: '#' },
   ];

@@ -47,6 +47,16 @@ const QuizStart: React.FC<QuizStartProps> = ({ totalQuestions, onStart }) => {
             >
               Córdoba, Argentina
             </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="mt-4 text-sm sm:text-base text-gray-500 leading-relaxed max-w-lg mx-auto"
+            >
+              Simulacro del examen teórico de conducir: {totalQuestions || 60} preguntas,
+              20 minutos y 70% de aciertos para aprobar. Gratis, online y con feedback
+              inmediato para medir tu nivel antes del examen real.
+            </motion.p>
           </div>
 
           {/* Instructions */}

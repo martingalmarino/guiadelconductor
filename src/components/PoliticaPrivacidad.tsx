@@ -1,17 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Shield, Database, UserCheck, Lock, ExternalLink } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
+import Seo from '../seo/Seo';
 
 const PoliticaPrivacidad: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Política de Privacidad | Guía del Conductor';
-    return () => {
-      document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
-    };
-  }, []);
 
   const sections = [
     {
@@ -53,6 +48,8 @@ const PoliticaPrivacidad: React.FC = () => {
   ];
 
   return (
+    <>
+    <Seo path="/politica-de-privacidad" />
     <div className="min-h-screen bg-gray-50">
       <Header />
       
@@ -170,6 +167,7 @@ const PoliticaPrivacidad: React.FC = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

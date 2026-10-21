@@ -1,69 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { AlertTriangle } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
+import Seo from '../../seo/Seo';
+import { PREVENTIVAS_FAQ } from '../../seo/faqData';
+import { breadcrumbSchema, faqPageSchema } from '../../seo/schema';
 
 const SenalesPreventivas: React.FC = () => {
-  useEffect(() => {
-    document.title = 'Señales de Tránsito Preventivas en Argentina | Guía del Conductor';
-    
-    // Add FAQ JSON-LD for SEO
-    const faqJsonLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Qué son las señales de tránsito preventivas?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Son señales viales que advierten sobre peligros o condiciones especiales en el camino, ayudando al conductor a reducir riesgos."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué color y forma tienen las señales preventivas en Argentina?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Generalmente son de fondo amarillo con símbolos negros y forma cuadrada o romboidal, diseñadas para captar la atención de los conductores."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cuáles son ejemplos de señales preventivas?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Algunos ejemplos son: curva peligrosa, calzada resbaladiza, animales en la vía, cruce escolar y pendiente pronunciada."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Por qué es importante conocer las señales preventivas?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Porque anticipan riesgos en la ruta y permiten reaccionar a tiempo, reduciendo accidentes y garantizando una conducción más segura."
-          }
-        }
-      ]
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(faqJsonLd);
-    document.head.appendChild(script);
-    
-    return () => {
-      document.title = 'Guía del Conductor - Simulador Examen Teórico Córdoba';
-      // Remove the JSON-LD script when component unmounts
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
-      }
-    };
-  }, []);
-
   // Señales preventivas con imágenes reales disponibles (colección completa)
   const senales = [
     { id: 1, nombre: 'Curva Común', descripcion: 'Advierte sobre una curva en el camino', categoria: 'curvas', imagen: 'curva comun.png' },
@@ -131,6 +76,17 @@ const SenalesPreventivas: React.FC = () => {
 
   return (
     <>
+      <Seo
+        path="/guias/senales-preventivas"
+        jsonLd={[
+          breadcrumbSchema([
+            { name: 'Inicio', path: '/' },
+            { name: 'Guías', path: '/guias' },
+            { name: 'Señales Preventivas', path: '/guias/senales-preventivas' },
+          ]),
+          faqPageSchema(PREVENTIVAS_FAQ),
+        ]}
+      />
       <Header />
       
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-24 pb-12">
@@ -142,7 +98,7 @@ const SenalesPreventivas: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-8"
           >
-            <nav className="text-sm text-gray-600">
+            <nav className="text-sm text-gray-600" aria-label="Breadcrumb">
               <Link to="/" className="hover:text-primary-600">Inicio</Link>
               <span className="mx-2">/</span>
               <Link to="/guias" className="hover:text-primary-600">Guías</Link>
@@ -212,6 +168,8 @@ const SenalesPreventivas: React.FC = () => {
                       <img 
                         src={`/assets/senales-preventivas/${senal.imagen}`}
                         alt={senal.nombre}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-contain"
                         onError={(e) => {
                           console.error(`Error loading image: ${senal.imagen}`);
