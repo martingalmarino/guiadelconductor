@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { CheckCircle, XCircle, Info, Car, Clock, Users } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -131,20 +131,6 @@ const SenalesReglamentarias: React.FC = () => {
     { id: 50, nombre: 'Referencia de Avance', descripcion: 'Indicación de avance permitido', categoria: 'referencia', imagen: 'referencia de avance.png' }
   ];
 
-  const categorias = {
-    prohibiciones: { color: 'bg-red-50 border-red-200', icon: XCircle, iconColor: 'text-red-600' },
-    limitaciones: { color: 'bg-orange-50 border-orange-200', icon: Info, iconColor: 'text-orange-600' },
-    exclusivas: { color: 'bg-blue-50 border-blue-200', icon: CheckCircle, iconColor: 'text-blue-600' },
-    estacionamiento: { color: 'bg-purple-50 border-purple-200', icon: Car, iconColor: 'text-purple-600' },
-    obligaciones: { color: 'bg-green-50 border-green-200', icon: Users, iconColor: 'text-green-600' },
-    direcciones: { color: 'bg-indigo-50 border-indigo-200', icon: CheckCircle, iconColor: 'text-indigo-600' },
-    peatonal: { color: 'bg-teal-50 border-teal-200', icon: Users, iconColor: 'text-teal-600' },
-    pesado: { color: 'bg-amber-50 border-amber-200', icon: Car, iconColor: 'text-amber-600' },
-    control: { color: 'bg-slate-50 border-slate-200', icon: Info, iconColor: 'text-slate-600' },
-    ferroviario: { color: 'bg-yellow-50 border-yellow-200', icon: Info, iconColor: 'text-yellow-600' },
-    referencia: { color: 'bg-gray-50 border-gray-200', icon: CheckCircle, iconColor: 'text-gray-600' }
-  };
-
   const faqItems = [
     {
       pregunta: '¿Qué significan las señales reglamentarias?',
@@ -234,9 +220,6 @@ const SenalesReglamentarias: React.FC = () => {
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
               {senales.map((senal, index) => {
-                const categoria = categorias[senal.categoria as keyof typeof categorias];
-                const IconComponent = categoria.icon;
-                
                 return (
                   <motion.div
                     key={senal.id}

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, AlertTriangle, MapPin, Heart, Car, Utensils } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -110,23 +110,6 @@ const SenalesPreventivas: React.FC = () => {
     { id: 42, nombre: 'Corredor Aéreo', descripcion: 'Paso de aeronaves a baja altura', categoria: 'aereo', imagen: 'corredor aereo.png' }
   ];
 
-  const categorias = {
-    curvas: { color: 'bg-yellow-50 border-yellow-200', icon: AlertTriangle, iconColor: 'text-yellow-600' },
-    condiciones: { color: 'bg-orange-50 border-orange-200', icon: AlertTriangle, iconColor: 'text-orange-600' },
-    pendientes: { color: 'bg-red-50 border-red-200', icon: AlertTriangle, iconColor: 'text-red-600' },
-    cruces: { color: 'bg-blue-50 border-blue-200', icon: AlertTriangle, iconColor: 'text-blue-600' },
-    animales: { color: 'bg-green-50 border-green-200', icon: AlertTriangle, iconColor: 'text-green-600' },
-    intersecciones: { color: 'bg-purple-50 border-purple-200', icon: AlertTriangle, iconColor: 'text-purple-600' },
-    incorporaciones: { color: 'bg-indigo-50 border-indigo-200', icon: AlertTriangle, iconColor: 'text-indigo-600' },
-    estructuras: { color: 'bg-gray-50 border-gray-200', icon: AlertTriangle, iconColor: 'text-gray-600' },
-    vehiculos: { color: 'bg-cyan-50 border-cyan-200', icon: Car, iconColor: 'text-cyan-600' },
-    señalizacion: { color: 'bg-pink-50 border-pink-200', icon: AlertTriangle, iconColor: 'text-pink-600' },
-    restricciones: { color: 'bg-rose-50 border-rose-200', icon: AlertTriangle, iconColor: 'text-rose-600' },
-    circulacion: { color: 'bg-teal-50 border-teal-200', icon: AlertTriangle, iconColor: 'text-teal-600' },
-    direccional: { color: 'bg-violet-50 border-violet-200', icon: AlertTriangle, iconColor: 'text-violet-600' },
-    aereo: { color: 'bg-sky-50 border-sky-200', icon: AlertTriangle, iconColor: 'text-sky-600' }
-  };
-
   const faqItems = [
     {
       pregunta: '¿Qué son las señales de tránsito preventivas?',
@@ -216,9 +199,6 @@ const SenalesPreventivas: React.FC = () => {
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
               {senales.map((senal, index) => {
-                const categoria = categorias[senal.categoria as keyof typeof categorias];
-                const IconComponent = categoria.icon;
-                
                 return (
                   <motion.div
                     key={senal.id}

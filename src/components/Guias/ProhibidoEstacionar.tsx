@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, AlertTriangle, Clock, MapPin, Shield, FileText } from 'lucide-react';
+import { AlertTriangle, MapPin, Shield, FileText } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
 

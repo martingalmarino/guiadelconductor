@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Home, ArrowLeft, AlertTriangle, Search } from 'lucide-react';
+import { Home, AlertTriangle, Search } from 'lucide-react';
 
 const NotFound: React.FC = () => {
   return (

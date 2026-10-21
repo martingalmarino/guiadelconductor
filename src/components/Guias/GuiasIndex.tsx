@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Info, AlertTriangle, CheckCircle } from 'lucide-react';
+import { BookOpen, Info, AlertTriangle, CheckCircle } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Info, MapPin, Heart, Car, Utensils } from 'lucide-react';
+import { Info } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -92,13 +92,6 @@ const SenalesTransitoInformativas: React.FC = () => {
     { id: 24, nombre: 'Punto Panorámico', descripcion: 'Mirador o punto de vista panorámico', categoria: 'turismo', imagen: 'punto panoramico.png' }
   ];
 
-  const categorias = {
-    salud: { color: 'bg-red-50 border-red-200', icon: Heart, iconColor: 'text-red-600' },
-    servicios: { color: 'bg-blue-50 border-blue-200', icon: Info, iconColor: 'text-blue-600' },
-    turismo: { color: 'bg-green-50 border-green-200', icon: MapPin, iconColor: 'text-green-600' },
-    transporte: { color: 'bg-purple-50 border-purple-200', icon: Car, iconColor: 'text-purple-600' }
-  };
-
   const faqItems = [
     {
       pregunta: '¿Qué significan las señales de tránsito informativas?',
@@ -185,9 +178,6 @@ const SenalesTransitoInformativas: React.FC = () => {
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
               {senales.map((senal, index) => {
-                const categoria = categorias[senal.categoria as keyof typeof categorias];
-                const IconComponent = categoria.icon;
-                
                 return (
                   <motion.div
                     key={senal.id}
