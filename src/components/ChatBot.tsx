@@ -378,7 +378,7 @@ const ChatBot: React.FC = () => {
     <>
       {/* Botón flotante - solo visible cuando el chat está cerrado */}
       {!isOpen && (
-        <div className="fixed bottom-16 right-8 sm:bottom-6 sm:right-6 z-[60]">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] pb-[env(safe-area-inset-bottom)] pr-[env(safe-area-inset-right)]">
           {/* Anillo de pulso sutil */}
           <div className="absolute inset-0 rounded-full bg-green-400 opacity-20 animate-ping"></div>
           

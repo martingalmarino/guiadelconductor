@@ -19,16 +19,16 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             {/* Chips */}
             <div className="flex flex-wrap gap-2 sm:gap-3">
-              {chips.map((chip, index) => (
+              {chips.map((chip) => (
                 <div
                   key={chip.text}
-                  className="flex items-center space-x-1.5 sm:space-x-2 bg-gray-100 text-gray-800 px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium"
+                  className="flex items-center space-x-1.5 sm:space-x-2 bg-gray-100 text-gray-800 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium"
                 >
-                  <chip.icon className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <chip.icon className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
                   <span>{chip.text}</span>
                 </div>
               ))}
@@ -60,38 +60,38 @@ const Hero: React.FC = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-bold
-                             px-6 py-4 sm:px-8 sm:py-5 lg:px-10 lg:py-6
-                             text-lg sm:text-xl lg:text-2xl
+                             px-5 py-4 sm:px-8 sm:py-5 lg:px-10 lg:py-6
+                             text-base sm:text-xl lg:text-2xl
                              transition-all duration-300
                              hover:shadow-lg hover:shadow-primary-600/25
                              active:scale-[0.98] transform hover:-translate-y-1
                              focus:outline-none focus:ring-4 focus:ring-primary-600/30
                              min-h-[56px] sm:min-h-[64px] lg:min-h-[72px]
                              w-full
-                             flex items-center justify-center gap-3 sm:gap-4 group"
+                             flex items-center justify-center gap-2 sm:gap-4 group"
                   style={{ borderRadius: '0 15px 0 15px' }}
                 >
-                  <Play className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 group-hover:animate-pulse" />
+                  <Play className="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 flex-shrink-0 group-hover:animate-pulse" />
                   <span className="font-extrabold">Empezar el Test</span>
-                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               </Link>
               
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-gray-200">
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-primary-600">85%</div>
-                <div className="text-xs sm:text-sm text-gray-600">Tasa de aprobación</div>
+            <div className="grid grid-cols-3 gap-2 xs:gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-gray-200">
+              <div className="text-center min-w-0 px-0.5">
+                <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-primary-600">85%</div>
+                <div className="text-[10px] xs:text-xs sm:text-sm text-gray-600 leading-tight">Tasa de aprobación</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-primary-600">100%</div>
-                <div className="text-xs sm:text-sm text-gray-600">Preguntas reales</div>
+              <div className="text-center min-w-0 px-0.5">
+                <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-primary-600">100%</div>
+                <div className="text-[10px] xs:text-xs sm:text-sm text-gray-600 leading-tight">Preguntas reales</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-primary-600">50k+</div>
-                <div className="text-xs sm:text-sm text-gray-600">Estudiantes</div>
+              <div className="text-center min-w-0 px-0.5">
+                <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-primary-600">50k+</div>
+                <div className="text-[10px] xs:text-xs sm:text-sm text-gray-600 leading-tight">Estudiantes</div>
               </div>
             </div>
           </motion.div>
@@ -106,10 +106,11 @@ const Hero: React.FC = () => {
             {/* Main Illustration Container */}
             <div className="relative">
               {/* Analytics Dashboard */}
-              <div className="relative z-10 p-8">
+              <div className="relative z-10 p-2 sm:p-6 lg:p-8">
                 <svg
                   viewBox="0 0 500 400"
                   className="w-full h-full max-w-lg mx-auto"
+                  aria-hidden="true"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >

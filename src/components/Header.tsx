@@ -33,14 +33,17 @@ const Header: React.FC = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-22">
           {/* Logo */}
-          <div className="flex items-center flex-shrink-0">
+          <div className="flex items-center flex-shrink min-w-0 mr-2">
             <div className="min-w-0">
-              <p className="text-lg sm:text-xl lg:text-2xl font-extrabold text-gray-900 font-heading">
-                <Link to="/" className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              <p className="text-base xs:text-lg sm:text-xl lg:text-2xl font-extrabold text-gray-900 font-heading leading-tight">
+                <Link
+                  to="/"
+                  className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent block truncate max-w-[52vw] xs:max-w-none"
+                >
                   Guía del Conductor
                 </Link>
               </p>
-              <p className="text-xs sm:text-sm text-primary-600 font-medium">
+              <p className="text-[11px] xs:text-xs sm:text-sm text-primary-600 font-medium truncate">
                 Córdoba, Argentina
               </p>
             </div>

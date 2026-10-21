@@ -45,14 +45,14 @@ const Footer: React.FC = () => {
       {/* Main Footer */}
       <div className="section-padding">
         <div className="container-custom">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-8 xl:gap-8">
             {/* Brand Column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="space-y-6 sm:col-span-2 lg:col-span-1"
+              className="space-y-6 sm:col-span-2 xl:col-span-1 min-w-0"
             >
               {/* Logo */}
               <div className="flex items-center space-x-3">
@@ -119,13 +119,13 @@ const Footer: React.FC = () => {
               <h4 className="text-lg font-semibold mb-6">Enlaces útiles</h4>
               <ul className="space-y-3">
                 {usefulLinks.map((link) => (
-                  <li key={link.name}>
+                  <li key={link.name} className="min-w-0">
                     <motion.a
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ x: 5 }}
-                      className="text-gray-300 hover:text-primary-400 transition-all duration-200 block"
+                      className="text-gray-300 hover:text-primary-400 transition-all duration-200 block text-sm leading-snug break-words"
                     >
                       {link.name}
                     </motion.a>
@@ -182,10 +182,10 @@ const Footer: React.FC = () => {
                     <motion.a
                       href={contact.href}
                       whileHover={{ x: 5 }}
-                      className="flex items-center space-x-3 text-gray-300 hover:text-primary-400 transition-all duration-200"
+                      className="flex items-start space-x-3 text-gray-300 hover:text-primary-400 transition-all duration-200 min-w-0"
                     >
-                      <contact.icon className="w-5 h-5 flex-shrink-0" />
-                      <span className="text-sm">{contact.text}</span>
+                      <contact.icon className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm break-all">{contact.text}</span>
                     </motion.a>
                   </li>
                 ))}
@@ -194,16 +194,17 @@ const Footer: React.FC = () => {
               {/* Newsletter */}
               <div className="mt-8">
                 <h5 className="text-sm font-semibold mb-3">Recibí actualizaciones</h5>
-                <div className="flex">
+                <div className="flex min-w-0">
                   <input
                     type="email"
                     placeholder="Tu email"
-                    className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-xl text-white placeholder-gray-400 focus:outline-none focus:border-primary-500"
+                    className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 bg-gray-800 border border-gray-700 rounded-l-xl text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 text-base"
                   />
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-primary-600 hover:bg-primary-700 px-4 py-2 rounded-r-xl transition-colors"
+                    className="bg-primary-600 hover:bg-primary-700 px-4 py-2.5 rounded-r-xl transition-colors flex-shrink-0"
+                    aria-label="Suscribirse"
                   >
                     <Mail className="w-4 h-4" />
                   </motion.button>

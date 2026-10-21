@@ -18,7 +18,7 @@ const QuizStart: React.FC<QuizStartProps> = ({ totalQuestions, onStart }) => {
         className="max-w-2xl mx-auto"
       >
         {/* Main Card */}
-        <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-gray-200">
+        <div className="bg-white rounded-2xl sm:rounded-3xl p-5 xs:p-6 sm:p-12 shadow-2xl border border-gray-200">
           {/* Header */}
           <div className="text-center mb-8">
             <motion.div
@@ -66,9 +66,9 @@ const QuizStart: React.FC<QuizStartProps> = ({ totalQuestions, onStart }) => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="space-y-6 mb-8"
           >
-            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
-              <h3 className="text-lg font-semibold text-blue-800 mb-4 flex items-center gap-2">
-                <AlertCircle className="w-5 h-5" />
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold text-blue-800 mb-4 flex items-center gap-2">
+                <AlertCircle className="w-5 h-5 flex-shrink-0" />
                 Instrucciones del Examen
               </h3>
               
@@ -131,19 +131,20 @@ const QuizStart: React.FC<QuizStartProps> = ({ totalQuestions, onStart }) => {
               whileTap={{ scale: 0.95 }}
               onClick={onStart}
               className="bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-bold
-                         px-8 py-5 sm:px-10 sm:py-6
-                         text-xl sm:text-2xl
+                         px-6 py-4 sm:px-10 sm:py-6
+                         text-lg sm:text-2xl
                          transition-all duration-300
                          hover:shadow-lg hover:shadow-primary-600/25
                          active:scale-[0.98] transform hover:-translate-y-1
                          focus:outline-none focus:ring-4 focus:ring-primary-600/30
-                         min-h-[64px] sm:min-h-[72px]
-                         flex items-center justify-center gap-3
+                         min-h-[56px] sm:min-h-[72px]
+                         flex items-center justify-center gap-2 sm:gap-3
                          w-full sm:w-auto"
               style={{ borderRadius: '0 15px 0 15px' }}
             >
-              <Play className="w-6 h-6 sm:w-7 sm:h-7" />
-              <span className="font-extrabold">COMENZAR CON EL TEST</span>
+              <Play className="w-5 h-5 sm:w-7 sm:h-7 flex-shrink-0" />
+              <span className="font-extrabold sm:hidden">Comenzar test</span>
+              <span className="font-extrabold hidden sm:inline">COMENZAR CON EL TEST</span>
             </motion.button>
 
             <Link to="/">

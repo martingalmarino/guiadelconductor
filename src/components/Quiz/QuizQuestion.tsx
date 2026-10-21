@@ -36,8 +36,8 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
       className="space-y-6"
     >
       {/* Question Card */}
-      <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-200">
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 leading-relaxed">
+      <div className="bg-white rounded-2xl p-4 sm:p-8 shadow-lg border border-gray-200">
+        <h2 className="text-lg sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 leading-snug sm:leading-relaxed">
           {question.pregunta}
         </h2>
 

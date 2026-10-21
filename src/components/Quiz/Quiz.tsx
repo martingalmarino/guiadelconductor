@@ -266,34 +266,36 @@ const Quiz: React.FC = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 sticky top-0 z-40">
-        <div className="container-custom py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="bg-primary-600 p-2 rounded-xl">
+        <div className="container-custom py-3 sm:py-4">
+          <div className="flex items-center justify-between gap-3 min-w-0">
+            <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+              <div className="bg-primary-600 p-2 rounded-xl flex-shrink-0">
                 <BookOpen className="w-5 h-5 text-white" />
               </div>
-              <div>
-                <p className="text-lg font-bold text-gray-900">Examen Teórico</p>
-                <p className="text-sm text-gray-600">Córdoba, Argentina</p>
+              <div className="min-w-0">
+                <p className="text-base sm:text-lg font-bold text-gray-900 truncate">Examen Teórico</p>
+                <p className="text-xs sm:text-sm text-gray-600 truncate">Córdoba, Argentina</p>
               </div>
             </div>
             
-            <QuizTimer timeRemaining={quizState.timeRemaining} />
+            <div className="flex-shrink-0">
+              <QuizTimer timeRemaining={quizState.timeRemaining} />
+            </div>
           </div>
         </div>
       </div>
 
       {/* Quiz Content */}
-      <div className="container-custom py-8">
+      <div className="container-custom py-4 sm:py-8 pb-24 sm:pb-8">
         <div className="max-w-4xl mx-auto">
           {/* Progress Bar */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-gray-700">
+          <div className="mb-6 sm:mb-8">
+            <div className="flex items-center justify-between gap-2 mb-2">
+              <span className="text-xs sm:text-sm font-medium text-gray-700">
                 Pregunta {quizState.currentQuestionIndex + 1} de {quizState.questions.length}
               </span>
-              <span className="text-sm text-gray-500">
-                {Math.round(((quizState.currentQuestionIndex + 1) / quizState.questions.length) * 100)}% completado
+              <span className="text-xs sm:text-sm text-gray-500 flex-shrink-0">
+                {Math.round(((quizState.currentQuestionIndex + 1) / quizState.questions.length) * 100)}%
               </span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
