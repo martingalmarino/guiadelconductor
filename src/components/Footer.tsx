@@ -12,6 +12,14 @@ const Footer: React.FC = () => {
     { name: 'Estacionar en Córdoba', href: '/guias/prohibido-estacionar-guia-por-colores-de-cordon' },
   ];
 
+  const usefulLinks = [
+    { name: 'Autoescuelas', href: 'https://www.autoescuelas.ar/' },
+    { name: 'Calculadora de patentes Argentina', href: 'https://www.calculadorapatentes.ar/' },
+    { name: 'Patente Arba', href: 'https://www.patentearba.com/' },
+    { name: 'Portal de Motos en Argentina', href: 'https://www.motoguia.com.ar/' },
+    { name: 'Autos Chinos', href: 'https://www.autoschinos.ar/' },
+  ];
+
   const legalLinks = [
     { name: 'Política de Privacidad', href: '/politica-de-privacidad' },
     { name: 'Términos y Condiciones', href: '/terminos-y-condiciones' },
@@ -37,7 +45,7 @@ const Footer: React.FC = () => {
       {/* Main Footer */}
       <div className="section-padding">
         <div className="container-custom">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
             {/* Brand Column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -96,6 +104,31 @@ const Footer: React.FC = () => {
                         {link.name}
                       </motion.div>
                     </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Useful Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="text-lg font-semibold mb-6">Enlaces útiles</h4>
+              <ul className="space-y-3">
+                {usefulLinks.map((link) => (
+                  <li key={link.name}>
+                    <motion.a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ x: 5 }}
+                      className="text-gray-300 hover:text-primary-400 transition-all duration-200 block"
+                    >
+                      {link.name}
+                    </motion.a>
                   </li>
                 ))}
               </ul>
