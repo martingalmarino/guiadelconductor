@@ -1,7 +1,7 @@
 /**
- * Prerender SEO-friendly HTML shells sin browser (compatible con Vercel).
- * Copia build/index.html por ruta e inyecta title, meta, canonical y JSON-LD.
- * AdSense / GA del HTML base se preservan intactos.
+ * Prerender SEO shells sin browser (compatible con Vercel).
+ * Genera build/<ruta>/index.html y build/<ruta>.html con canonical correcto por página.
+ * AdSense / GA del HTML base se preservan.
  */
 import fs from 'fs';
 import path from 'path';
@@ -29,9 +29,15 @@ function absolute(route) {
   return route === '/' ? `${SITE_URL}/` : `${SITE_URL}${route}`;
 }
 
-function outputPath(route) {
-  if (route === '/') return path.join(BUILD_DIR, 'index.html');
-  return path.join(BUILD_DIR, route.replace(/^\//, ''), 'index.html');
+function outputPaths(route) {
+  if (route === '/') {
+    return [path.join(BUILD_DIR, 'index.html')];
+  }
+  const relative = route.replace(/^\//, '');
+  return [
+    path.join(BUILD_DIR, relative, 'index.html'),
+    path.join(BUILD_DIR, `${relative}.html`),
+  ];
 }
 
 function injectHead(html, route) {
@@ -45,14 +51,16 @@ function injectHead(html, route) {
 
   let out = html;
 
-  out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(page.title)}</title>`);
+  out = out.replace(
+    /<title>[^<]*<\/title>/i,
+    `<title>${escapeHtml(page.title)}</title>`
+  );
 
   out = out.replace(
     /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i,
     `<meta name="description" content="${escapeHtml(page.description)}" />`
   );
 
-  // Remover metas dinámicas previas / duplicados de canonical/og/twitter/robots/jsonld inyectados
   out = out.replace(/<link\s+rel="canonical"[^>]*>/gi, '');
   out = out.replace(/<meta\s+name="robots"[^>]*>/gi, '');
   out = out.replace(/<meta\s+property="og:[^"]+"[^>]*>/gi, '');
@@ -96,7 +104,6 @@ function main() {
 
   const template = fs.readFileSync(templatePath, 'utf8');
 
-  // Verificar que AdSense sigue en el template
   if (!template.includes('ca-pub-6771833588582297')) {
     console.error('ERROR: el HTML de build no contiene el script de AdSense.');
     process.exit(1);
@@ -104,13 +111,15 @@ function main() {
 
   for (const route of ROUTES) {
     const html = injectHead(template, route);
-    const out = outputPath(route);
-    fs.mkdirSync(path.dirname(out), { recursive: true });
-    fs.writeFileSync(out, html, 'utf8');
-    console.log(`Prerender SEO: ${route}`);
+    for (const out of outputPaths(route)) {
+      fs.mkdirSync(path.dirname(out), { recursive: true });
+      fs.writeFileSync(out, html, 'utf8');
+    }
+    const canonical = absolute(route);
+    console.log(`Prerender SEO: ${route} → ${canonical}`);
   }
 
-  console.log(`Prerender OK (${ROUTES.length} rutas, sin browser)`);
+  console.log(`Prerender OK (${ROUTES.length} rutas)`);
 }
 
 main();
