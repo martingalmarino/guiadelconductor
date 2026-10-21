@@ -62,7 +62,7 @@ const InfoSection: React.FC = () => {
             >
               {[
                 { icon: MapPin, text: 'Específico para Córdoba Capital y Provincia' },
-                { icon: Book, text: 'Preguntas oficiales actualizadas 2025' },
+                { icon: Book, text: 'Preguntas oficiales actualizadas 2026' },
                 { icon: Target, text: 'Simulacros con el formato real del examen' },
                 { icon: TrendingUp, text: 'Seguimiento de tu progreso y mejoras' }
               ].map((feature, index) => (

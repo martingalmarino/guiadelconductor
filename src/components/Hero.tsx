@@ -198,7 +198,7 @@ const Hero: React.FC = () => {
               <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-3 shadow-xl border border-green-100 hidden lg:block">
                 <div className="text-center">
                   <div className="text-xl font-bold text-green-600">✓</div>
-                  <div className="text-xs text-gray-600">2025</div>
+                  <div className="text-xs text-gray-600">2026</div>
                 </div>
               </div>
             </div>

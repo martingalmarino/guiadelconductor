@@ -41,8 +41,8 @@ const ProhibidoEstacionar: React.FC = () => {
         "name": "Guía del Conductor",
         "url": "https://www.guiadelconductor.ar"
       },
-      "datePublished": "2025-09-21",
-      "dateModified": "2025-09-21",
+      "datePublished": "2026-09-21",
+      "dateModified": "2026-09-21",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://www.guiadelconductor.ar/guias/prohibido-estacionar-guia-por-colores-de-cordon/"

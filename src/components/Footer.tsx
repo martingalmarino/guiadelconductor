@@ -192,7 +192,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm text-center md:text-left">
               <p>
-                © 2025 Guía del Conductor. Todos los derechos reservados.
+                © 2026 Guía del Conductor. Todos los derechos reservados.
               </p>
               <p className="mt-1">
                 Desarrollado por{' '}
@@ -211,7 +211,7 @@ const Footer: React.FC = () => {
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span>Sistema actualizado</span>
               </div>
-              <div>v2025.1</div>
+              <div>v2026.1</div>
             </div>
           </div>
         </div>
